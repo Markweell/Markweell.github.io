@@ -1,0 +1,32 @@
+
+.a{
+    height: 100px;
+    text-align: center;
+    border: #FFE23A 5px solid;
+}
+.aa{
+    height: 100px;
+    text-align: center;
+    border: #FF7F0B 5px solid;
+}
+.a1{
+    background-color: #BFA92C;
+}
+.a22{
+    background-color: #BF6008;
+}
+.a2{
+    background-color: #7F711D;
+}
+.a11{
+    background-color: #7F4005;
+}
+a:link, a:visited {
+    color: black;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+a:link:active, a:visited:active {
+    color: purple;
+}
