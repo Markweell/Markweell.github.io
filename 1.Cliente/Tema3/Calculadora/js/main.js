@@ -8,6 +8,7 @@
 
         let calculadora;
         let container;
+        let inputMensaje = "";
 
         function init() {
             creaCabezera();
@@ -42,7 +43,27 @@
         }
 
         function anadeBotones() {
-            let botones = ['CE', 'Borrar', 'Porcentaje', '+', '7', '8', '9', '-', '4', '5', '6', 'x', '1', '2', '3', '÷', '0', '±', ',', '='];
+            let botones =
+                [{ id: 'CE', value: 'CE', funcion: () => { inputMensaje = ""; input.setAttribute("value", inputMensaje) } },
+                { id: 'Borrar', value: 'Borrar' },
+                { id: 'porcentaje', value: '%' },
+                { id: 'oSuma', value: '+' },
+                { id: 'siete', value: '7', funcion: () => { inputMensaje += "7"; input.setAttribute("value", inputMensaje) } },
+                { id: 'ocho', value: '8', funcion: () => { inputMensaje += "8"; input.setAttribute("value", inputMensaje) } },
+                { id: 'nueve', value: '9', funcion: () => { inputMensaje += "9"; input.setAttribute("value", inputMensaje) } },
+                { id: 'oResta', value: '-' },
+                { id: 'cuatro', value: '4', funcion: () => { inputMensaje += "4"; input.setAttribute("value", inputMensaje) } },
+                { id: 'cinco', value: '5', funcion: () => { inputMensaje += "5"; input.setAttribute("value", inputMensaje) } },
+                { id: 'seis', value: '6', funcion: () => { inputMensaje += "6"; input.setAttribute("value", inputMensaje) } },
+                { id: 'oMultiplicacion', value: 'x' },
+                { id: 'uno', value: '1', funcion: () => { inputMensaje += "1"; input.setAttribute("value", inputMensaje) } },
+                { id: 'dos', value: '2', funcion: () => { inputMensaje += "2"; input.setAttribute("value", inputMensaje) } },
+                { id: 'tres', value: '3', funcion: () => { inputMensaje += "3"; input.setAttribute("value", inputMensaje) } },
+                { id: 'oDivision', value: '÷' },
+                { id: 'cero', value: '0', funcion: () => { inputMensaje += "0"; input.setAttribute("value", inputMensaje) } },
+                { id: 'masMenos', value: '±',funcion: () => { inputMensaje =input.value*-1; input.setAttribute("value", inputMensaje) } },
+                { id: 'coma', value: ',' },
+                { id: 'igual', value: '=' }];
             let auxiliar;
 
             divInput = agrega(calculadora, 'div');
@@ -51,23 +72,25 @@
             divInput.style.height = "50px";
 
             let input = agrega(divInput, 'input');
-
+            input.style.textAlign = 'right';
             input.style.width = "264px";
             input.style.height = "22px";
             input.style.margin = "11px 10px 11px 10px"
-
+            input.innerHTML = "hola";
             divBotones = agrega(calculadora, 'div');
             divBotones.style.padding = "5px";
             divBotones.style.width = "290px";
             divBotones.style.height = "230px";
+
             for (let i = 0; i < botones.length; i++) {
                 auxiliar = agrega(divBotones, 'input');
-                auxiliar.id = botones[i];
+                auxiliar.id = botones[i].id;
                 auxiliar.setAttribute("type", "button");
-                auxiliar.setAttribute("value", botones[i]);
+                auxiliar.setAttribute("value", botones[i].value);
                 auxiliar.style.height = "20%";
                 auxiliar.style.width = "25%";
                 auxiliar.style.padding = "1px";
+                auxiliar.addEventListener('click', botones[i].funcion);
             }
         }
 
