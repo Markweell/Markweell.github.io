@@ -16,7 +16,7 @@
         function crearEsqueleto() {
             configurarLorem();
             configurarCajaTexto();
-            anadirTexto(cajaTexto);
+            anadirTexto();
 
         }
         function configurarLorem() {
