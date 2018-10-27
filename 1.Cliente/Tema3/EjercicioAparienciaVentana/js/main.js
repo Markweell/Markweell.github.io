@@ -24,7 +24,7 @@
             + "</body>"
             + "</html>"
             );
-            
+        ventana.document.close();
     }
 
     function init (){

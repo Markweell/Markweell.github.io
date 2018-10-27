@@ -1,54 +1,42 @@
 {
 
     /**
-    * El objeto window dispone de las propiedades scrollX, scrollY y scrollbars. Muéstralos reaccionando al evento scroll sobre window.
+    * Muestra en  una lista la siguiente información. Cada uno de las etiquetas <ol> y <li> han de crearse mediante los métodos de document. Explica en cada uno la diferencia con respecto a los demás.
+    * window.outerHeight
+    * window.innerHeight
+    * window.screen.availHeight
+    * window.screen.height
+    * window.document.clientHeight
     * @author Marcos Gallardo Pérez
     */
     {
 
-        let cajaTexto;
-        
+        let lista;
+        let arrayElementosLista;
+        let listaMadre;
+
         function init() {
             crearEsqueleto();
-            window.addEventListener("scroll", anadirTexto);
         }
 
         function crearEsqueleto() {
-            configurarLorem();
-            configurarCajaTexto();
-            anadirTexto();
-
-        }
-        function configurarLorem() {
-            lorem = document.getElementById("lorem");
-            anadirAnchoYAlto(3000, 3000, lorem);
-        }
-        function configurarCajaTexto() {
-            cajaTexto = document.createElement('div');
-            let body = document.getElementsByTagName('body')[0];
-            body.insertBefore(cajaTexto, body.childNodes[0]);
-            cajaTexto.style.position = "fixed";
-            cajaTexto.style.backgroundColor = "rgba(255,255,255,0.7)";
-            anadirAnchoYAlto(200, 200, cajaTexto);
+            lista = document.getElementById("lista");
+            listaMadre = lista.appendChild(document.createElement("ul"));
             arrayElementosLista = [
-                { id: "ScrollX" },
-                { id: "ScrollY" },
-                { id: "Scrollbars.visible" }
+                { id: "outerHeight", texto: "window.outerHeight", comando: window.outerHeight, title: "Altura externa de toda la ventana en pixeles " },
+                { id: "innerHeight", texto: "window.innerHeight", comando: window.innerHeight, title: "Altura interna de la ventana del navegador." },
+                { id: "availHeight", texto: "window.screen.availHeight", comando: window.screen.availHeight, title: "Devuelve el espacio total vertical disponible en la pantalla" },
+                { id: "screen.height", texto: "window.screen.height", comando: window.screen.height, title: "Devuelve la altura en pixeles de la pantalla" },
+                { id: "clientHeight", texto: "window.document.clientHeight", comando: "Esta funcionalidad es obsoleta", title: "Devuelve la altura del objeto document . En la mayoría de los casos, esto equivale al elemento <body>  del documento actual. Esta funcionalidad está obsoleta" }
             ];
-            let listaMadre = cajaTexto.appendChild(document.createElement('ul'));
+            let li;
             for (let i = 0; i < arrayElementosLista.length; i++) {
-                listaMadre.appendChild(document.createElement('li')).id = arrayElementosLista[i].id;
+                li = document.createElement("li");
+                li.title = arrayElementosLista[i].title;
+                li.id = arrayElementosLista[i].id;
+                li.innerHTML = "<b>" + arrayElementosLista[i].texto + "</b>: " + arrayElementosLista[i].comando;
+                listaMadre.appendChild(li);
             }
-        }
-        function anadirTexto() {
-            document.getElementById('ScrollX').innerHTML = "<b>ScrollX: </b>" + window.scrollX;
-            document.getElementById('ScrollY').innerHTML = "<b>ScrollY: </b>" + window.scrollY;
-            document.getElementById('Scrollbars.visible').innerHTML = "<b>Scrollbars.visible: </b>" + window.scrollbars.visible;
-        }
-        function anadirAnchoYAlto(ancho, alto, elemento) {
-            elemento.style.height = alto + "px";
-            elemento.style.width = ancho + "px";
-
         }
         window.addEventListener("DOMContentLoaded", init);
 
