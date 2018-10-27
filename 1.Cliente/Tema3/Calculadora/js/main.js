@@ -8,7 +8,9 @@
 
         let calculadora;
         let container;
+        let input;
         let inputMensaje = "";
+        let coma = false;
 
         function init() {
             creaCabezera();
@@ -48,21 +50,21 @@
                 { id: 'Borrar', value: 'Borrar' },
                 { id: 'porcentaje', value: '%' },
                 { id: 'oSuma', value: '+' },
-                { id: 'siete', value: '7', funcion: () => { inputMensaje += "7"; input.setAttribute("value", inputMensaje) } },
-                { id: 'ocho', value: '8', funcion: () => { inputMensaje += "8"; input.setAttribute("value", inputMensaje) } },
-                { id: 'nueve', value: '9', funcion: () => { inputMensaje += "9"; input.setAttribute("value", inputMensaje) } },
+                { id: 'siete', value: '7', funcion: () => { refrescaMensaje(7); } },
+                { id: 'ocho', value: '8', funcion: () => { refrescaMensaje(8); } },
+                { id: 'nueve', value: '9', funcion: () => { refrescaMensaje(9); } },
                 { id: 'oResta', value: '-' },
-                { id: 'cuatro', value: '4', funcion: () => { inputMensaje += "4"; input.setAttribute("value", inputMensaje) } },
-                { id: 'cinco', value: '5', funcion: () => { inputMensaje += "5"; input.setAttribute("value", inputMensaje) } },
-                { id: 'seis', value: '6', funcion: () => { inputMensaje += "6"; input.setAttribute("value", inputMensaje) } },
+                { id: 'cuatro', value: '4', funcion: () => { refrescaMensaje(4); } },
+                { id: 'cinco', value: '5', funcion: () => { refrescaMensaje(5); } },
+                { id: 'seis', value: '6', funcion: () => { refrescaMensaje(6); } },
                 { id: 'oMultiplicacion', value: 'x' },
-                { id: 'uno', value: '1', funcion: () => { inputMensaje += "1"; input.setAttribute("value", inputMensaje) } },
-                { id: 'dos', value: '2', funcion: () => { inputMensaje += "2"; input.setAttribute("value", inputMensaje) } },
-                { id: 'tres', value: '3', funcion: () => { inputMensaje += "3"; input.setAttribute("value", inputMensaje) } },
+                { id: 'uno', value: '1', funcion: () => { refrescaMensaje(1); } },
+                { id: 'dos', value: '2', funcion: () => { refrescaMensaje(2); } },
+                { id: 'tres', value: '3', funcion: () => { refrescaMensaje(3); } },
                 { id: 'oDivision', value: '÷' },
-                { id: 'cero', value: '0', funcion: () => { inputMensaje += "0"; input.setAttribute("value", inputMensaje) } },
-                { id: 'masMenos', value: '±',funcion: () => { inputMensaje =input.value*-1; input.setAttribute("value", inputMensaje) } },
-                { id: 'coma', value: ',' },
+                { id: 'cero', value: '0', funcion: () => { refrescaMensaje(0); } },
+                { id: 'masMenos', value: '±', funcion: () => { inputMensaje = input.value * -1; input.setAttribute("value", inputMensaje) } },
+                { id: 'coma', value: ',', funcion: () => { if(inputMensaje.indexOf(".")==-1){coma = true;}  } },
                 { id: 'igual', value: '=' }];
             let auxiliar;
 
@@ -71,7 +73,7 @@
             divInput.style.width = "290px";
             divInput.style.height = "50px";
 
-            let input = agrega(divInput, 'input');
+            input = agrega(divInput, 'input');
             input.style.textAlign = 'right';
             input.style.width = "264px";
             input.style.height = "22px";
@@ -94,6 +96,15 @@
             }
         }
 
+        function refrescaMensaje(number) {
+            if (coma) {
+                coma=false;
+                inputMensaje += "."+number;
+            } else {
+                inputMensaje += number;
+            }
+            input.setAttribute("value", parseFloat(inputMensaje));
+        }
 
         function agrega(padre, hijo) {
             return padre.appendChild(crea(hijo));
