@@ -10,7 +10,10 @@
         let container;
         let input;
         let inputMensaje = "";
+        let numGuardado = 0;
         let coma = false;
+        let operadorBol = false;
+        let operador = "";
 
         function init() {
             creaCabezera();
@@ -46,25 +49,33 @@
 
         function anadeBotones() {
             let botones =
-                [{ id: 'CE', value: 'CE', funcion: () => { inputMensaje = ""; input.setAttribute("value", inputMensaje) } },
-                { id: 'Borrar', value: 'Borrar' },
+                [{ id: 'CE', value: 'CE', funcion: () => { inputMensaje = ""; numGuardado = 0; input.setAttribute("value", inputMensaje) } },
+                {
+                    id: 'Borrar', value: 'Borrar', funcion: () => {
+                        inputMensaje = inputMensaje.slice(0, -1);
+                        if (inputMensaje[inputMensaje.length - 1 == "."]) {
+                            inputMensaje = inputMensaje.slice(0, -1);
+                        }
+                        input.setAttribute("value", parseFloat(inputMensaje));
+                    }
+                },
                 { id: 'porcentaje', value: '%' },
-                { id: 'oSuma', value: '+' },
+                { id: 'oSuma', value: '+', funcion: () => { realizaOperacion("+"); } },
                 { id: 'siete', value: '7', funcion: () => { refrescaMensaje(7); } },
                 { id: 'ocho', value: '8', funcion: () => { refrescaMensaje(8); } },
                 { id: 'nueve', value: '9', funcion: () => { refrescaMensaje(9); } },
-                { id: 'oResta', value: '-' },
+                { id: 'oResta', value: '-', funcion: () => { realizaOperacion("-"); } },
                 { id: 'cuatro', value: '4', funcion: () => { refrescaMensaje(4); } },
                 { id: 'cinco', value: '5', funcion: () => { refrescaMensaje(5); } },
                 { id: 'seis', value: '6', funcion: () => { refrescaMensaje(6); } },
-                { id: 'oMultiplicacion', value: 'x' },
+                { id: 'oMultiplicacion', value: 'x', funcion: () => { realizaOperacion("x"); } },
                 { id: 'uno', value: '1', funcion: () => { refrescaMensaje(1); } },
                 { id: 'dos', value: '2', funcion: () => { refrescaMensaje(2); } },
                 { id: 'tres', value: '3', funcion: () => { refrescaMensaje(3); } },
-                { id: 'oDivision', value: '÷' },
+                { id: 'oDivision', value: '÷', funcion: () => { realizaOperacion("÷"); } },
                 { id: 'cero', value: '0', funcion: () => { refrescaMensaje(0); } },
-                { id: 'masMenos', value: '±', funcion: () => { inputMensaje = input.value * -1; input.setAttribute("value", inputMensaje) } },
-                { id: 'coma', value: ',', funcion: () => { if(inputMensaje.indexOf(".")==-1){coma = true;}  } },
+                { id: 'masMenos', value: '±', funcion: () => { inputMensaje = input.value * -1; input.setAttribute("value", parseFloat(inputMensaje)); } },
+                { id: 'coma', value: ',', funcion: () => { if (inputMensaje.indexOf(".") == -1) { coma = true; } } },
                 { id: 'igual', value: '=' }];
             let auxiliar;
 
@@ -97,13 +108,42 @@
         }
 
         function refrescaMensaje(number) {
-            if (coma) {
-                coma=false;
-                inputMensaje += "."+number;
-            } else {
+            if (!coma) {
+                if (operadorBol) {
+                    inputMensaje = "";
+                    operadorBol = false;
+                }
                 inputMensaje += number;
+            } else {
+                coma = false;
+                inputMensaje += "." + number;
             }
             input.setAttribute("value", parseFloat(inputMensaje));
+        }
+        function realizaOperacion(operacion) {
+            operadorBol = true;
+            switch (operacion) {
+                case "+":
+                    input.setAttribute("value", parseFloat(parseFloat(input.value) + parseFloat(numGuardado)));
+                    numGuardado = parseFloat(input.value) + parseFloat(numGuardado);
+                    operador = "+";
+                    break;
+                case "-":
+                    input.setAttribute("value", parseFloat(parseFloat(input.value) - parseFloat(numGuardado)));
+                    numGuardado = parseFloat(input.value) - parseFloat(numGuardado);
+                    operador = "-";
+                    break;
+                case "x":
+                    input.setAttribute("value", parseFloat(parseFloat(input.value) * parseFloat(numGuardado)));
+                    numGuardado = parseFloat(input.value) * parseFloat(numGuardado);
+                    operador = "*";
+                    break;
+                case "÷":
+                    input.setAttribute("value", parseFloat(parseFloat(input.value) / parseFloat(numGuardado)));
+                    numGuardado = parseFloat(input.value) / parseFloat(numGuardado);
+                    operador = "/";
+                    break;
+            }
         }
 
         function agrega(padre, hijo) {
