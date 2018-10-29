@@ -52,9 +52,11 @@
                 [{ id: 'CE', value: 'CE', funcion: () => { inputMensaje = ""; numGuardado = 0; input.setAttribute("value", inputMensaje) } },
                 {
                     id: 'Borrar', value: 'Borrar', funcion: () => {
-                        inputMensaje = inputMensaje.slice(0, -1);
-                        if (inputMensaje[inputMensaje.length - 1 == "."]) {
-                            inputMensaje = inputMensaje.slice(0, -1);
+                        inputMensaje = inputMensaje.substring(0,inputMensaje.length-1);
+                        if (inputMensaje[inputMensaje.length - 1] == ".") {
+                            inputMensaje = inputMensaje.substring(0,inputMensaje.length-1);
+                        }else if((inputMensaje.length==1 && inputMensaje[0]=='-')||inputMensaje.length==0){
+                            inputMensaje='0';
                         }
                         input.setAttribute("value", parseFloat(inputMensaje));
                     }
@@ -74,7 +76,13 @@
                 { id: 'tres', value: '3', funcion: () => { refrescaMensaje(3); } },
                 { id: 'oDivision', value: '÷', funcion: () => { realizaOperacion("÷"); } },
                 { id: 'cero', value: '0', funcion: () => { refrescaMensaje(0); } },
-                { id: 'masMenos', value: '±', funcion: () => { inputMensaje = input.value * -1; input.setAttribute("value", parseFloat(inputMensaje)); } },
+                { id: 'masMenos', value: '±', funcion: () => { 
+                    if (inputMensaje.indexOf("-") == -1) {
+                        inputMensaje='-'+inputMensaje;
+                    }else{
+                        inputMensaje = inputMensaje.substring(1,inputMensaje.length);
+                    }
+                     input.setAttribute("value", parseFloat(inputMensaje)); } },
                 { id: 'coma', value: ',', funcion: () => { if (inputMensaje.indexOf(".") == -1) { coma = true; } } },
                 { id: 'igual', value: '=' }];
             let auxiliar;
