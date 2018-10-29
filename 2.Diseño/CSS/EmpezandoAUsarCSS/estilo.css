@@ -13,7 +13,7 @@
 
 .mainNav>.navItem {
     display: inline-block;
-    margin: 10px 0px 10px 0px;
+    margin: 10px 5px 10px 5px;
     height: 80px;
     width: 200px;
     font-size: 35px;
@@ -21,13 +21,17 @@
     border: 1px solid #000;
 }
 
+.divMain{
+    width: 100%;
+    height: 750px;
+}
 main{
     width: 80%;
     display: inline-block;
-    height: 600px;
+    height: 100%;
+    border: 1px solid #000;
 }
 section{
-    border: 1px solid #000;
     width: 100%;
 }
 article{
@@ -40,18 +44,19 @@ article>header{
     font-size: 35px;
 }
 aside{
-    border: 1px solid #000;
     text-align: center;
     display: inline-block;
-    height: 600px;
+    vertical-align:top;
+    height: 100%;
     width: 19%;
 }
 aside>div{
     border: 1px solid #000;
-    margin: 20px;
+    margin: 20px auto;
+    *margin: 20px;
     font-size: 20px;
-    height: 200px;
-    width: 200px;
+    height: 25%;
+    width: 75%;
 }
 footer{
     border: 1px solid #000;
