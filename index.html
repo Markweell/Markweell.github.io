@@ -1,32 +1,56 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Indice global</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <meta content="text/html;" http-equiv="content-type" charset="utf-8">
-    <meta name="author" content="Marcos Gallardo Pérez">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css"  media="screen,projection"/>
-    <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
-    <script async defer type="text/javascript" src="materialize/js/materialize.min.js"></script>
-  </head>
-  <body class="container" style="background-color: #FFE23A">
-    <div class="row">
-            <div class ="col l2 m2 s2" style="background-color: #E5CB34; height: 100px;"><img src="img/perfil.jpg" width="70%" height="100%" ></div>
-            <div class ="col l10 m10 s10" style="background-color: #E5CB34; height: 100px;" ><h4>Marcos Gallardo Pérez</h4></div>
+
+<head>
+  <title>Indice global</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta content="text/html;" http-equiv="content-type" charset="utf-8">
+  <meta name="author" content="Marcos Gallardo Pérez">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+  <link type="text/css" rel="stylesheet" href="materialize/css/materialize.min.css" media="screen,projection" />
+  <link rel="stylesheet" type="text/css" href="css/estilos.css" media="screen" />
+  <script async defer type="text/javascript" src="materialize/js/materialize.min.js"></script>
+</head>
+
+<body class="container">
+
+  <div class="row cabezera">
+    <div class="col l4 m4 s12 imagen"><img class = "perfil" src="img/perfil.jpg"></div>
+    <div class="col l8 m8 s12 cabezeraTexto">
+      <h4>Marcos Gallardo Pérez</h4>
+    </div>
+  </div>
+
+  <div class="row navegacion">
+      <div class="col l2 m2 s2"></div>
+      <div class="col l8 m8 s8 navegacionInterna">
+        <a href="https://twitter.com/Markweell">
+          <div class="col l4 m4 s12 navItem"><i class="fab fa-twitter"></i></div>
+        </a>
+        <a href="https://github.com/Markweell">
+          <div class="col l4 m4 s12 navItem"><i class="fab fa-github"></i></div>
+        </a>
+        <a href="https://www.linkedin.com/in/marcos-gallardo-p%C3%A9rez-0027a0153/">
+          <div class="col l4 m4 s12 navItem"><i class="fab fa-linkedin-in"></i></div>
+        </a>
+      </div>
+      <div class="col l2 m2 s2"></div>
     </div>  
-    <div class = "row">
-          <div class = "col l2 m2 s2" style="background-color: #FFE23A"></div>
-          <div class = "col l8 m8 s8" style="background-color: #E5CB34">
-            <div class = "col l4 m4 s4"></div>
-            <div class = "col l4 m4 s4"></div>
-            <div class = "col l4 m4 s4"></div>
-          </div>
-          <div class = "col l2 m2 s2" style="background-color: #FFE23A"></div>
-    </div>
-    <div class="row">
-      <a href="1.Cliente/index.html"><div class ="col a a1 l4 m6 s12" title = "Desarrollo web en entorno cliente"><h4>JavaScript</h4></div></a>
-      <a href="2.Diseño/index.html"><div class ="col a a1 l4 m6 s12" title = "Desarrollo web en entorno cliente"><h4>Diseño web</h4></div></a>
-    </div>
-  </body>
+
+  <div class="row main">
+    <a href="1.Cliente/index.html">
+      <div class="col l4 m6 s12 mainItem" title="Desarrollo web en entorno cliente">
+        <h4>JavaScript</h4>
+      </div>
+    </a>
+    <a href="2.Diseño/index.html">
+      <div class="col l4 m6 s12 mainItem" title="Desarrollo web en entorno cliente">
+        <h4>Diseño web</h4>
+      </div>
+    </a>
+  </div>
+
+</body>
+
 </html>
