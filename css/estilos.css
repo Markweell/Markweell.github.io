@@ -1,17 +1,27 @@
+
+  
+  
 body{
     background-color: #2a44ff;
 }
 .cabezera{
     background-color: #fff;
     border: 5px solid grey;
+    font-size: 40px;
     margin : 20px 0px 20px 0px;
     height: 200px;
     width: 100%;
 }
+
+  
+@media (max-width: 750px) {
+    .cabezera{ font-size: 0px; }
+}
+
 .cabezeraTexto{
     text-align: right;
 }
-.cabezeraTexto>h4{
+.cabezeraTexto>p{
     margin:130px 0px 0px 0px;
 }
 .perfil{
