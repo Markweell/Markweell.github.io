@@ -10,7 +10,7 @@
         let container;
         let input;
         let inputMensaje = "";
-        let numGuardado = 0;
+        let numGuardado = undefined;
         let coma = false;
         let operadorBol = false;
         let operador = "";
@@ -24,7 +24,7 @@
         function creaCabezera() {
             let cabezera = document.getElementsByTagName('body')[0].appendChild(document.createElement('div'));
             let titulo = agrega(cabezera, 'h1');
-            titulo.innerHTML = "Calculadora (Sin Funcionalidad) Marcos Gallardo Pérez";
+            titulo.innerHTML = "Calculadora Marcos Gallardo Pérez";
             titulo.style.textAlign = "center";
             titulo.style.width = "300px";
             titulo.style.height = "150px";
@@ -49,42 +49,57 @@
 
         function anadeBotones() {
             let botones =
-                [{ id: 'CE', value: 'CE', funcion: () => { inputMensaje = ""; numGuardado = 0; input.setAttribute("value", inputMensaje) } },
-                {
-                    id: 'Borrar', value: 'Borrar', funcion: () => {
-                        inputMensaje = inputMensaje.substring(0,inputMensaje.length-1);
-                        if (inputMensaje[inputMensaje.length - 1] == ".") {
-                            inputMensaje = inputMensaje.substring(0,inputMensaje.length-1);
-                        }else if((inputMensaje.length==1 && inputMensaje[0]=='-')||inputMensaje.length==0){
-                            inputMensaje='0';
+                [
+                    {
+                        id: 'CE', value: 'CE', funcion: () => {
+                            inputMensaje = "";
+                            numGuardado = undefined;
+                            input.setAttribute("value", inputMensaje)
+                            coma = false;
+                            operadorBol = false;
+                            operador = "";
                         }
-                        input.setAttribute("value", parseFloat(inputMensaje));
-                    }
-                },
-                { id: 'porcentaje', value: '%' },
-                { id: 'oSuma', value: '+', funcion: () => { realizaOperacion("+"); } },
-                { id: 'siete', value: '7', funcion: () => { refrescaMensaje(7); } },
-                { id: 'ocho', value: '8', funcion: () => { refrescaMensaje(8); } },
-                { id: 'nueve', value: '9', funcion: () => { refrescaMensaje(9); } },
-                { id: 'oResta', value: '-', funcion: () => { realizaOperacion("-"); } },
-                { id: 'cuatro', value: '4', funcion: () => { refrescaMensaje(4); } },
-                { id: 'cinco', value: '5', funcion: () => { refrescaMensaje(5); } },
-                { id: 'seis', value: '6', funcion: () => { refrescaMensaje(6); } },
-                { id: 'oMultiplicacion', value: 'x', funcion: () => { realizaOperacion("x"); } },
-                { id: 'uno', value: '1', funcion: () => { refrescaMensaje(1); } },
-                { id: 'dos', value: '2', funcion: () => { refrescaMensaje(2); } },
-                { id: 'tres', value: '3', funcion: () => { refrescaMensaje(3); } },
-                { id: 'oDivision', value: '÷', funcion: () => { realizaOperacion("÷"); } },
-                { id: 'cero', value: '0', funcion: () => { refrescaMensaje(0); } },
-                { id: 'masMenos', value: '±', funcion: () => { 
-                    if (inputMensaje.indexOf("-") == -1) {
-                        inputMensaje='-'+inputMensaje;
-                    }else{
-                        inputMensaje = inputMensaje.substring(1,inputMensaje.length);
-                    }
-                     input.setAttribute("value", parseFloat(inputMensaje)); } },
-                { id: 'coma', value: ',', funcion: () => { if (inputMensaje.indexOf(".") == -1) { coma = true; } } },
-                { id: 'igual', value: '=' }];
+                    },
+                    {
+                        id: 'Borrar', value: 'Borrar', funcion: () => {
+                            inputMensaje = inputMensaje.substring(0, inputMensaje.length - 1);
+                            if (inputMensaje[inputMensaje.length - 1] == ".") {
+                                inputMensaje = inputMensaje.substring(0, inputMensaje.length - 1);
+                            } else if ((inputMensaje.length == 1 && inputMensaje[0] == '-') || inputMensaje.length == 0) {
+                                inputMensaje = '0';
+                            }
+                            input.setAttribute("value", parseFloat(inputMensaje));
+                        }
+                    },
+                    { id: 'porcentaje', value: '%' },
+                    { id: 'oSuma', value: '+', funcion: () => { realizaOperacion("+"); } },
+                    { id: 'siete', value: '7', funcion: () => { refrescaMensaje(7); } },
+                    { id: 'ocho', value: '8', funcion: () => { refrescaMensaje(8); } },
+                    { id: 'nueve', value: '9', funcion: () => { refrescaMensaje(9); } },
+                    { id: 'oResta', value: '-', funcion: () => { realizaOperacion("-"); } },
+                    { id: 'cuatro', value: '4', funcion: () => { refrescaMensaje(4); } },
+                    { id: 'cinco', value: '5', funcion: () => { refrescaMensaje(5); } },
+                    { id: 'seis', value: '6', funcion: () => { refrescaMensaje(6); } },
+                    { id: 'oMultiplicacion', value: 'x', funcion: () => { realizaOperacion("x"); } },
+                    { id: 'uno', value: '1', funcion: () => { refrescaMensaje(1); } },
+                    { id: 'dos', value: '2', funcion: () => { refrescaMensaje(2); } },
+                    { id: 'tres', value: '3', funcion: () => { refrescaMensaje(3); } },
+                    { id: 'oDivision', value: '÷', funcion: () => { realizaOperacion("÷"); } },
+                    { id: 'cero', value: '0', funcion: () => { refrescaMensaje(0); } },
+                    {
+                        id: 'masMenos', value: '±', funcion: () => {
+                            operador = "";
+                            coma=false;
+                            if (input.value.indexOf("-") == -1) {
+                                inputMensaje = '-' + input.value;
+                            } else {
+                                inputMensaje = input.value.substring(1, input.value.length);
+                            }
+                            input.setAttribute("value", parseFloat(inputMensaje));
+                        }
+                    },
+                    { id: 'coma', value: ',', funcion: () => { if (inputMensaje.indexOf(".") == -1) { coma = true; } } },
+                    { id: 'igual', value: '=', funcion: () => { realizaOperacion(""); } }];
             let auxiliar;
 
             divInput = agrega(calculadora, 'div');
@@ -130,29 +145,53 @@
         }
         function realizaOperacion(operacion) {
             operadorBol = true;
-            switch (operacion) {
-                case "+":
-                    input.setAttribute("value", parseFloat(parseFloat(input.value) + parseFloat(numGuardado)));
-                    numGuardado = parseFloat(input.value) + parseFloat(numGuardado);
-                    operador = "+";
-                    break;
-                case "-":
-                    input.setAttribute("value", parseFloat(parseFloat(input.value) - parseFloat(numGuardado)));
-                    numGuardado = parseFloat(input.value) - parseFloat(numGuardado);
-                    operador = "-";
-                    break;
-                case "x":
-                    input.setAttribute("value", parseFloat(parseFloat(input.value) * parseFloat(numGuardado)));
-                    numGuardado = parseFloat(input.value) * parseFloat(numGuardado);
-                    operador = "*";
-                    break;
-                case "÷":
-                    input.setAttribute("value", parseFloat(parseFloat(input.value) / parseFloat(numGuardado)));
-                    numGuardado = parseFloat(input.value) / parseFloat(numGuardado);
-                    operador = "/";
-                    break;
+            if (operador != "" && numGuardado!=undefined) {
+                switch (operador) {
+                    case "+":
+                        input.setAttribute("value", parseFloat(parseFloat(input.value) + parseFloat(numGuardado)));
+                        break;
+                    case "-":
+                        input.setAttribute("value", parseFloat(parseFloat(numGuardado)-parseFloat(input.value) ));
+                        break;
+                    case "x":
+                        input.setAttribute("value", parseFloat(parseFloat(input.value) * parseFloat(numGuardado)));
+                        break;
+                    case "÷":
+                        input.setAttribute("value", parseFloat(parseFloat(numGuardado)/parseFloat(input.value)));
+                        break;
+                }
             }
+            numGuardado = parseFloat(input.value);
+            console.log(numGuardado)
+            operador = operacion;
         }
+        /*
+        function realizaOperacion(operacion) {
+            operadorBol = true;
+            if (operador != "") {
+                switch (operador) {
+                    case "+":
+                        input.setAttribute("value", parseFloat(parseFloat(input.value) + parseFloat(numGuardado)));
+                        numGuardado = parseFloat(input.value) + parseFloat(numGuardado);
+                        break;
+                    case "-":
+                        input.setAttribute("value", parseFloat(parseFloat(input.value) - parseFloat(numGuardado)));
+                        numGuardado = parseFloat(input.value) - parseFloat(numGuardado);
+                        break;
+                    case "x":
+                        input.setAttribute("value", parseFloat(parseFloat(input.value) * parseFloat(numGuardado)));
+                        numGuardado = parseFloat(input.value) * parseFloat(numGuardado);
+                        break;
+                    case "÷":
+                        input.setAttribute("value", parseFloat(parseFloat(input.value) / parseFloat(numGuardado)));
+                        numGuardado = parseFloat(input.value) / parseFloat(numGuardado);
+                        break;
+                }
+            }
+            console.log(numGuardado);
+            operador = operacion;
+        }
+        */
 
         function agrega(padre, hijo) {
             return padre.appendChild(crea(hijo));
@@ -163,6 +202,7 @@
         }
 
         document.addEventListener('DOMContentLoaded', init);
+
 
     }
 }
