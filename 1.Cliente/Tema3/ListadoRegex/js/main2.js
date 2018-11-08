@@ -23,11 +23,11 @@
             regex4 = /hola/m;
             regex5 = /hola/mgi;
             array = [
-                { texto: "regex1 = /hola/g", contenido: str.match(regex1)  },
-                { texto: "regex2 = /hola/i", contenido: str.match(regex2)  },
-                { texto: "regex3 = /hola/gi", contenido: str.match(regex3) },
-                { texto: "regex4 = /hola/m", contenido: str.match(regex4) },
-                { texto: "regex5 = /hola/mgi", contenido: str.match(regex5) }
+                { texto: "regex1 = /hola/g", contenido: str.match(regex1) , global: regex1.global },
+                { texto: "regex2 = /hola/i", contenido: str.match(regex2) , global: regex2.global },
+                { texto: "regex3 = /hola/gi", contenido: str.match(regex3), global: regex3.global },
+                { texto: "regex4 = /hola/m", contenido: str.match(regex4) , global: regex4.global},
+                { texto: "regex5 = /hola/mgi", contenido: str.match(regex5), global: regex5.global }
                ];
             let li;
             li = document.createElement("li");
@@ -35,7 +35,8 @@
             listaMadre.appendChild(li);
             for (let i = 0; i < array.length; i++) {
                 li = document.createElement("li");
-                li.innerHTML = "<b>" + array[i].texto + "</b>&nbsp&nbsp&nbspResultado:&nbsp&nbsp&nbsp" + array[i].contenido;
+                li.innerHTML = "<b>" + array[i].texto + "</b>&nbsp&nbsp&nbspResultado:&nbsp&nbsp&nbsp<u>" + array[i].contenido+
+                "</u>&nbsp y vemos si tiene el modificador global con regex1.global: "+array[i].global;
                 listaMadre.appendChild(li);
             }
             definicion();

@@ -23,11 +23,11 @@
             regex4 = /hola/m;
             regex5 = /hola/mgi;
             array = [
-                { texto: "regex1 = /hola/g", contenido: str.match(regex1)  },
-                { texto: "regex2 = /hola/i", contenido: str.match(regex2)  },
-                { texto: "regex3 = /hola/gi", contenido: str.match(regex3) },
-                { texto: "regex4 = /hola/m", contenido: str.match(regex4) },
-                { texto: "regex5 = /hola/mgi", contenido: str.match(regex5) }
+                { texto: "regex1 = /hola/g", contenido: str.match(regex1) , flags: regex1.flags },
+                { texto: "regex2 = /hola/i", contenido: str.match(regex2) ,  flags: regex2.flags},
+                { texto: "regex3 = /hola/gi", contenido: str.match(regex3),  flags: regex3.flags },
+                { texto: "regex4 = /hola/m", contenido: str.match(regex4) ,  flags: regex4.flags},
+                { texto: "regex5 = /hola/mgi", contenido: str.match(regex5) ,  flags: regex5.flags}
                ];
             let li;
             li = document.createElement("li");
@@ -35,28 +35,19 @@
             listaMadre.appendChild(li);
             for (let i = 0; i < array.length; i++) {
                 li = document.createElement("li");
-                li.innerHTML = "<b>" + array[i].texto + "</b>&nbsp&nbsp&nbspResultado:&nbsp&nbsp&nbsp" + array[i].contenido;
+                li.innerHTML = "<b>" + array[i].texto + "</b>&nbsp&nbsp&nbspResultado:&nbsp&nbsp&nbsp<u>" + array[i].contenido+
+                "</u>&nbsp y vemos los modificadores que tiene con regex.flags: "+array[i].flags;
                 listaMadre.appendChild(li);
             }
             definicion();
            
         }
-
         function definicion(){
             parrafo = lista.appendChild(document.createElement("p"));
-            parrafo.appendChild(document.createElement("h3")).innerHTML="Definición de los modificadores: ";
             listaDefinicion = parrafo.appendChild(document.createElement("ol"));
             li1=document.createElement("li");
-            li1.innerHTML = "-i: especifica que la búsqueda se realiza sin diferenciar entre mayúsculas y minúsculas."
+            li1.innerHTML = ".option parece no funcionar en ningún navegador"
             listaDefinicion.appendChild(li1);
-            li2=document.createElement("li");
-            li2.innerHTML = "-g: indica que los caracteres a buscar pueden ser encontrados varias veces en la cadena de caracteres."
-            listaDefinicion.appendChild(li2);
-            li3=document.createElement("li");
-            li3.innerHTML = "-m: el modificador m realiza coincidencia de patrones en el modo multilínea. En este modo, si la cadena"
-            +" a buscar contiene varias líneas, el metacaracter ^ y $ deben coincidir con el inicio y final de una línea, además de que "
-            +" coincida con el comienzo y el final de una cadena.";
-            listaDefinicion.appendChild(li3);
         }
         window.addEventListener("DOMContentLoaded", init);
 
