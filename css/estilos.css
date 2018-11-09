@@ -28,6 +28,11 @@ body{
     height: 190px;
     width: 150px;
 }
+.perfil:hover{
+    transform: scale(1.03);
+    transition-property:all;
+    transition-duration: .5s; 
+}
 
 .navegacionInterna{
     text-align: center;
@@ -39,6 +44,11 @@ body{
     background-color: grey;
     border: 5px solid #fff;
 }
+.navItem:hover{
+    transform: scale(1.03);
+    transition-property:all;
+    transition-duration: .5s; 
+}
 
 .main{
     background-color: #fff;
@@ -48,6 +58,12 @@ body{
     background-color: #6478ff;
     border: 5px solid #fff; 
 }
+.mainItem:hover{
+    transform: scale(1.03);
+    transition-property:all;
+    transition-duration: .5s; 
+}
+
 
 
 a:link, a:visited {
