@@ -16,21 +16,29 @@
 
     function compruebaDni() {
         let mensaje = document.getElementById("mensaje");
-        mensaje.style.color = "red";
-        if (this.value === "")
-            mensaje.innerHTML = "Introduce dni";
-        else {
-            if (!regex.test(this.value))
+
+        let valor = this.value,
+            grupos = regex.exec(valor);
+
+        if (grupos === null) {
+            if (valor === "")
+                mensaje.innerHTML = "Campo Vacio";
+            else
                 mensaje.innerHTML = "Formato incorrecto";
-            else {
-                if (this.value.match(regex)[2].toUpperCase() !== letras[parseInt(this.value.match(regex)[1] % 23)])
-                    mensaje.innerHTML = "Letra incorrecta";
-                else {
-                    mensaje.innerHTML = "DNI correcto";
-                    mensaje.style.color = "green";
-                }
-            }
+            mensaje.style.color = "red";
+            return;
         }
+        //Destructuring
+        [, numero, letra] = grupos;
+
+        if (letra.toUpperCase() !== letras[parseInt(numero % 23)]){
+            mensaje.innerHTML = "Letra incorrecta";
+            mensaje.style.color = "red";
+        }else {
+            mensaje.innerHTML = "DNI correcto";
+            mensaje.style.color = "green";
+        }
+
     }
 
     function init() {
