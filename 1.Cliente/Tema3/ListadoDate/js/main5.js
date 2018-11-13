@@ -32,6 +32,7 @@
                 li.innerHTML = "No es una fecha válida";
                 listaMadre.appendChild(li);
             }
+            
             function fecha(fecha) {
                 if (isNaN(Date.parse(fecha))) {
                     throw "No es una fecha válida";  
