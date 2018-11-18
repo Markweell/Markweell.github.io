@@ -1,0 +1,51 @@
+
+* {
+    font-family:sans-serif;
+    list-style:none;
+    text-decoration:none;
+    margin:0;
+    padding:0;
+}
+.nav{
+    display:flex;
+}
+.nav > li {
+    flex-grow:1;
+    *display:flex;
+}
+
+.nav li a {
+    background:#0c9ba0;
+    color:#FFF;
+    display:block;
+    border:1px solid;
+    padding:10px 12px;
+}
+
+.nav li a:hover {
+    background:#343f3f;
+}
+.nav li ul {
+    display:none;
+    position:absolute;
+    *flex-grow:1;
+    min-width:250px;
+}
+.nav li:hover > ul {
+   display:block;
+}
+
+.nav li ul li {
+    position:relative;
+}
+
+.nav li ul li ul {
+    right:-250px;
+    *vertical-align: top;
+    top:0;
+}
+.nav li .flecha{
+    font-size: 9px;
+    padding-left: 6px;
+    
+}
