@@ -8,15 +8,18 @@
         let cajaTexto;
         let valor;
         let set;
+        let nombre;
+        let apellidos;
+        let mensaje;
         function init() {
-            regex = /([a-zA-Zñáéíóú]{3,}\s?[a-zA-Zñáéíóú]{3,}),\s?([a-zA-Zñáéíóú]{3,})/g;
-            cajaTexto = document.getElementById("Nombre");
+            
+            cargarVariables();
             cajaTexto.addEventListener("blur", cargaMensaje);
-            set = new Set();
+            
         }
 
         function cargaMensaje() {
-            document.getElementById("mensaje").innerHTML = "";
+            mensaje.innerHTML = "";
             valor = cajaTexto.value;
             grupos = regex.exec(valor);
             try {
@@ -24,27 +27,34 @@
                     [, apellidos, nombre] = grupos;
                     try {
                         if (!set.has(nombre + apellidos)) {
-                            document.getElementById("nombre").innerHTML = nombre;
-                            document.getElementById("apellidos").innerHTML = apellidos;
+                            nombreTexto.innerHTML = nombre;
+                            apellidosTexto.innerHTML = apellidos;
                             set.add(nombre + apellidos);
                         } else {
-                            throw "Repetido"
+                            throw new Error ("Repetido");
                         }
                     } catch (e) {
-                        document.getElementById("nombre").innerHTML = "";
-                        document.getElementById("apellidos").innerHTML = "";
-                        document.getElementById("mensaje").innerHTML = "Repetido";
+                        nombreTexto.innerHTML = "";
+                        apellidosTexto.innerHTML = "";
+                        mensaje.innerHTML = "Repetido";
                     }
                 } else {
-                    throw "ERROR en el formato";
+                    throw new Error("ERROR en el formato");
                 }
             } catch (e) {
-                document.getElementById("nombre").innerHTML = "";
-                document.getElementById("apellidos").innerHTML = "";
-                document.getElementById("mensaje").innerHTML = "Error. Formato correcto: Cuadrado Perfecto, Anacleto";
+                nombre.innerHTML = "";
+                apellidos.innerHTML = "";
+                mensaje.innerHTML = "Error. Formato correcto: Cuadrado Perfecto, Anacleto";
             }
         }
-
+        function cargarVariables(){
+            regex = /([a-zA-Zñáéíóú]{3,}\s?[a-zA-Zñáéíóú]{3,}),\s?([a-zA-Zñáéíóú]{3,})/g;
+            cajaTexto = document.getElementById("Nombre");
+            nombreTexto = document.getElementById("nombre");
+            apellidosTexto = document.getElementById("apellidos");
+            mensaje = document.getElementById("mensaje");
+            set = new Set();
+        }
         document.addEventListener("DOMContentLoaded", init);
     }
 }
