@@ -1,3 +1,109 @@
 *{
-    background: red;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
+header,footer>h3{
+    font-style: none;
+    text-align: center;
+    font-size: 50px;
+    margin:0px;
+}
+nav{
+    border:1px solid black;
+}
+ul{
+    list-style: none;
+    text-align: center;
+    margin:0px;
+    padding:0px;
+}
+nav li{
+    border:1px solid black;
+    display:inline-block;
+    width: 70px;
+    padding: 2.5px 15px;
+    margin:10px 50px;
+}
+#cuerpo{
+    border:1px solid black; 
+    height: 700px;   
+}
+main{
+    border:1px solid black;    
+    display: inline-block;
+    width: 70%;
+    height: 100%; 
+}
+article{
+    text-align: justify;
+    width: 25%;
+    margin:3.5%;
+    display: inline-block;
+    border:1px solid black;
+}
+article>h3{
+    margin:10px 15px;
+}
+article>h4{
+    margin:0px 30px;
+}
+article>p{
+    margin:10px;
+}
+aside{
+    display: inline-block;
+    text-align: center;
+    width: 29%;
+    height: 100%;
+    vertical-align: top;
+}
+
+#archivo,#publicidad{
+    width: 95%;
+    height: 40%;
+    border: 1px solid black;
+    margin: 20px auto;
+}
+#archivo>div{
+    column-count: 2;
+}
+#archivo li{
+    margin: 10px;
+}
+#publicidad>div{
+    height: 80%;
+}
+#publicidad>div>div{
+    display: inline-block;
+    border: 1px solid black;
+    width: 40%;
+    height: 40%;
+    margin: 0px 10px 10px 0px
+}
+footer{
+    border: 1px solid black;
+}
+footer>p{
+    display: inline-block;
+    margin: 0px 20px;
+}
+footer li{
+    display:inline-block;
+    width: 70px;
+    padding: 2.5px 15px;
+}
+footer ul {
+    display:inline-block; 
+}
+i{
+    font-size: 30px;
+}
+i>p{
+    margin:0px;
+    font-size: 12px;
+}
+
+#nombrePersonal{
+    font-size: 40px;
+    width: 70%;
+}
+
