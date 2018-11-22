@@ -1,6 +1,6 @@
 {
     /**
-     * 
+     * Ejercicio sobre el login de usuarios sin base de datos. 
      * @author Marcos Gallardo Pérez
      */
     {
@@ -9,8 +9,6 @@
         let DOMNombreUsuario;
         let DOMContaseniaUsuario;
         let DOMEstado;
-
-        document.addEventListener('DOMContentLoaded', init);
 
         /**
          * Funcion inicial al cargar el DOM
@@ -107,6 +105,10 @@
             }
             return true;
         }
+        /**
+         * Inicia la funcion init solo cuando el DOM esté cargado. 
+         */
+        document.addEventListener('DOMContentLoaded', init);
         /*
         function grabarClaveLocal(valor) {
             window.localStorage.setItem("usuarios", valor);
