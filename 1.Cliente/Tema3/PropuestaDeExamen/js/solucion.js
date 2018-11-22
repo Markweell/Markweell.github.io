@@ -25,7 +25,7 @@
             crearEsqueletoBasico();
         }
         /**
-         * Crea el esqueleto básico de la página
+         * Crea el esqueleto básico de la página.  
          */
         function crearEsqueletoBasico() {
             document.getElementsByTagName('h1')[0].innerHTML = "Marcos Gallardo Pérez. Propuesta de examen";
