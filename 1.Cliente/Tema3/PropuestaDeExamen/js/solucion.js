@@ -1,4 +1,4 @@
-{
+
     /**
      * Ejercicio sobre el login de usuarios sin base de datos. 
      * @author Marcos Gallardo Pérez
@@ -122,4 +122,3 @@
         }
         */
     }
-}
