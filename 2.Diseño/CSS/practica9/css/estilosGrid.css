@@ -9,6 +9,7 @@ header,footer>h3{
 }
 nav{
     border:1px solid black;
+    
 }
 ul{
     list-style: none;
@@ -16,28 +17,33 @@ ul{
     margin:0px;
     padding:0px;
 }
+nav>ul{
+    display:inline-grid;
+    grid-template-columns: repeat(5,auto);
+    justify-items: center;
+    width: 100%; 
+}
+
 nav li{
     border:1px solid black;
-    display:inline-block;
     width: 70px;
     padding: 2.5px 15px;
-    margin:10px 50px;
+    margin: 10px 0px;
 }
 #cuerpo{
-    border:1px solid black; 
-    height: 700px;   
+    border:1px solid black;  
+    display: grid; 
+    grid-template-columns:70fr 30fr;
+    grid-template-rows: 700px;
 }
 main{
     border:1px solid black;    
-    display: inline-block;
-    width: 70%;
-    height: 100%; 
+    display: grid;
+    grid-template-columns:repeat(3,auto);
+    *grid-gap: 10px;
 }
 article{
-    text-align: justify;
-    width: 25%;
     margin:3.5%;
-    display: inline-block;
     border:1px solid black;
 }
 article>h3{
@@ -50,50 +56,64 @@ article>p{
     margin:10px;
 }
 aside{
-    display: inline-block;
+    display:grid;
+    grid-template-rows: 1fr 1fr;  
+    justify-items: center;
+    *align-items: start;
     text-align: center;
-    width: 29%;
-    height: 100%;
-    vertical-align: top;
 }
 
 #archivo,#publicidad{
-    width: 95%;
-    height: 40%;
+    width: 90%;
     border: 1px solid black;
     margin: 20px auto;
+   
 }
-#archivo>div{
-    column-count: 2;
-}
-#archivo li{
+
+#archivo ul{
+    height: 100%;
     margin: 10px;
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    align-items: center;
+    grid-gap: 20px;
 }
+
 #publicidad>div{
     height: 80%;
 }
+#publicidad>div{
+    display: grid;
+    grid-template-columns: repeat(2,auto);
+    align-items: center;
+    justify-items: center;
+}
 #publicidad>div>div{
-    display: inline-block;
     border: 1px solid black;
-    width: 40%;
-    height: 40%;
-    margin: 0px 10px 10px 0px
+    width: 60%;
+    height: 60%;
+
 }
 footer{
     border: 1px solid black;
 }
+
 footer>div{
-    display: inline-block;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    justify-content: space-between;	
+    margin: 0px 20px;
+}
+footer ul {
+   display:grid;
+   grid-template-columns: repeat(5,auto);
+   justify-items: end;
 }
 footer li{
-    display:inline-block;
     width: 70px;
     padding: 2.5px 15px;
 }
 
-footer ul {
-    display:inline-block; 
-}
 i{
     font-size: 30px;
 }
@@ -104,11 +124,4 @@ i>p{
 
 #nombrePersonal{
     font-size: 40px;
-    width: 50%;
 }
-#redeSociales{
-
-    width: 49%;
-    text-align: end;
-}
-
