@@ -43,14 +43,16 @@
      * Inserta las minas en la matriz;
      */
     function insertarMinas(numMinas) {
+        let num1;
+        let num2;
         for (let i = 0; i < numMinas; i++) {
-            let num1 = generaNumeroAleatorio(0, numMinas);
-            let num2 = generaNumeroAleatorio(0, numMinas);
-            matriz[num1][num2] = 'O';
+            do {
+                num1 = generaNumeroAleatorio(0, numMinas - 1);
+                num2 = generaNumeroAleatorio(0, numMinas - 1);
+            } while (matriz[num1][num2] == 9)
+            matriz[num1][num2] = 9;
         }
         actualizaTablero();
-        //kk
-        //console.log(matriz);
     }
 
     /**
@@ -60,15 +62,51 @@
         //kk
         //console.log(matriz.length);
         //console.log(matriz[1].length);
-        
+
         for (let i = 0; i < matriz.length; i++) {
-            for (let j = 0; j <matriz[1].length; j++) {
-                if (matriz[i][j]=='O'){
+            for (let j = 0; j < matriz[1].length; j++) {
+                if (matriz[i][j] == 9) {
+                    if (i != 0)
+                        if (matriz[i - 1][j] !== 9)
+                            matriz[i - 1][j]++;
+                    if (i != matriz.length - 1)
+                        if (matriz[i + 1][j] !== 9)
+                            matriz[i + 1][j]++;
+                    if (j != matriz[1].length - 1)
+                        if (matriz[i][j + 1] !== 9)
+                            matriz[i][j + 1]++;
+                    if (j != 0)
+                        if (matriz[i][j - 1] !== 9)
+                            matriz[i][j - 1]++;
+                    if (j !== 0 && i !== matriz.length - 1)
+                        if (matriz[i + 1][j - 1] !== 9)
+                            matriz[i + 1][j - 1]++;
+                    if (i != 0 && j != 0)
+                        if (matriz[i - 1][j - 1] !== 9)
+                            matriz[i - 1][j - 1]++;
+                    if (i != matriz.length - 1 && j != matriz[1].length - 1)
+                        if (matriz[i + 1][j + 1] !== 9)
+                            matriz[i + 1][j + 1]++;
+                    if (i != 0 && j != matriz[1].length - 1)
+                        if (matriz[i - 1][j + 1] !== 9)
+                            matriz[i - 1][j + 1]++;
+                    //console.log('a');
                     //kk
                     //console.log(i+' '+j);
                 }
             }
         }
+        let str = '';
+        for (let i = 0; i < matriz.length; i++) {
+            for (let j = 0; j < matriz[1].length; j++) {
+                //console.log(i+' '+j);
+                str += matriz[i][j] + "\t ";
+                if (j == matriz[1].length - 1)
+                    str += '\n'
+            }
+        }
+        console.log(str);
+
     }
 
     /**
