@@ -3,7 +3,7 @@
      * @author Marcos Gallardo Pérez
      */
     {
-        document.addEventListener("DOMContentLoaded", init);
+      
         let dOMMensaje;
         function init() {
             document.getElementById("boton").addEventListener("click", resetea);
@@ -42,8 +42,9 @@
             dOMMensaje.innerHTML = `<p>RESETEADO</p>`;
         }
         function relogea(ev){
-            //ev.preventDefault;
+            ev.preventDefault;
             history.back();
         }
+        document.addEventListener("DOMContentLoaded", init);
     }
 }
