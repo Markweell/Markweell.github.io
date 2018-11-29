@@ -24,7 +24,7 @@
     function creacionTablero(dificultad) {
         numMinas = dificultad;
         generarMatriz(dificultad, dificultad);
-        insertarMinas(numMinas);
+        insertarMinas(dificultad);
         limpiaDOM();
         creaTableroArbolDOM();
     }
@@ -52,8 +52,8 @@
         let num2;
         for (let i = 0; i < numMinas; i++) {
             do {
-                num1 = generaNumeroAleatorio(0, numMinas - 1);
-                num2 = generaNumeroAleatorio(0, numMinas - 1);
+                num1 = generaNumeroAleatorio(0, matriz.length-1);
+                num2 = generaNumeroAleatorio(0, matriz[1].length-1);
             } while (matriz[num1][num2] == 9)
             matriz[num1][num2] = 9;
         }
@@ -132,27 +132,52 @@
                 input.valor = matriz[i][j];
                 input.style.width = 100 / matriz.length + "%";
                 input.style.height = 800 / matriz.length + 'px';
+                input.style.backgroundImage = "url(img/inicial.png)";
                 input.addEventListener('click', () => compruebaBomba(i, j))
                 matriz[i][j] = input;
             }
         }
     }
     function compruebaBomba(i, j) {
-        if(i<0 || j >=matriz.length){
+        if (i < 0 || j >= matriz.length) {
             return;
         }
         if (matriz[i][j].valor == 9) {
             matriz[i][j].style.backgroundImage = "url(img/mina.png)";
             matriz[i][j].style.backgroundSize = "cover";
             matriz[i][j].value = "";
-        } else
+        } else {
             matriz[i][j].value = matriz[i][j].valor;
-            //matriz.style.display="none";
+            matriz[i][j].style.backgroundImage = "url(img/final.png)";
+            matriz[i][j].removeEventListener('click', () => compruebaBomba(i, j));
+        }
+        //matriz.style.display === "none";
         if (matriz[i][j].valor == 0) {
+            if (i != 0)
+                if (matriz[i - 1][j].value == "")
                     compruebaBomba(i - 1, j);
+            if (i != matriz.length - 1)
+                if (matriz[i + 1][j].value == "")
                     compruebaBomba(i + 1, j);
-                    compruebaBomba(i, j + 1);     
-                    compruebaBomba(i, j - 1);   
+            if (j != matriz[1].length - 1)
+                if (matriz[i][j + 1].value == "")
+                    compruebaBomba(i, j + 1);
+            if (j != 0)
+                if (matriz[i][j - 1].value == "")
+                    compruebaBomba(i, j - 1);
+            if (j !== 0 && i !== matriz.length - 1)
+                if (matriz[i + 1][j - 1].value == "")
+                    compruebaBomba(i + 1, j - 1);
+            if (i != 0 && j != 0)
+                if (matriz[i - 1][j - 1].value == "")
+                    compruebaBomba(i - 1, j - 1);
+            if (i != matriz.length - 1 && j != matriz[1].length - 1)
+                if (matriz[i + 1][j + 1].value == "")
+                    compruebaBomba(i + 1, j + 1);
+            if (i != 0 && j != matriz[1].length - 1)
+                if (matriz[i - 1][j + 1].value == "")
+                    compruebaBomba(i - 1, j + 1);
+
         }
     }
     function limpiaDOM() {
