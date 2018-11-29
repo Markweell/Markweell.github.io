@@ -33,7 +33,11 @@ ul{
     margin:10px 120px;
 }
 #Atributos{
-    font-size: 3em;
+    font-size: 2em;
+    width: 50%;
+    list-style: none;
+    margin: 10px;
+
 }
 img{ 
     margin: 10px;
