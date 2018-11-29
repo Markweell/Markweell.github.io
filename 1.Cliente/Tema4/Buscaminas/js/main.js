@@ -1,5 +1,6 @@
 {
     /**
+     * 
      * @author Marcos Gallardo Pérez
      */
     let numMinas;
