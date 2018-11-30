@@ -9,6 +9,6 @@
         input.addEventListener("click",abrirLindoGatito);
     }
     function abrirLindoGatito(){
-        window.open("lindogatito.html","_SELF")
+        window.open("lindoGatito.html","_SELF")
     }
 }
