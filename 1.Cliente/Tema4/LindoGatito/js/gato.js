@@ -9,10 +9,12 @@
     let raza;
     let peso;
     let muerto;
+    let edad;
 
     function Gato(nombre,fechaDeNacimiento,raza,peso){
         this.nombre=nombre;
         this.fechaDeNacimiento=fechaDeNacimiento;
+        this.edad = getEdad(fechaDeNacimiento);
         this.raza=raza;
         this.peso=peso;
         this.muerto=false;
@@ -34,6 +36,10 @@
     Gato.prototype.getFecha = function(){
         return this.fechaDeNacimiento;
     }
+    function getEdad(fechaDeNacimiento){
+        return (new Date()).getFullYear() - fechaDeNacimiento.split('/')[2];
+    }
+    
     Gato.prototype.getPeso = function(){
         return this.peso;
     }

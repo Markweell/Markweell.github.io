@@ -41,6 +41,7 @@
         domFechaNacimiento.innerHTML = '<b>Fecha de Nacimiento:</b> ' + gato.getFecha();
         domRaza.innerHTML = '<b>Raza:</b> ' + gato.getRaza();
         domPeso.innerHTML = "<b>Peso:</b> " + gato.getPeso() + " kg";
+        domImg.title = gato.edad + " años";
     }
 
     function jugar() {
@@ -78,7 +79,6 @@
             inputNuevoGato.style.fontSize="30px";
             inputNuevoGato.addEventListener('click',()=>(window.open("lindoGatito.html","_SELF")));
         }
-
     }
 
     function generaNombreAleatorio() {
@@ -88,6 +88,7 @@
 
     function generaFechaAleatoria() {
         date = new Date(generaAleatorio(2005,2017), generaAleatorio(1,12),generaAleatorio(1,28));
+        
         return date.toLocaleDateString();
     }
 
@@ -103,4 +104,5 @@
     function generaAleatorio(min, max) {
         return Math.round(Math.random() * (max - min) + min);
     }
+
 }
