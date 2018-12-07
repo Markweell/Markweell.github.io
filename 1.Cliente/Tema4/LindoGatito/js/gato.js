@@ -11,7 +11,7 @@
     let muerto;
     let edad;
 
-    function Gato(nombre,fechaDeNacimiento,raza,peso){
+    function Gato(nombre ='Garfiel',fechaDeNacimiento=new Date(),raza='Siames',peso=14){
         this.nombre=nombre;
         this.fechaDeNacimiento=fechaDeNacimiento;
         this.edad = getEdad(fechaDeNacimiento);

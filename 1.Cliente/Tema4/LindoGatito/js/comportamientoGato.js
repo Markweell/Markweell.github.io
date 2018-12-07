@@ -68,6 +68,7 @@
     function comprobarVida() {
         if (gato.getMuerto()) {
             domImg.src = "img/gatoMuerto.jpg"
+            domImg.style.width="250px";
             domNombre.innerHTML = "<b>Nombre:</b>  ???"
             domFechaNacimiento.innerHTML = '<b>Fecha de Nacimiento:</b> ???'
             domRaza.innerHTML = '<b>Raza:</b> ???'
@@ -88,7 +89,6 @@
 
     function generaFechaAleatoria() {
         date = new Date(generaAleatorio(2005,2017), generaAleatorio(1,12),generaAleatorio(1,28));
-        
         return date.toLocaleDateString();
     }
 

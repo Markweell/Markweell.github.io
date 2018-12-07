@@ -7,3 +7,22 @@ body>div{
     text-align: center;
 
 }
+
+#contenedorFacil, #contenedorMedio, #contenedorDificil{
+    display: grid;
+    width: 60%;
+    margin: 0 auto; 
+    border: 5px solid black;
+}
+#contenedorFacil{ 
+    grid-template-columns: repeat(8,1fr);
+    grid-template-rows: repeat(8,100px);
+}
+#contenedorMedio{ 
+    grid-template-columns: repeat(16,1fr);
+    grid-template-rows: repeat(16,50px);
+}
+#contenedorDificil{
+    grid-template-columns: repeat(30,1fr);
+    grid-template-rows: repeat(30,25px);
+}

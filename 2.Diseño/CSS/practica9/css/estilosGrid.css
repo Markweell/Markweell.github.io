@@ -99,7 +99,7 @@ footer{
 }
 
 footer>div{
-    display: grid;
+    display:flex;
     grid-template-columns: 1fr 1fr;
     justify-content: space-between;	
     margin: 0px 20px;
