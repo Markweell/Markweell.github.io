@@ -3,7 +3,7 @@
      * 
      * @author Marcos Gallardo Pérez
      */
-    let numMinas;
+
     let matriz;
     let body;
 
@@ -12,6 +12,7 @@
      */
     function init() {
         body = document.getElementsByTagName('body')[0];
+
         document.getElementById('facilButton').addEventListener('click', function () {
             creacionTablero(1);
         });
@@ -21,10 +22,6 @@
         document.getElementById('dificilButton').addEventListener('click', function () {
             creacionTablero(3);
         });
-        document.getElementById('dificilButton').addEventListener('contextmenu', function () {
-            alert('hola')
-        });
-
 
         document.oncontextmenu = inhabilitar;
     }
@@ -32,10 +29,7 @@
     function inhabilitar() {
         return false
     }
-    /**
-     * Genera el tablero del buscamimas
-     * @param {Valor que va a determinar el numero de minas y lo grande que es el tablero} dificultad 
-     */
+
     function creacionTablero(dificultad) {
         buscaminas.Buscaminas(dificultad);
         matriz = buscaminas.matriz;
@@ -43,12 +37,9 @@
         creaTableroArbolDOM(dificultad);
     }
 
-
-    /**
-     * Crea el tablero con div;
-     */
     function creaTableroArbolDOM(dificultad) {
         contenedor = body.appendChild(document.createElement('div'));
+
         switch (dificultad) {
             case 1:
                 contenedor.id = "contenedorFacil"
@@ -108,7 +99,6 @@
             matriz[i][j].style.backgroundImage = "url(img/final.png)";
             matriz[i][j].style.backgroundSize = "cover";
             matriz[i][j].disabled = 'true';
-            //matriz[i][j].removeEventListener('click', () => compruebaBomba(i, j));
         }
 
         if (matriz[i][j].valor == 0) {
@@ -137,7 +127,6 @@
             if (i != 0 && j != matriz[1].length - 1)
                 if (matriz[i - 1][j + 1].value == "")
                     compruebaBomba(i - 1, j + 1);
-
         }
     }
 
@@ -149,7 +138,7 @@
         } else {
             matriz[i][j].style.backgroundImage = "url(img/bandera.jpg)";
             matriz[i][j].style.backgroundSize = "cover";
-            matriz[i][j].bandera =true;
+            matriz[i][j].bandera = true;
         }
     }
 
