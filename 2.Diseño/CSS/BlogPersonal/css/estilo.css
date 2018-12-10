@@ -1,61 +1,265 @@
-.enunciado{
-    /* Estilo temporal */
-    padding: 1rem;
-    border-radius: 3px;
-    background: #263238;
-    color: #fff;
-    font-size: 1.2rem;
-
-    -webkit-box-shadow: -3px 10px 5px -11px rgba(0,0,0,0.75);
-    -moz-box-shadow: -3px 10px 5px -11px rgba(0,0,0,0.75);
-    box-shadow: -3px 10px 5px -11px rgba(0,0,0,0.75);
+aside,
+article,
+body>header,
+footer {
+  background-color: #f1f1f1;
+  color: #333;
+  border-top: 3px solid #333;
+  border-left: 3px solid #333;
 }
-
-.informationBox {
-  border: 2px solid #000;
-  width: 300px;
-  min-height: 150px;
-  padding: 20px 15px;
-}
-
-.enlace a {
-
+*{
   text-decoration: none;
-  color: #fff;
-  padding: 8px;
-  border-radius: 3px;
-  background: #f50057;
-  font-size: 1.2rem;
-  -webkit-box-shadow: -3px 10px 5px -11px rgba(0,0,0,0.75);
-  -moz-box-shadow: -3px 10px 5px -11px rgba(0,0,0,0.75);
-  box-shadow: -3px 10px 5px -11px rgba(0,0,0,0.75);
+}
+
+body {
+  background: url("../img/fondoCafe.jpg");
+  color: #f1f1f1;
+  font-family: "Arial";
+}
+
+body>header {
+  background: url(../img/icono.png) 2% center/contain no-repeat, url(../img/imagenIcono.jpg) 2% center /cover;
+  filter: saturate(200%);
+  padding: 10px;
+  color: #f1f1f1;
+  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+  grid-area: header;
+  width: 80%;
+  font-size: 3em;
+  text-align: center;
+  height: 75px;
+  margin: 10px auto;
+  border: 4px solid #f1f1f1;
 
 }
 
-.paddingMarginOff {
+.contenido {
+  width: 80%;
+  height: 1000px;
+  margin: 10px auto;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 6fr 1fr;
+  grid-template-areas:
+    "aside contenido"
+    "aside contenido";
+  grid-gap: 15px 10px;
+}
+
+.contenidoPrincipal {
+  grid-area: contenido;
+}
+.contenidoAlternativo{
+  grid-area: contenido;
+}
+
+.contenidoPrincipal>main {
+  display: grid;
+  height: 95%;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  grid-gap: 15px 10px;
+}
+
+article {
+  display: grid;
+  padding: 10px;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 2fr;
+  grid-template-areas:
+    "arheader arheader"
+    "arimg arp";
+  grid-gap: 10px 10px;
+  transition-duration: 1s;
+}
+
+article:hover header {
+  transition: 1s;
+  text-shadow: 2px 0 0 #333, -2px 0 0 #333, 0 2px 0 #333, 0 -2px 0 #333, 1px 1px #333, -1px -1px 0 #333, 1px -1px 0 #333, -1px 1px 0 #333;
+
+}
+
+article:hover div {
+  transition-duration: 1s;
+  transform: rotate(5deg)
+}
+
+
+article>header {
+  grid-area: arheader;
+  text-align: center;
+  color: #f1f1f1;
+  text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
+  font-size: 2em;
+  border-bottom: 1px solid black;
+}
+
+article>header>p {
+  margin: 30px 0px 0px 0px;
+
+
+}
+
+article>p {
+  grid-area: arp;
   padding: 0px;
   margin: 0px;
+  font-family: 'AGaramondProItalic';
+  font-size: 15px;
+  text-align: justify;
+  padding: 2px;
 }
 
+article>div {
+  width: 100%;
+  height: 90%;
+  background: url(../img/cafeArticle.jpg) center/contain no-repeat;
+  grid-area: arimg;
+  padding: 2px;
+}
 
-
-#container {
-  font-family: 'Noto Sans', sans-serif;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  min-height: 100vh;
+.paginacion {
+  grid-area: paginacion;
   width: 100%;
 }
 
-#container div {
+ul {
+  list-style: none;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
+
 }
 
-.pulsacion {
-  background-color: #69F0AE;
-  color: #fff;
+nav li, .paginacion li, footer li {
+  background-color: #f1f1f1;
+  color: #333;
+  text-align: center;
+  width: 100px;
+  height: 20px;
+  margin: 10px;
+  transition-duration: 1s;
+  border-top: 3px solid #333;
+  border-left: 3px solid #333;
+  border-right: 0px solid #333;
+  border-bottom: 0px solid #333;
+
 }
 
+li:hover {
+  border-top: 0px solid #333;
+  border-left: 0px solid #333;
+  border-right: 3px solid #333;
+  border-bottom: 3px solid #333;
+  transition-duration: 1s;
+  transform: scale(1.2);
+}
+a:visited{
+  text-decoration: none;
+  color:#333;
+}
+li:active {
+  transition-duration: 0s;
+  transform: scale(0.90);
+}
+
+.contenido>div>div>ul>li {
+  width: 20px;
+  height: 20px;
+}
+
+aside {
+  grid-area: aside;
+}
+
+aside>canvas {
+  width: 100%;
+}
+
+
+footer {
+  width: 80%;
+  height: 75px;
+  margin: 10px auto;
+  grid-area: footer;
+  display: flex;
+  justify-content: space-between;
+}
+
+footer li{
+  width: 70px;
+  padding: 2.5px 15px;
+}
+
+footer ul {
+  display: flex;
+}
+
+i {
+  font-size: 15px;
+}
+
+i>p {
+  margin: 0px;
+  font-size: 8px;
+}
+
+#nombrePersonal {
+  font-size: 20px;
+
+}
+aside>ul{
+  padding: 0px;
+  width: 80%;
+  display: flex;
+  flex-direction:column;
+}
+aside li{
+  width: 100%;
+  margin: 10px 0px 0px 20px;
+}
+aside p{
+  font-size: 1.5em;
+  margin: 10px 0px 0px 20px;
+}
+
+#imagenConocenos{
+  background: url(../img/perfil.PNG) center/contain no-repeat;
+  height: 200px;
+}
+
+#articleContacto{
+  width: 100%;
+}
+#articleContacto header{
+  height: 100px;
+}
+#articleContacto form{
+  text-align: center;
+  width: 100%;
+  padding: 0px;
+}
+
+#inputForm{
+  margin: 10px 40% 10px 40%;
+  padding: 0px;
+  width: 500px;
+}
+
+#inputForm:focus:required:invalid {
+  border-color: red;
+}
+
+#inputForm:required:valid {
+  border-color: green;
+}
+
+svg{
+  height:"140";
+   width:"250"
+}
+svg>ellipse{
+  fill:brown;stroke:#333;stroke-width:2;
+}
+svg>polyline{
+  fill:brown;stroke:#333;stroke-width:10;
+}
