@@ -29,14 +29,13 @@ class Factura {
 
     constructor(cliente, empresa, elemento) {
         this.compruebaCampos(cliente, empresa, elemento);
+        this._date = new Date();
+        this.cliente = cliente;
+        this.elemento = elemento;
 
         if (this.contador == undefined)
             this.contador = 0;
         this.contador += 1;
-
-        this._date = new Date();
-        this.cliente = cliente;
-        this.elemento = elemento;
     }
     compruebaCampos(cliente, empresa, elemento) {
         if (!(cliente instanceof Cliente))

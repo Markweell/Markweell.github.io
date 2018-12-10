@@ -4,10 +4,11 @@
     function init() {
 
         cliente = new Cliente('marcos', 'C/felicianaEnriquez', '999999999', '0000000');
+        empresa = new Empresa('marcos', 'C/felicianaEnriquez', '999999999', '0000000');
         elemento = new Elemento("Deasdqwe", 8, 9);
 
         try {
-            factura = new Factura(cliente, elemento);
+            factura = new Factura(cliente,empresa, elemento);
         } catch (e) {
             if (e instanceof InstanceException) {
                 console.log(e);

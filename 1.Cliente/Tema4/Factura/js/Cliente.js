@@ -1,4 +1,5 @@
 class Cliente {
+    
 
     constructor(nombre, direccion, telefono, nif) {
         this.compruebaCampos(nombre,direccion,telefono,nif);
