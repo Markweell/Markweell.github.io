@@ -1,6 +1,6 @@
 let contexto;
 img = new Image();
-img.src = 'img/perfil.PNG';
+img.src = 'img/perfil.png';
 
 function cargarContexto(idCanvas) {
   let elemento = document.getElementById(idCanvas);

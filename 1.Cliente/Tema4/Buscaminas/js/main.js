@@ -22,7 +22,7 @@
         document.getElementById('dificilButton').addEventListener('click', function () {
             creacionTablero(3);
         });
-
+        
         document.addEventListener('contextmenu',inhabilitarMContextual) ;
     }
 
