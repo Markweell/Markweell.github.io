@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="author" content="Marcos Gallardo Pérez">
+    <meta name="date" content="2018-12-11" shemme="YYYY-MM-DD">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/main.js"></script>
+    <title>Formulario Completito</title>
+</head>
+
+<body>
+    <noscript>Para el correcto funcionamiento de la web tienes que activar el JavaScript</noscript>
+    <div>
+        <form action="index.html" method="post"></form>
+        <p> DNI:
+            <input type="text" name="dni" id="dni" placeholder="DNI: "><span id="sdni"> Formato de Dni no valido</span>
+        </p>
+        <p> Email:
+            <input type="email" name="email" id="email" placeholder="Email: "><span id="semail"></span>
+        </p>
+        <p>Number:
+            <input type="number" name="number" id="number" placeholder="Number"><span id="snumber"></span>
+        </p>
+        <p>Fecha:
+            <input type="date" name="number" id="date" placeholder="Date: "><span id="sdate"></span>
+        </p>
+        <p>Telefono:
+            <input type="tel" name="telefono" id="telefono" placeholder="Telefono: "><span id="stelefono"></span>
+        </p>
+        <p>Numero de Cuenta Corriente:
+            <input type="text" name="numCuCorriente" id="numCuCorriente" placeholder="Cuenta Corriente: "><span id="snuCuCorriente"> Formato de Cuenta Corriente no valido</span>
+        </p>
+        <p>URL:
+            <input type="url" name="url" id="url" placeholder="url"><span id="surl"></span>
+        </p>
+        <input type="button" value="Send" id="button" name="button"><span id="sbutton"></span>
+        </form>
+    </div>
+
+</body>
+
+</html>
