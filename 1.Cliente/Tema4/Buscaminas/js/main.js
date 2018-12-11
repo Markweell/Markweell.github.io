@@ -23,11 +23,11 @@
             creacionTablero(3);
         });
 
-        document.oncontextmenu = inhabilitar;
+        document.addEventListener('contextmenu',inhabilitarMContextual) ;
     }
 
-    function inhabilitar() {
-        return false
+    function inhabilitarMContextual(ev) {
+        ev.preventDefault();
     }
 
     function creacionTablero(dificultad) {
