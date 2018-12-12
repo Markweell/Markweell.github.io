@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Factura</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/Factura.js"></script>
+    <script src="js/Cliente.js"></script>
+    <script src="js/Elemento.js"></script>
+    <script src="js/Empresa.js"></script>
+    <script src="js/exception.js"></script>
+    <script src="js/Factura.view.js"></script>
+</head>
+
+<body>
+    <h1>Marcos Gallardo Pérez</h1>
+    <h2>Factura</h2>
+    <form action="factura.html" method="post">
+        <div id="cliente">
+            <h1>Cliente</h1>
+            <span>Nombre: </span> <input type="text" name="nombreCliente" id="nombreCliente" placeholder="Nombre:"><br>
+            <span>Direccion: </span> <input type="text" name="direccionCliente" id="direccionCliente" placeholder="Direccion: "><br>
+            <span>Telefono: </span> <input type="tel" name="telefonoCliente" id="telefonoCliente" placeholder="Telefono: ">
+            <br>
+            <span>DNI: </span> <input type="text" name="dniCliente" id="dniCliente" placeholder="Dni: "><br>
+
+        </div>
+        <div id="empresa">
+            <h1>Empresa</h1>
+            <span>Nombre: </span> <input type="text" name="nombreEmpresa" id="nombreEmpresa" placeholder="Nombre: "><br>
+            <span>Direccion: </span> <input type="text" name="direccionEmpresa" id="direccionEmpresa" placeholder="Direccion: "><br>
+            <span>Telefono: </span> <input type="tel" name="telefonoEmpresa" id="telefonoEmpresa" placeholder="Telefono: "><br>
+            <span>NIF: </span> <input type="text" name="dniEmpresa" id="dniEmpresa" placeholder="Dni: "><br>
+        </div>
+        <div class="elemento">
+            <h1>Elementos</h1>
+            <span>Cantidad: </span> <input type="number" name="cantidadElemento" id="cantidadElemento1" placeholder="Cantidad: ">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>Precio: </span> <input type="number" name="precioElemento" id="precioElemento1" placeholder="Precio: ">
+            <span>Euros</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>IVA:</span> <select id = "ivaElemento1" name="ivaElemento">
+                <option>4%</option>
+                <option>10%</option>
+                <option>21%</option>
+            </select>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span>Descripción: </span><input type="text" name="descripcionElemento" id="descripcionElemento1">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <input type="button" value="+" id="buttonElemento"><br> 
+        </div>
+        <input type="button" value="Enviar Todo" id="button">
+    </form>
+</body>
+
+</html>

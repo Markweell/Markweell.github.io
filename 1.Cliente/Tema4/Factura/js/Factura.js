@@ -1,78 +1,71 @@
-// factura = (function () {
+/**
+ * Clase Factura.
+ * @author Marcos Gallardo Pérez
+ * @param {Cliente de la factura} cliente 
+ * @param {Empresa de la factura} empresa 
+ * @param {Elementos que se ofrecen en la factura} elementos 
+ */
+function Factura(cliente, empresa, elementos) {
+    this.date = (new Date()).toDateString();
+    this.cliente = cliente;
+    this.empresa = empresa;
+    this.elementos = elementos;
+    
+    this.baseImponible = this.calcularBaseImponible();
+    this.cuotaTributaria = this.calcularCuotaTributaria();
+    this.precioFinal = this.baseImponible +this.cuotaTributaria;
 
-//     function Factura(cliente, elementos) {
-//         this.cliente = cliente;
-//         this.elementos = elementos;
-//         this.informacion = {
-//             baseImponible: 0,
-//             iva: 16,
-//             total: 0,
-//             formaPago: "contado"
-//         };
-//     }
+    this.id = this.uniqueID();
+}
+/**
+ * Genera un id unico. 
+ */
+Factura.prototype.uniqueID = (function() {
+    var id = 0; 
+    return function() { return id++; };  
+ })();
 
-//     getCliente = function(){
-//         return this.cliente;
-//     }
-
-
-//     function getElementos() {
-//         return this.elementos;
-//     }
-//     return {
-//         Factura(cliente,elementos) : ()=>(Factura(cliente,elementos)),
-//         getCliente : getCliente
-//     }
-// })();
-
-class Factura {
-
-    constructor(cliente, empresa, elemento) {
-        this.compruebaCampos(cliente, empresa, elemento);
-        this._date = new Date();
-        this.cliente = cliente;
-        this.elemento = elemento;
-
-        if (this.contador == undefined)
-            this.contador = 0;
-        this.contador += 1;
-    }
-    compruebaCampos(cliente, empresa, elemento) {
-        if (!(cliente instanceof Cliente))
-            throw new InstanceException("Es necesario que el cliente sea de la Clase cliente.");
-        if (!(empresa instanceof Empresa))
-            throw new InstanceException("Es necesario que la empresa sea de la Clase Empresa.");
-        if (!(elemento instanceof Elemento))
-            throw new InstanceException("Es necesario que el elemento sea de la Clase Elemento.");
-    }
-    getCliente() {
-        return this.cliente;
-    }
-    getElemento() {
-        return this.elemento;
-    }
-    get date() {
-        return this._date.toLocaleDateString();
-    }
-
-    set date(newDate) {
-        if (newDate instanceof Date)
-            this._date = newDate
-        else
-            throw new InstanceException("El campo Date debe ser una fecha.")
-    }
-
+ /**
+  * Comprueba que los campos sean las clases pertinentes.
+  */
+Factura.prototype.compruebaCampos = function (cliente, empresa) {
+    if (!(cliente instanceof Cliente))
+        throw new InstanceException("Es necesario que el cliente sea de la Clase cliente.");
+    if (!(empresa instanceof Empresa))
+        throw new InstanceException("Es necesario que la empresa sea de la Clase Empresa.");
 }
 
+/**
+ * Calcula la base imponible
+ */
+Factura.prototype.calcularBaseImponible = function () {
+    sumatorioPrecio = 0;
+    for (element of this.elementos) {
+        sumatorioPrecio += element.cantidad * element.precio;
+    }
+    return sumatorioPrecio;
+}
 
+/**
+ * Calcula la cuota tributaria
+ */
+Factura.prototype.calcularCuotaTributaria = function () {
+    let sumatorioIvas = 0;
+    let iva;
+    for (element of this.elementos) {
+        switch (element.iva) {
+            case '4%':
+                iva = 0.04;
+                break;
+            case '10%':
+                iva = 0.1;
+                break;
+            case '21%':
+                iva = 0.21;
+                break;
+        }
+        sumatorioIvas += element.cantidad * element.precio*iva;
+    }
+    return sumatorioIvas;
 
-
-
-
-// console.log(typeof cliente);
-// console.log(cliente instanceof Cliente)  
-// console.log(elemento instanceof Cliente)  
-// console.log(cliente instanceof Elemento);
-// console.log(elemento instanceof Elemento);
-// console.log(elemento instanceof Object);
-// console.log(cliente instanceof Object);
+}

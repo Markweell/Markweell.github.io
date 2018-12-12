@@ -1,0 +1,56 @@
+h1,
+h2 {
+    text-align: center;
+
+}
+
+form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: 
+    "cliente empresa"
+    "elemento elemento"
+    "button button";
+    grid-gap: 10px;
+}
+
+#cliente,
+#empresa
+ {
+    display: grid; 
+    border: 1px solid black;
+    padding: 5px;
+}
+
+
+#cliente {
+    grid-area: cliente;
+}
+
+#empresa {
+    grid-area: empresa;
+}
+
+.elemento {
+    grid-area: elemento;
+    padding: 10px;
+    border: 1px solid black;
+}
+.elemento>h1{
+    width: 100%;
+}
+
+#button {
+    grid-area: button;
+    background-color: yellow;
+}
+
+input,
+select,
+textarea {
+    margin-bottom: 10px;
+}
+#button{
+    font-size: 40px;
+    height: 100px;
+}
