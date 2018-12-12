@@ -4,7 +4,7 @@
 
     let button;
     var inputs;
-
+var chet;
     function init() {
         button = buscaPorId("button");
         inputs = document.getElementsByTagName("input");
@@ -14,9 +14,10 @@
     function checkearCampos(ev) {
         for (element of inputs) {
             if (element.id == "sexoH" || element.id == "sexoM" || element.id == "TermUso" || element.id == "button") {
-
+                if(element.id == "TermUso"){
+                    (element.checked) ? buscaPorId("sTermUso").innerHTML ="":buscaPorId("sTermUso").innerHTML ="Se requiere aceptar los terminos";
+                }
             } else {
-                //element.addEventListener('blur', comprobarCampo.bind(element));
                 asignaRegexYMensaje(element);
                 comprobarCampo(element);
             }
