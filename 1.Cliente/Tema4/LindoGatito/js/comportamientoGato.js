@@ -14,20 +14,12 @@
 
     function init() {
         domImg = document.getElementsByTagName('img')[0];
-        domNombre = document.getElementsByTagName('li')[0];
-        domFechaNacimiento = document.getElementsByTagName('li')[1];
-        domRaza = document.getElementsByTagName('li')[2];
-        domPeso = document.getElementsByTagName('li')[3];
-        domEstado = document.getElementsByTagName('li')[4];
-
+        [domNombre,domFechaNacimiento,domRaza,domPeso,domEstado] =document.getElementsByTagName('li');   
 
         document.getElementById("jugar").addEventListener('click', jugar);
         document.getElementById("comer").addEventListener('click', comer);
         document.getElementById("dormir").addEventListener('click', dormir);
 
-
-        // domImg.src = "img/gato2.jpg";
-        // domImg.style.width = '400px';
         crearGato();
         actualizarDOM();
     }
@@ -72,7 +64,7 @@
             domNombre.innerHTML = "<b>Nombre:</b>  ???"
             domFechaNacimiento.innerHTML = '<b>Fecha de Nacimiento:</b> ???'
             domRaza.innerHTML = '<b>Raza:</b> ???'
-            domPeso.innerHTML = "<b>Peso:</b> ??? kg";
+            domPeso.innerHTML = "<b>Peso:</b> ???";
             domEstado.innerHTML = "<h3>" + gato.getNombre() + " ha muerto!! =(</h3>"
             inputNuevoGato = domEstado.appendChild(document.createElement('input'));
             inputNuevoGato.type="button";

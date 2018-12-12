@@ -1,3 +1,5 @@
+//Manera útil de hacer una clase
+/*
 class Empresa{
 
     constructor(nombre,direccion,telefono,nif){
@@ -12,3 +14,6 @@ class Empresa{
     }
 
 }
+/*
+*/
+

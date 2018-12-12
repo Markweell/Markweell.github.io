@@ -4,13 +4,6 @@
      * @author Marcos Gallardo Pérez
      */
 
-    let nombre;
-    let fechaDeNacimiento;
-    let raza;
-    let peso;
-    let muerto;
-    let edad;
-
     function Gato(nombre ='Garfiel',fechaDeNacimiento=new Date(),raza='Siames',peso=14){
         this.nombre=nombre;
         this.fechaDeNacimiento=fechaDeNacimiento;
@@ -18,7 +11,6 @@
         this.raza=raza;
         this.peso=peso;
         this.muerto=false;
-        //console.log(this.getNombre());
     }
 
     Gato.prototype.jugar = function(){
@@ -46,7 +38,5 @@
     Gato.prototype.getMuerto = function(){
         return this.muerto;
     }
-
-
 
 }
