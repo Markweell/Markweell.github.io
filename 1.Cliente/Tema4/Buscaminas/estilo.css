@@ -1,0 +1,64 @@
+.enunciado{
+    /* Estilo temporal */
+    padding: 1rem;
+    border-radius: 3px;
+    background: #263238;
+    color: #fff;
+    font-size: 1.2rem;
+
+    -webkit-box-shadow: -3px 10px 5px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: -3px 10px 5px -11px rgba(0,0,0,0.75);
+    box-shadow: -3px 10px 5px -11px rgba(0,0,0,0.75);
+}
+main{
+  display: grid;
+  grid-template-columns: repeat(2,1fr)
+}
+.informationBox {
+  border: 2px solid #000;
+  width: 300px;
+  min-height: 150px;
+  padding: 20px 15px;
+}
+
+.enlace a {
+
+  text-decoration: none;
+  color: #fff;
+  padding: 8px;
+  border-radius: 3px;
+  background: #f50057;
+  font-size: 1.2rem;
+  -webkit-box-shadow: -3px 10px 5px -11px rgba(0,0,0,0.75);
+  -moz-box-shadow: -3px 10px 5px -11px rgba(0,0,0,0.75);
+  box-shadow: -3px 10px 5px -11px rgba(0,0,0,0.75);
+
+}
+
+.paddingMarginOff {
+  padding: 0px;
+  margin: 0px;
+}
+
+
+
+#container {
+  font-family: 'Noto Sans', sans-serif;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  min-height: 100vh;
+  width: 100%;
+}
+
+#container div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.pulsacion {
+  background-color: #69F0AE;
+  color: #fff;
+}
+

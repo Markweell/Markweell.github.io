@@ -36,7 +36,7 @@ Factura.prototype.compruebaCampos = function (cliente, empresa) {
 }
 
 /**
- * Calcula la base imponible
+ * Calcula la base imponible.
  */
 Factura.prototype.calcularBaseImponible = function () {
     sumatorioPrecio = 0;
@@ -47,7 +47,7 @@ Factura.prototype.calcularBaseImponible = function () {
 }
 
 /**
- * Calcula la cuota tributaria
+ * Calcula la cuota tributaria.
  */
 Factura.prototype.calcularCuotaTributaria = function () {
     let sumatorioIvas = 0;

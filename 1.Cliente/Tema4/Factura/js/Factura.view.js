@@ -76,8 +76,8 @@
             <p> Base imponible:${factura.baseImponible} €</p>
             <p> Cuota Tributaria: ${factura.cuotaTributaria} € </p>
             <p> <h3>Importe total: ${factura.precioFinal} €</h3></p>
-            <span>${factura.id}</span>
-            <span>${factura.date}</span>
+            <span>id: 65489653${factura.id}</span>
+            <span>fecha: ${factura.date}</span>
             `
         );
         ventana.document.close();
