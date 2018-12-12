@@ -8,6 +8,7 @@ let patrones = {
     url:[/^(http|https)\:\/\/([a-z0-9]+\.)+[a-z]{2,4}$/, "Formato valido: http:asdqwe.asd24.ase "],
     email:[/[a-z]{3,16}\@[a-z]{1,7}\.[a-z]{1,3}/,"Formato valido: adwesdaw@asdqwe.asdas"],
     number:[/\d*/,"Permite uno o infinitos numeros."],
-    telefono: [/^\d{9}$/,"Permite nueve numeros."],
-    numCuCorriente:[/^[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{4}[0-9]{7}([a-zA-Z0-9]?){0,16}$/,"Permite cadenas tipo IBAN (todos los IBAN)"]
+    telefono: [/^\d{9}$/,"Se requieren nueve numeros para un teléfono"],
+    numCuCorriente:[/^\d*$/,"Permite cadenas tipo IBAN (todos los IBAN)"]
 };
+//[a-zA-Z]{2}[0-9]{2}[a-zA-Z0-9]{4}[0-9]{7}([a-zA-Z0-9]?){0,16}

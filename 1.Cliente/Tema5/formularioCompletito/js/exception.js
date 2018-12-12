@@ -1,8 +1,8 @@
-class CampoVacioException extends Error {
+class FormularioException extends Error {
 
     constructor(mensaje) {
         super(mensaje);
-        this.name = 'CampoVacioException';
+        this.name = 'FormularioException';
     }
 
 }

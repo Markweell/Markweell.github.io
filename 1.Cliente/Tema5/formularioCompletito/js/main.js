@@ -4,7 +4,8 @@
 
     let button;
     var inputs;
-var chet;
+    var chet;
+
     function init() {
         button = buscaPorId("button");
         inputs = document.getElementsByTagName("input");
@@ -14,12 +15,13 @@ var chet;
     function checkearCampos(ev) {
         for (element of inputs) {
             if (element.id == "sexoH" || element.id == "sexoM" || element.id == "TermUso" || element.id == "button") {
-                if(element.id == "TermUso"){
-                    (element.checked) ? buscaPorId("sTermUso").innerHTML ="":buscaPorId("sTermUso").innerHTML ="Se requiere aceptar los terminos";
+                if (element.id == "TermUso") {
+                    (element.checked) ? buscaPorId("sTermUso").innerHTML = "": buscaPorId("sTermUso").innerHTML = "Se requiere aceptar los terminos";
                 }
             } else {
                 asignaRegexYMensaje(element);
                 comprobarCampo(element);
+                irAlPrimerFallo();
             }
         }
     }
@@ -34,11 +36,25 @@ var chet;
         let span = buscaPorId(id);
         if (valor == null || valor.length == 0 || /^\s+$/.test(valor)) {
             span.innerHTML = " Este campo es obligatorio"
+
         } else if (!element.regex.test(valor)) {
-            span.innerHTML = "" + input.mensajeError;
+            span.innerHTML = " " + input.mensajeError;
         } else {
             span.innerHTML = "";
         }
+    }
+
+    function irAlPrimerFallo() {
+        try {
+            Array.from(document.getElementsByTagName("span")).forEach(element => {
+                if (element.textContent != "") {
+                    //element.scrollIntoView();
+                    buscaPorId(element.id.replace('s','')).focus();
+                    throw new FormularioException('Error!');
+                }
+                window.scrollTo(0, 0);
+            });
+        } catch (e) {}
     }
 
     function buscaPorId(id) {
