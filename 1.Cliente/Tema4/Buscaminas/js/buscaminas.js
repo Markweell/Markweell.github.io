@@ -9,6 +9,7 @@
 
 buscaminas = {
     matriz:[],
+
     Buscaminas: function (dificultad) {
         switch (dificultad) {
             case 1:
@@ -22,6 +23,7 @@ buscaminas = {
                 break;
         }
     },
+    
     crearTablero: function (x, y, numMinas) {
         buscaminas.generaMatrizVacia(x, y);
         buscaminas.insertarMinas(numMinas);
@@ -50,6 +52,7 @@ buscaminas = {
         }
         buscaminas.actualizaTablero();
     },
+
     actualizaTablero: function () {
         for (let i = 0; i < buscaminas.matriz.length; i++) {
             for (let j = 0; j < buscaminas.matriz[1].length; j++) {
@@ -83,6 +86,7 @@ buscaminas = {
         }
 
     },
+
     generaNumeroAleatorio : function(min,max){
         return Math.round(Math.random()*(max-min)+min);
     }

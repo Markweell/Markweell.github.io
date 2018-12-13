@@ -6,13 +6,15 @@
 
     let matriz;
     let body;
+    let divReloj;
+    let intervalo;
 
     /**
      * Carga de los elementos y funciones básicas para el comportamiento de la página.
      */
     function init() {
         body = document.getElementsByTagName('body')[0];
-
+        divReloj = document.getElementById("reloj");
         document.getElementById('facilButton').addEventListener('click', function () {
             creacionTablero(1);
         });
@@ -22,8 +24,9 @@
         document.getElementById('dificilButton').addEventListener('click', function () {
             creacionTablero(3);
         });
-        
-        document.addEventListener('contextmenu',inhabilitarMContextual) ;
+
+        document.addEventListener('contextmenu', inhabilitarMContextual);
+
     }
 
     function inhabilitarMContextual(ev) {
@@ -31,6 +34,8 @@
     }
 
     function creacionTablero(dificultad) {
+        resetearReloj();
+        reloj();
         buscaminas.Buscaminas(dificultad);
         matriz = buscaminas.matriz;
         limpiaDOM();
@@ -91,6 +96,7 @@
                         matriz[i][j].style.backgroundImage = "url(img/mina.png)";
                         matriz[i][j].style.backgroundSize = "cover";
                         matriz[i][j].value = "";
+                        resetearReloj();
                     }
                 }
             }
@@ -145,6 +151,37 @@
     function limpiaDOM() {
         body.removeChild(body.childNodes[body.childNodes.length - 1])
     }
+
+    function reloj() {
+        let hours;
+        let minutes;
+        let seconds;
+        s = 1;
+        m = 0;
+        h = 0;
+        divReloj.textContent ="00:00:00";
+        intervalo = setInterval(() => {
+            if (s == 60) {
+                s = 0;
+                m++;
+                if(m==60){
+                    h++;
+                    m=0;
+                }
+            }
+            hours = ("0" + h).slice(-2);
+            minutes = ("0" + m).slice(-2);
+            seconds = ("0" + s).slice(-2);
+
+            divReloj.textContent = hours + ":" + minutes + ":" + seconds;
+            s++;
+        }, 1000);
+        
+    }
+
+    function resetearReloj(){
+        window.clearInterval(intervalo);
+    };
 
     document.addEventListener('DOMContentLoaded', init);
 }
