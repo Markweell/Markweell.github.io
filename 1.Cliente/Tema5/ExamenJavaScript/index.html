@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="author" content="Marcos Gallardo Pérez">
+    <title>Marcos Gallardo Pérez</title>
+    <script src="js/Reserva.js"></script>
+    <script src="js/main.js"></script>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+
+<body>
+    <noscript>Para el correcto funcionamiento de la página es necesario tener el javascript activado</noscript>
+    <h1>Examen Diciembre de 2018</h1>
+    <h1>Marcos Gallardo Pérez</h1>
+    <p>Bienvenido a la página de reservas de la casa rural "Mantita y chimenea". Reservar con nosotros es fácil.
+        Completa este formulario de reserva. Le enviaremos un email con la forma de pago. Recuerda efectuar el pago de
+        tu reserva. El plazo máximo es de 48 horas desde la fecha de reserva.
+    </p>
+    <form action="index.html" method="post">
+
+        <label for="nombre">Nombre completo:</label>
+        <input type="text" name="nombre" id="nombre" placeholder="Nombre: "><span id=snombre></span>
+        <br>
+        <label for="correo">Correo Electrónico: </label>
+        <input type="text" name="correo" id="correo" placeholder="Correo: "><span id=scorreo></span>
+        <br>
+        <label for="fecha">Fecha de llegada: </label>
+        <input type="text" name="fecha" id="fecha" placeholder="Fecha de llegada: "><span id="sfecha"></span>
+        <br>
+        <label for="hora">Hora de llegada: </label>
+        <input type="text" name="hora" id="hora" placeholder="Hora de llegada:  "><span id="shora"></span>
+        <br>
+        <label for="numNoches">Número de noches</label>
+        <input type="text" name="numNoches" id="numNoches" placeholder="Numero de noches: "><span id="snumNoches"></span>
+        <br>
+        <label for="numPersonas">Número de personas</label>
+        <input type="text" name="numPersonas" id="numPersonas" placeholder="Numero de personas:"><span id="snumPersonas"></span>
+        <br>
+        <div id='servicio'> Servicio de restaurante:
+            <p><input type="checkbox" name="servRestaurante" id="servRestauranteD">Desayuno</p>
+            <p><input type="checkbox" name="servRestaurante" id="servRestauranteA">Almuerzo</p>
+            <p><input type="checkbox" name="servRestaurante" id="servRestauranteC">Cena</p>
+        </div>
+        <div id='edad'> Edad del cliente: <br>
+            <input type="radio" name="edad" id="edad20" > Menos de 20<br>
+            <input type="radio" name="edad" id="edad20y40" > Entre 20 y 40 <br>
+            <input type="radio" name="edad" id="edad40" >Más de 40 <br>
+        </div>
+        
+        <p><input type="button" value="Enviar todo" id="button"></p>
+    </form>
+</body>
+
+</html>

@@ -1,0 +1,18 @@
+h1{
+    text-align: center;
+    
+}
+#servicio, #edad{
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+}
+input{
+    margin-bottom: 10px;
+}
+#button{
+    background-color:red;
+    font-size: 30px;
+    height: 100px;
+    width: 100%;
+}
