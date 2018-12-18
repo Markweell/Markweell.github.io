@@ -4,7 +4,7 @@ let patrones = {
 
     dni: [[/^(\d{8})[- ]?([TRWAGMYFPDXBNJZSQVHLCKET])$/i,["T", "R", "W", "A", "G", "M", "Y", "F", "P", "D", "X", "B", "N", "J", "Z", "S", "Q", "V", "H", "L", "C", "K", "E", "T"] ],'Formato valido 12345678Z'],
 
-    date:[/\d\d\d\d([-/ ])\d\d\1\d\d/,'Formatos validos: 11/12/2017, 11 12 2017, 11-12-2017'],
+    date:[/\d\d\d\d([-/ ])\d\d\1\d\d/,'Formatos validos YYYY-MM-DD: 2017/12/11, 2017 11 12, 2017-11-12'],
 
     url:[/^(http|https)\:\/\/([a-z0-9]+\.)+[a-z]{2,4}$/, "Formato valido: http:asdqwe.asd24.ase "],
 

@@ -1,0 +1,34 @@
+/*---------------Formulario Tarea-------------------*/
+main {
+    grid-template-columns: 1fr;
+}
+
+#formularioNuevaTarea {
+    margin: 10px;
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 10px;
+    text-align: left;
+}
+
+#formularioNuevaTarea>input {
+    border-radius: 10px;
+    padding: 10px;
+}
+#formularioNuevaTarea input{
+    box-shadow: 2.5px 2.5px 3px 3px gray;
+}
+#formularioNuevaTarea input:focus:invalid {
+    border-color: red;
+}
+
+#formularioNuevaTarea input:focus:valid{
+    border-color:  green;
+}
+
+@media only screen and (min-width:1280px) {
+    #formularioNuevaTarea {
+        width: 60%;
+    }
+}

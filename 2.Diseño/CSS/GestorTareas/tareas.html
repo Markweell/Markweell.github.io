@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="date" content="2018-12-10" scheme="YYYY-MM-DD">
+        <meta name="author" content="Marcos Gallardo Pérez">
+        <link rel="stylesheet" href="css/estilos.css">
+        <link rel="stylesheet" href="css/estilosFormulario.css">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+            crossorigin="anonymous">
+        <script src="js/main.js"></script>
+        <title>Marcos Gallardo Pérez</title>
+    </head>
+
+    <body>
+        <div id="cabezeraMixta">
+            <header>
+                <h1>Marcos Gallardo Pérez</h1> <img src="img/perfil.PNG" alt="perfil">
+            </header>
+            <nav>
+                <ul class="desplegable">
+                    <li>
+                        <p id='menuHamburger'><a href="#"><i class="fas fa-bars varVisible"></i></a></p>
+                        <ul>
+                            <li><a href="#">Sección 1</a></li>
+                            <li><a href="#">Sección 2</a></li>
+                            <li><a href="#">Sección 3</a></li>
+                            <li><a href="#">Sección 4</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class='buscador'>
+                    <li>
+                        <form action="index.html" method="post">
+                            <input type="text" name="buscador" id="buscador" placeholder="Search:">
+
+                            <label for="submit"><i class="fas fa-search"></i></label>
+                            <input type="submit" name="submit" id="submit" value="">
+                        </form>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <main>
+
+            <form action="index.html" method="post" id='formularioNuevaTarea'>
+                <label for="NombreTarea">Nombre:</label>
+                <input type="text" name="NombreTarea" id="NombreTarea">
+                <label for="FechaEntrega">Fecha Entrega:</label>
+                <input type="date" name="FechaEntrega" id="FechaEntrega">
+                <label for="Modulo">Nombre Módulo</label>
+                <input type="text" name="Modulo" id="Modulo">
+                <label for="Descripcion">Descripción</label>
+                <input type="text" name="Descripcion" id="Descripcion">
+                <input type="submit" value="Añadir tarea">
+            </form>
+
+        </main>
+        <footer>
+            <ul>
+                <li><i class="fas fa-arrow-up"></i></li>
+                <li><i class="fab fa-twitter-square"></i></li>
+                <li><i class="fab fa-facebook-square"></i></li>
+                <li><i class="fas fa-at"></i></li>
+            </ul>
+        </footer>
+    </body>
+
+    </html>
+</body>
+
+</html>

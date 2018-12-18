@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="js/mainEjercicio1.js"></script>
+    <title>Ejercicio 1</title>
+</head>
+
+<body>
+    <noscript>Para el correcto funcionamiento de la página es necesario el uso de JavaScript</noscript>
+    <h1>Ejercicio 1</h1>
+    <h2>Marcos Gallardo Pérez</h2>
+    <form action="ejercicio1.html" method="post">
+        <p>
+            Tipo Automovil:<br>
+            <input type="radio" name="Automovil" value="awe"> Coche<br>
+            <input type="radio" name="Automovil" value="bicicleta"> bicicleta<br>
+            <input type="radio" name="Automovil" value="patinete"> patinete.
+        </p>
+        <p>
+            <select name="Automovil" id="cocheSelect">
+                <option>Coche</option>
+                <option>Bicicleta</option>
+                <option>Patinete</option>
+            </select>
+        </p>
+        <p>
+                <input type="range" list="tickmarks">
+
+                <datalist id="tickmarks">
+                  <option value="0">
+                  <option value="10">
+                  <option value="20">
+                  <option value="30">
+                  <option value="40">
+                  <option value="50">
+                  <option value="60">
+                  <option value="70">
+                  <option value="80">
+                  <option value="90">
+                  <option value="100">
+                </datalist>
+        </p>
+        <p>
+            <input type="text" name="fecha" id="fecha">
+        </p>
+
+        <input type="button" value="Enviar Datos.">
+
+    </form>
+</body>
+
+</html>
