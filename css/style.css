@@ -115,15 +115,58 @@ main {
 .tercera ul li{
     height: 75px;
 }
-.tercera>span{
+.cuarta>span, .tercera>span{
     font-size: 25px;
 }
-.tercera>span>a>i:hover{
+.cuarta>span>a>i:hover, .tercera>span>a>i:hover{
     transition-duration: 0.5s;
     color: #e3e4e5;
     text-shadow: 2px 0 0 #000, -2px 0 0 #000, 0 2px 0 #000, 0 -2px 0 #000, 1px 1px #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000;
 }
 
+.cuarta>div{
+display: grid; 
+grid-template-rows:repeat(2,min-content);
+grid-template-areas: 
+"enPrincipal enPrincipal"
+"irAEjer verCod";
+
+text-align: center;
+font-size:2em;
+}
+
+.enunciadoPrincipal, .irAEjercicio, .verCodigo{
+    margin:20px; 
+    padding: 10px;
+    border: 3px solid var(--tertiary-color);
+    border-radius: 30px;
+}
+.enunciadoPrincipal{
+    grid-area: enPrincipal;
+    
+}
+.enunciadoSecundario{
+    font-size: 0.7em;
+    text-align: start;
+    margin:20px; 
+    padding: 10px;
+}
+.irAEjercicio{
+    grid-area: irAEjer;
+
+}
+.verCodigo{
+    grid-area: verCod;
+
+}
+.irAEjercicio:hover, .verCodigo:hover{
+    background-color: black;
+    transition-duration: 0.5s;
+}
+.irAEjercicio:hover>a, .verCodigo:hover>a {
+    color: var(--basic-color);
+    transition-duration: 0.5s;
+}
 main>ul>a>li {
     font-size: 3em;
     margin: 10px;
