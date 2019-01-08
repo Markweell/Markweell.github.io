@@ -51,10 +51,40 @@
         <span><a href="../../../1.Cliente/Tema5/index.html"><i class="fas fa-arrow-left"></i></a></span>
         <div>
             <div class="enunciadoPrincipal">Crear el mítico juego del buscaminas para jugar desde consola.
-                <div class="enunciadoSecundario">Se debe crear una clase con javascript. </div>
+                <div class="enunciadoSecundario">
+                    <ul>
+                        <li>Utilizando closures, créate un objeto Buscaminas al que puedas invocar los siguientes
+                            métodos (el resto quedará privado):
+                            <ol>
+                                <li>Buscaminas .init(): genera un campo de minas nuevo y lo muestra por consola</li>
+                                <li>Buscaminas .mostrar(): muestra el campo de minas por consola.</li>
+                                <li>Buscaminas .picar(x, y): pica en la casilla (x, y) y muestra el campo de minas
+                                    actualizado.
+                                    <ol>
+                                        <li>En caso de picar una minas se indica que se ha perdido el juego. </li>
+                                        <li>En caso de no quedar casillas por levantar se indica que se ha ganado el
+                                            juego.</li>
+                                    </ol>
+                                </li>
+                                <li>Buscaminas .marcar(x, y): marca con una bandera la casilla (x, y) y muestra el
+                                    campo de minas actualizado.</li>
+                                <li>Buscaminas .despejar(x, y): intenta destapar las casillas colindantes, sólo si el
+                                    número de banderas se corresponden con las que indica la casilla. Entonces muestra
+                                    el campo de minas actualizado.
+                                    <ol>
+                                        <li>En caso de estar las banderas equivocadas se indica que se ha perdido el
+                                            juego.</li>
+                                    </ol>
+                                </li>
+                            </ol>
+                        </li>
+                        <li>Después se generará el entorno gráfico. Pero eso no entra en esta entrega.</li>
+                    </ul>
+                </div>
             </div>
             <div class="irAEjercicio"><a href="buscaminas.html">Ir a Ejercicio </a></div>
-            <div class="verCodigo"><a href="#">Ver Código </a></div>
+            <div class="verCodigo"><a href="https://github.com/Markweell/Markweell.github.io/tree/master/1.Cliente/Tema5/BuscaminasDesdeConsola">Ver
+                    Código </a></div>
         </div>
     </main>
 </body>

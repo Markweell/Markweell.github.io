@@ -151,6 +151,10 @@ font-size:2em;
     margin:20px; 
     padding: 10px;
 }
+.enunciadoSecundario li{
+    text-align: start;
+
+}
 .irAEjercicio{
     grid-area: irAEjer;
 
