@@ -166,6 +166,7 @@ let buscaminas = (function () {
 
     function despejar(i, j) {
         let numBanderas = 0;
+        
         if(campoMinas[i][j].tapada){
             throw new Error("No puedes despejar una casilla tapada.");
         }
