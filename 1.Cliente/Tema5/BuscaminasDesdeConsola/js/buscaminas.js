@@ -16,7 +16,7 @@ let buscaminas = (function () {
             " primero inicia un tablero con buscaminas.init(), para picar usa" +
             " buscaminas.picar(i,j) donde i y j son las coordenadas de la casilla," +
             " para poner una bandera usa buscaminas.marcar(i,j) y para despejar una casilla"+
-            +" usa buscaminas.despejar(i,j) lo que despejara una casilla que tenga banderas cerca");
+            " usa buscaminas.despejar(i,j) lo que despejara una casilla que tenga banderas cerca");
     }
 
     function init(dificultad = 1) {
