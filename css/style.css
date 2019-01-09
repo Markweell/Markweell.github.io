@@ -113,10 +113,21 @@ main {
     font-size: 0.5em;
 }
 .tercera ul li{
-    height: 75px;
+    min-height: 75px;
+    display: flex; 
+    flex-flow: column;
+    justify-content: space-between;
+}
+#fecha{
+    margin:0px;
+    font-size: 11px;
+    text-align: end;
 }
 .cuarta>span, .tercera>span{
     font-size: 25px;
+}
+.cuarta ul>li{
+    list-style: none;
 }
 .cuarta>span>a>i:hover, .tercera>span>a>i:hover{
     transition-duration: 0.5s;

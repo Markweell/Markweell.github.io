@@ -1,27 +1,47 @@
-let buscamina = (function () {
+let buscaminas = (function () {
+
     let campoMinas;
     let perdida = true;
+    let numLibres = 0;
 
     function Casilla(valor, bandera = false, tapada = true) {
         this.valor = valor;
         this.bandera = bandera;
         this.tapada = tapada;
     }
+    instrucciones();
 
+    function instrucciones() {
+        console.log("Bienvenido al buscaminas. Para jugar" +
+            " primero inicia un tablero con buscaminas.init(), para picar usa" +
+            " buscaminas.picar(i,j) donde i y j son las coordenadas de la casilla," +
+            " para poner una bandera usa buscaminas.marcar(i,j)")
+    }
 
     function init(dificultad = 1) {
+        let numFilas;
+        let numComlumnas;
+        let numMinas;
         switch (dificultad) {
             case 2:
-                crearTablero(16, 16, 40);
+                numFilas = 16;
+                numComlumnas = 16;
+                numMinas = 40;
                 break;
             case 3:
-                crearTablero(30, 30, 99);
+                numFilas = 30;
+                numComlumnas = 30;
+                numMinas = 99;
                 break;
             case 1:
             default:
-                crearTablero(8, 8, 10);
+                numFilas = 8;
+                numComlumnas = 8;
+                numMinas = 10;
                 break;
         }
+        crearTablero(numFilas, numComlumnas, numMinas);
+        numLibres = numFilas * numComlumnas - numMinas;
         perdida = false;
         mostrarTableroJuego();
     }
@@ -115,9 +135,9 @@ let buscamina = (function () {
                 if (campoMinas[i][j].tapada == false) {
                     tablero += campoMinas[i][j].valor + "  ";
                 } else if (campoMinas[i][j].bandera == true) {
-                    tablero += "/ " + " ";
+                    tablero += "╦ " + " ";
                 } else
-                    tablero += "* " + " ";
+                    tablero += "■ " + " ";
             }
             tablero += "\n";
         }
@@ -135,7 +155,10 @@ let buscamina = (function () {
             throw new Error("BOMM!!");
         }
         campoMinas[i][j].tapada = false;
-
+        numLibres--;
+        if (numLibres == 0) {
+            throw new Error("Enhorabuena, has ganado.");
+        }
         if (campoMinas[i][j].valor == 0) {
             if (i != 0)
                 if (campoMinas[i - 1][j].tapada)
@@ -162,42 +185,30 @@ let buscamina = (function () {
                 if (campoMinas[i - 1][j + 1].tapada)
                     picar(i - 1, j + 1);
         }
-
     }
 
-    function marcarMostrando(i, j) {
-        try {
-            if (perdida == true) {
-                throw new Error("Has perdido, inicia una partida.");
-            }
-            i = i - 1;
-            j = j - 1;
-            marcar(i, j);
-            mostrarTableroJuego();
-        } catch (e) {
-            if (e.message == "BOMM!!")
-                perdida = true;
-            console.log(e.message);
-        }
-    }
-    function marcar(i,j){
+
+    function marcar(i, j) {
         if (i < 0 || j >= campoMinas.length) {
             throw new Error("Fuera de rango!");
         }
-        if(!campoMinas[i][j].tapada){
+        if (!campoMinas[i][j].tapada) {
             throw new Error("No puedes poner una bandera en una casilla descubierta.");
         }
-        campoMinas[i][j].bandera ? campoMinas[i][j].bandera=false:campoMinas[i][j].bandera=true;
+        campoMinas[i][j].bandera ? campoMinas[i][j].bandera = false : campoMinas[i][j].bandera = true;
     }
 
-    function picarMostrando(i, j) {
+    function accionMostrando(i, j, funcion) {
         try {
             if (perdida == true) {
                 throw new Error("Has perdido, inicia una partida.");
             }
+            if (numLibres == 0) {
+                throw new Error("Enhorabuena, has ganado.");
+            }
             i = i - 1;
             j = j - 1;
-            picar(i, j);
+            funcion(i, j);
             mostrarTableroJuego();
         } catch (e) {
             if (e.message == "BOMM!!")
@@ -207,11 +218,17 @@ let buscamina = (function () {
 
     }
 
+    function picarCasilla(i, j) {
+        accionMostrando(i, j, picar);
+    }
+
+    function marcarCasilla(i, j) {
+        accionMostrando(i, j, marcar);
+    }
     return {
         init: init,
-        campoMinas: campoMinas,
         mostrar: mostrarTableroJuego,
-        picar: picarMostrando,
-        marcar:marcarMostrando
+        picar: picarCasilla,
+        marcar: marcarCasilla
     }
 })();
