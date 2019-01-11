@@ -29,7 +29,7 @@ header li {
 
 }
 
-header li:hover {
+header li:hover i {
     -webkit-animation: tiembla 0.5s infinite;
 }
 
@@ -178,7 +178,7 @@ font-size:2em;
     background-color: black;
     transition-duration: 0.5s;
 }
-.irAEjercicio:hover>a, .verCodigo:hover>a {
+.irAEjercicio:hover, .verCodigo:hover {
     color: var(--basic-color);
     transition-duration: 0.5s;
 }
