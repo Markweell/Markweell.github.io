@@ -1,0 +1,37 @@
+.menu {
+    position: fixed;
+    top: 20px;
+    right: 50px;
+    font-size: 20px;
+    -webkit-animation: brillar 3s infinite linear;
+
+}
+.menu> a{
+    width: 50px;
+    padding: 10px;
+    background: red;
+    color: black;
+    text-decoration: none;
+    border: 1px solid black;
+   
+}
+@-webkit-keyframes brillar {
+    0%{
+        transform: scale(1);
+    }
+    45% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(0.9);
+    }
+
+    55% {
+        transform: scale(1.1);
+    }
+    60%{
+        transform: scale(1);
+    }
+}
+
