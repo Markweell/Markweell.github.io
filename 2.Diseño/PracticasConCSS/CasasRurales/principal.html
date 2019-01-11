@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/estilosPrincipal.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <title>Marcos Gallardo Pérez</title>
+</head>
+
+<body>
+    <header></header>
+    <nav>
+            <ul class="desplegable">
+                    <li>
+                        <p id='menuHamburger'><a href="#"><i class="fas fa-bars varVisible"></i></a></p>
+                        <ul>
+                            <li><a href="#">Sección 1</a></li>
+                            <li><a href="#">Sección 2</a></li>
+                            <li><a href="#">Sección 3</a></li>
+                            <li><a href="#">Sección 4</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <ul class='buscador'>
+                    <li>
+                        <form action="index.html" method="post">
+                            <input type="text" name="buscador" id="buscador" placeholder="Search:">
+    
+                            <label for="submit"><i class="fas fa-search"></i></label>
+                            <input type="submit" name="submit" id="submit" value="">
+                        </form>
+                    </li>
+                </ul>
+    </nav>
+    <main>
+        <article>
+            <div><a href="">Buscar Alojamientos</a></div>
+            <form action="principal.html" method="post">
+                <label for="buscador" id="lbBuscador">Lugar: </label>
+                <input type="search" name="buscador" id="buscador" placeholder="Comunidad autonoma, provincia, zona...">
+                <label for="fechaEntrada" id="lbfechaEntrada">Entrada: </label>
+                <input type="date" name="fechaEntrada" id="fechaEntrada">
+                <label for="fechaSalida" id="lbfechaSalida">Salida: </label>
+                <input type="date" name="fechaSalida" id="fechaSalida">
+                <label for="button" id="lbButton"><i class="fas fa-search"></i></label>
+                <input type="button" value="" id="button">
+            </form>
+        </article>
+        <article>
+            <header> <h2>Las más visitadas: </h2></header>
+            <section></section>
+        </article>
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,139 @@
+* {
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav {
+    order: 1;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-content: space-between;
+}
+
+nav>ul {
+    margin: 10px;
+
+}
+
+.desplegable {
+    width: 50px;
+}
+
+
+#buscador {
+    width: 70%;
+    border-radius: 10px;
+    padding: 5px;
+
+}
+
+#submit {
+    transition: .5s;
+}
+nav li a {
+    background-color: var(--main-color);
+    color: #343f3f;
+    display: block;
+    padding: 10px 12px;
+}
+
+nav li a:hover {
+    background-color: white;
+}
+
+nav li ul {
+    display: none;
+    position: absolute;
+    min-width: 250px;
+}
+
+nav li:hover>ul {
+    display: block;
+}
+
+nav li ul li {
+    position: relative;
+}
+
+#button {
+    display: none;
+}
+
+main {
+    margin-left: 15vw;
+    margin-right: 15vw;
+    display: flex;
+    flex-flow: column;
+}
+
+
+
+article:nth-child(1) {
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(to right, #33691E, #AED581);
+    ;
+    background-size: cover;
+    margin: 20px 0px;
+}
+form {
+    display: none;
+}
+@media only screen and (min-width: 768px) {
+    form {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 0.5fr 1fr;
+        grid-template-areas:
+            ". lbBuscador lbBuscador lbBuscador ."
+            ". buscador  buscador buscador ."
+            ". lbfechaEntrada lbfechaEntrada  . ."
+            ".  fechaEntrada fechaEntrada . ."
+            ". lbfechaSalida lbfechaSalida  . ."
+            ".  fechaSalida fechaSalida lbButton ."
+    }
+
+    label {
+        color: #F1F8E9;
+    }
+
+    input {
+        border-radius: 20px;
+        font-size: 10px;
+        padding: 0px 5px 0px 5px;
+    }
+
+    #lbBuscador {
+        grid-area: lbBuscador;
+    }
+
+    #buscador {
+        grid-area: buscador;
+    }
+
+    #fechaEntrada {
+        grid-area: fechaEntrada;
+    }
+
+    #lbfechaEntrada {
+        grid-area: lbfechaEntrada;
+    }
+
+    #fechaSalida {
+        grid-area: fechaSalida;
+    }
+
+    #lbfechaSalida {
+        grid-area: lbfechaSalida;
+    }
+
+    #lbButton {
+        grid-area: lbButton;
+        padding: 3.5px 0px 0px 0px;
+        text-align: center;
+    }
+}
