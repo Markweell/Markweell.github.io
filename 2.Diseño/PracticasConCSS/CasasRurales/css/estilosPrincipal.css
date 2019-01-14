@@ -1,3 +1,15 @@
+:root {
+    --main-color: #f1f1f1;
+    --secundary-color: #FF4117;
+    --secundary-color-transparence: rgba(255, 65, 23, 0.5);
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-ThinItalic-webfont.eot');
+    font-style: italic;
+}
+
 * {
     list-style: none;
     text-decoration: none;
@@ -5,44 +17,60 @@
     padding: 0;
 }
 
-nav {
-    order: 1;
+a {
+    text-decoration: none;
+    color: black;
+}
+
+body {
+    font-family: 'Roboto';
+    background-color: var(--main-color);
+}
+
+.contenedorPrincipal {
+    width: 95%;
+    margin: 0 auto;
+}
+
+/* -------------------------------------Cabezera -------------------------------------*/
+.contenedorPrincipal>header {
     width: 100%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    border-bottom: 2px solid var(--secundary-color);
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    font-size: 25px;
+    text-shadow: 3px 3px 10px var(--secundary-color);
+}
+
+nav {
+    padding: 10px;
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
     align-content: space-between;
 }
 
-nav>ul {
-    margin: 10px;
 
-}
-
-.desplegable {
-    width: 50px;
-}
-
-
-#buscador {
-    width: 70%;
-    border-radius: 10px;
-    padding: 5px;
-
-}
-
-#submit {
-    transition: .5s;
-}
 nav li a {
     background-color: var(--main-color);
     color: #343f3f;
     display: block;
     padding: 10px 12px;
+    border-bottom: 1px solid var(--main-color);
 }
 
 nav li a:hover {
-    background-color: white;
+    border-bottom: 1px solid var(--secundary-color-transparence);
+    text-shadow: 3px 3px 10px var(--secundary-color);
+    transition-duration: 0.5s;
 }
 
 nav li ul {
@@ -50,6 +78,7 @@ nav li ul {
     position: absolute;
     min-width: 250px;
 }
+
 
 nav li:hover>ul {
     display: block;
@@ -59,7 +88,694 @@ nav li ul li {
     position: relative;
 }
 
-#button {
+/* -------------------------------------Formulario------------------------------------- */
+
+main {
+    width: 100%;
+    margin: 30px 0px;
+}
+
+article:nth-child(1) {
+    width: 100%;
+    margin: 30px 0px;
+}
+
+form {
+    display: none;
+    padding: 15px;
+}
+
+.buscarAlojamientos {
+    text-align: center;
+    padding: 10px;
+}
+
+.buscarAlojamientos span {
+    padding: 10px;
+    font-size: 30px;
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+    border-radius: 20px;
+    color: black;
+    box-shadow: 3px 3px var(--secundary-color-transparence);
+}
+
+.buscarAlojamientos span:hover {
+    border-bottom: 1px solid var(--main-color);
+    border-right: 1px solid var(--main-color);
+    text-shadow: 1px 1px 2px var(--secundary-color);
+    box-shadow: -3px -3px var(--secundary-color-transparence);
+}
+
+/* -------------------------------------Main-Lugares------------------------------------- */
+
+article:nth-child(2)>header {
+    display: inline;
+    border: none;
+    font-size: 30px;
+}
+
+.lugares {
+    display: flex;
+    width: 100%;
+    flex-flow: column;
+    margin: 20px 0px;
+}
+
+.lugares>a {
+    color: black;
+}
+
+.lugares>a>div {
+    border: 1px solid black;
+    margin: 20px 0px;
+    height: 400px;
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+}
+
+.imagenLugar:nth-of-type(1) {
+    background: url("../img/paisaje1.jpg");
+    background-size: cover;
+}
+
+.imagenLugar:nth-of-type(2) {
+    background: url("../img/paisaje2.jpg");
+    background-size: cover;
+}
+
+.imagenLugar:nth-of-type(3) {
+    background: url("../img/paisaje3.jpg");
+    background-size: cover;
+}
+
+.imagenLugar:nth-of-type(4) {
+    background: url("../img/paisaje4.jpg");
+    background-size: cover;
+}
+
+.nombreLugar {
+    margin: 20px;
+    display: flex;
+    justify-content: flex-start;
+
+}
+
+.precioLugar {
+    margin: 20px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.nombreLugar>span,
+.precioLugar>span {
+    border: 1px solid black;
+    font-size: 30px;
+    border-radius: 20px;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+/* -------------------------------------Footer------------------------------------- */
+footer {
+    display: flex;
+    flex-flow: row;
+    border-top: 1px solid var(--secundary-color);
+    justify-content: space-between;
+}
+
+footer>div {
+    margin: 10px;
+}
+
+footer>div header {
+    font-size: 30px;
+}
+
+footer>div>p {
+    font-size: 20px;
+}
+
+footer>div li {
+    font-size: 20px;
+}
+
+footer div>ul {
+    display: flex;
+    justify-content: space-between;
+}
+
+div>ul>li {
+    margin: 5px;
+}
+
+footer select {
+    width: 100%;
+    height: 30px;
+}
+
+/* -------------------------------------Main-Casa------------------------------------- */
+.casas {
+    width: 100%;
+}
+
+.casa {
+    display: flex;
+    width: 100%;
+    flex-flow: column;
+    margin: 20px 0px;
+    justify-content: space-between;
+}
+
+.imagenCasa {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    height: 400px;
+
+}
+
+.imagenCasa:nth-child(1) {
+    background: url("../img/img3.jpg");
+    background-size: cover;
+}
+
+.parteAbajoCasa {
+    display: flex;
+    flex-flow: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+
+.parteAbajoCasa ul {
+    display: flex;
+}
+
+.parteAbajoCasa span {
+    border: 1px solid black;
+    font-size: 30px;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 20px;
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.parteAbajoCasa>span {
+    color: yellow;
+}
+
+.nombreCasa {
+    margin: 20px;
+}
+
+.nombreCasa span {
+    border: 1px solid black;
+    font-size: 30px;
+    border-radius: 20px;
+    padding: 10px;
+
+    background-color: rgba(255, 255, 255, 0.6);
+}
+
+.descripcionCasa {
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 30px;
+    font-size: 20px;
+}
+
+.textoCasa {
+    width: 80%;
+    margin: 10px auto;
+}
+
+.botonReservar {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.botonReservar span {
+    padding: 10px 30px;
+    border: 1px solid black;
+    border-radius: 20px;
+    font-size: 30px;
+}
+
+.botonReservar span:hover {
+    border: 1px solid var(--main-color);
+    border-right: 1px solid var(--main-color);
+    text-shadow: 1px 1px 2px var(--secundary-color);
+    box-shadow: 3px 3px var(--secundary-color-transparence);
+}
+
+/* -------------------------------------Main-Casa -------------------------------------*/
+.slider {
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 90px;
+    height: 300px;
+    background: url("../img/img1.jpg");
+    background-size: 100% 100%;
+}
+
+.flechaIzquierda,
+.flechaDerecha {
+    padding: 0px 20px;
+    background: rgba(255, 255, 255, 0.5)
+}
+.descripcionCasaParticular>header{
+    margin:10px 0px; 
+}
+.comentarioDelPropietario>h4{
+    margin:10px 0px; 
+}
+.comentarioDelPropietario ul,.comentarioDelPropietario li{
+    padding: 0px;
+    margin: 5px;
+}
+.tituloDescripcion{
+    font-size: 30px;
+}
+.subTitutoliDescripcion{
+    font-size:15px;
+}
+
+.botonReservarCasaParticular{
+    margin: 15px;
+    display: flex;
+    justify-content: center;
+}
+.botonReservarCasaParticular span{
+    border:1px solid black;
+    padding: 10px 30px;  
+    font-size: 30px;
+    border-radius: 20px;
+}
+.botonReservarCasaParticular span:hover {
+    border: 1px solid var(--main-color);
+    border-right: 1px solid var(--main-color);
+    text-shadow: 1px 1px 2px var(--secundary-color);
+    box-shadow: 3px 3px var(--secundary-color-transparence);
+}
+.informacionPropietario{
+    margin:20px auto;
+   border-radius: 20px;
+   border: 1px solid black;
+   width: 80%;
+   display: flex;
+   flex-flow: column;
+   justify-content: center; 
+   align-items: center;
+}
+.fotoPropietario{
+    height: 20vh;
+    width: 40vw;
+    border-radius: 100%;
+    border: 1px solid black;
+    margin: 15px 0px;
+    background:grey;
+}
+.nombrePropietario{
+    margin:10px;
+}
+.contactoPropietario{
+    margin:20px;
+}
+.contactoPropietario span{
+    border: 1px solid black;
+    padding: 10px 20px;
+    font-size: 25px;
+    border-radius: 20px;
+}
+.valoracionUsuario{
+    margin-bottom: 10px;
+}
+.valoracionUsuario>ul{
+    display: flex;
+}
+.valoracionUsuario li{
+    text-shadow: 0px 0px 1px #000000;
+    color:gold;
+}
+
+.botonMapa,.botonComentarios{
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+}
+.botonMapa span,.botonComentarios span{
+    border:1px solid black;
+    padding: 10px 30px;  
+    font-size: 30px;
+    border-radius: 20px;
+}
+.botonMapa span:hover,.botonComentarios span:hover{
+    border: 1px solid var(--main-color);
+    border-right: 1px solid var(--main-color);
+    text-shadow: 1px 1px 2px var(--secundary-color);
+    box-shadow: 3px 3px var(--secundary-color-transparence);
+}
+.imagenMapa{
+    display: none;
+}
+.comentariosCasaParticular{
+    display: none;
+}
+
+
+
+@media only screen and (min-width: 768px) {
+    
+    .contenedorPrincipal {
+        width: 85%;
+    }
+    
+    /* -------------------------------------Cabezera 768px -------------------------------------*/
+    .contenedorPrincipal>header {
+        flex-flow: column;
+    }
+
+    .titulo span {
+        font-size: 50px;
+    }
+
+    #menuHamburger {
+        display: none;
+    }
+
+    nav {
+        justify-content: center;
+    }
+
+    nav li a {
+        display: inline;
+        padding: 0px;
+    }
+
+    nav li>ul {
+        display: flex;
+        position: static;
+        justify-content: center;
+    }
+
+    nav ul>li>ul>li {
+        margin-left: 10px;
+        width: 120px;
+        text-align: center;
+    }
+
+
+    nav li:hover>ul {
+        display: flex;
+    }
+
+    /* -------------------------------------Formulario  768px------------------------------------- */
+    .buscarAlojamientos {
+        display: none;
+    }
+
+    form {
+        display: grid;
+        width: 80%;
+        margin: 0 auto;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 10px;
+        grid-template-areas:
+            "lbBuscador buscador buscador"
+            "lbfechaEntrada fechaEntrada ."
+            "lbfechaSalida fechaSalida ."
+            "lbNumOcupantes numOcupantes ."
+            "lbPrecio precio precio"
+            ". button .";
+    }
+
+    label {
+        color: black;
+        font-size: 18px;
+    }
+
+    input,
+    #button {
+        border-radius: 20px;
+        font-size: 18px;
+        padding: 5px;
+    }
+
+    #lbBuscador {
+        grid-area: lbBuscador;
+    }
+
+    #buscador {
+        grid-area: buscador;
+    }
+
+    #fechaEntrada {
+        grid-area: fechaEntrada;
+    }
+
+    #lbfechaEntrada {
+        grid-area: lbfechaEntrada;
+    }
+
+    #fechaSalida {
+        grid-area: fechaSalida;
+    }
+
+    #lbfechaSalida {
+        grid-area: lbfechaSalida;
+    }
+
+    #numOcupantes {
+        grid-area: numOcupantes;
+    }
+
+    #lbNumOcupantes {
+        grid-area: lbNumOcupantes;
+    }
+
+    #precio {
+        grid-area: precio;
+    }
+
+    #lbPrecio {
+        grid-area: lbPrecio;
+    }
+
+    #button {
+        grid-area: button;
+        width: 100%;
+        padding: 20px;
+        border: 1px solid var(--main-color);
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 3px 3px var(--secundary-color-transparence);
+    }
+
+    #button>a {
+        color: black;
+    }
+
+    #button:hover {
+        border: 1px solid var(--secundary-color);
+        text-shadow: 3px 3px 10px var(--secundary-color);
+    }
+
+    /* -------------------------------------Main-Lugares  768px------------------------------------- */
+    .lugares {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: space-between;
+        grid-gap: 20px;
+    }
+
+    .lugares>a>div {
+        margin: 0px;
+        height: 300px;
+    }
+
+    /* -------------------------------------Footer  768px------------------------------------- */
+    footer>div header {
+        font-size: 40px;
+    }
+
+    footer>div>p {
+        font-size: 30px;
+    }
+
+    footer>div li {
+        font-size: 30px;
+    }
+
+    footer select {
+        width: 100%;
+        height: 30px;
+    }
+
+    /* -------------------------------------Main-Casa  768px------------------------------------- */
+    .Casas {
+        width: 100%;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .imagenCasa {
+        height: 300px;
+    }
+    .slider {
+        height: 500px;
+    }
+    .tituloDescripcion{
+        font-size: 40px;
+    }
+    .subTitutoliDescripcion{
+        font-size:25px;
+    }
+    .comentarioDelPropietario>p,.comentarioDelPropietario>li{
+        font-size: 25px;
+    }
+    .fondoComentario{
+        display: flex;
+        justify-content: space-between;
+    }
+    .imagenMapa{
+        display: inline;
+    }
+    .informacionPropietario{
+        margin:20px 0px;
+       border-radius: 20px;
+       border: 1px solid black;
+       width: 30%;
+       display: flex;
+       flex-flow: column;
+       justify-content: center; 
+       align-items: center;
+    }
+    .fotoPropietario{
+        height: 100px;
+        width: 70px;
+        border-radius: 100%;
+        border: 1px solid black;
+        margin: 15px 0px;
+        background:grey;
+    }
+    .imagenMapa{
+        margin:20px 0px;
+        width: 65%;
+        height: 100%;
+        box-shadow: 0px 0px 5px #000000;
+    }
+    .imagenMapa>img{
+        width: 100%;
+        height: 100%;
+    }
+    .botonMapa{
+        display: none;
+    }
+    .botonComentarios{
+        display: none;
+    }
+    .comentariosCasaParticular{
+        display: inline;
+    }
+    .comentarioIndividual{
+        width: 90%;
+        margin: 10px auto;
+        padding: 15px;
+        border: 1px solid black;
+        border-radius:20px;
+    }
+    .comentarioIndividual>header{
+        display:flex;
+        justify-content: space-between;
+    }
+    .comentarioIndividual>p{
+        width: 90%;
+        margin: 0 auto;
+    }
+    .comentarioIndividual>footer{
+        border-top:1px solid var(--main-color);
+        margin-top:5px;
+    }
+    .comentarioIndividual>footer ul{
+        display: flex;
+
+    }
+    .comentarioIndividual>footer li{
+        margin-right: 10px;
+    }
+    .comentarioIndividual>footer li:nth-child(2){
+        color:green
+    }
+    .comentarioIndividual>footer li:nth-child(4){
+        color:red
+    }
+
+}
+
+@media only screen and (min-width: 1280px) {
+
+    .contenedorPrincipal {
+        width: 70%;
+    }
+
+    /* -------------------------------------Cabezera 1280px-------------------------------------*/
+
+    .titulo {
+        justify-content: start;
+    }
+
+    .titulo span {
+        font-size: 50px;
+    }
+
+    nav {
+        justify-content: end;
+        font-size: 20px;
+    }
+
+    nav ul>li>ul>li {
+        width: 150px;
+    }
+
+    /* -------------------------------------Formulario 1280px------------------------------------- */
+
+    form {
+        display: grid;
+        width: 100%;
+        margin: 0 auto;
+        grid-template-columns: 1fr 3fr 2.5fr 1fr;
+        grid-gap: 10px;
+        grid-template-areas:
+            "lbBuscador buscador lbNumOcupantes numOcupantes"
+            "lbfechaEntrada fechaEntrada lbPrecio precio"
+            "lbfechaSalida fechaSalida button button"
+            " . . button button"
+    }
+
+    /* -------------------------------------Main-Lugares 1280px------------------------------------- */
+    /* -------------------------------------Main-Casa 1280px------------------------------------- */
+    .Casas {
+        width: 100%;
+        display: grid;
+        grid-gap: 10px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .slider {
+        height: 700px;
+    }
+
+}
+
+
+
+/* #button {
     display: none;
 }
 
@@ -80,11 +796,11 @@ article:nth-child(1) {
     ;
     background-size: cover;
     margin: 20px 0px;
-}
-form {
-    display: none;
-}
-@media only screen and (min-width: 768px) {
+} */
+
+
+
+/* @media only screen and (min-width: 768px) {
     form {
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 0.5fr 1fr;
@@ -136,4 +852,4 @@ form {
         padding: 3.5px 0px 0px 0px;
         text-align: center;
     }
-}
+} */

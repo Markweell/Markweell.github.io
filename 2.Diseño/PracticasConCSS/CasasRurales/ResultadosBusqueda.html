@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/estilosPrincipal.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+        crossorigin="anonymous">
+    <title>Marcos Gallardo Pérez</title>
+</head>
+
+<body>
+    <div class="contenedorPrincipal">
+        <header>
+            <div class="titulo">
+                <span>CasasRurales.org</span>
+            </div>
+            <nav>
+                <ul class="desplegable">
+                    <li>
+                        <p id='menuHamburger'><a href="#"><i class="fas fa-bars varVisible"></i></a></p>
+                        <ul>
+                            <li><a href="#">Lugares.</a></li>
+                            <li><a href="#">Guias de viajes</a></li>
+                            <li><a href="#">Ofertas </a></li>
+                            <li><a href="#">Anunciate</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+        <main>
+            <article>
+                <div class="buscarAlojamientos"><a href=""><span>Buscar Alojamientos</span></a></div>
+                <form action="principal.html" method="post">
+                    <label for="buscador" id="lbBuscador">Lugar: </label>
+                    <input type="search" name="buscador" id="buscador" placeholder="Comunidad autonoma, provincia, zona...">
+                    <label for="fechaEntrada" id="lbfechaEntrada">Entrada: </label>
+                    <input type="date" name="fechaEntrada" id="fechaEntrada">
+                    <label for="fechaSalida" id="lbfechaSalida">Salida: </label>
+                    <input type="date" name="fechaSalida" id="fechaSalida">
+                    <label for="numOcupantes" id="lbNumOcupantes">Número Ocupantes:</label>
+                    <input type="number" name="numOcupantes" id="numOcupantes">
+                    <label for="precio" id="lbPrecio">Precio max:</label>
+                    <input type="range" name="precio" id="precio">
+                    <input type="button" value="Buscar" id="button">
+                </form>
+            </article>
+            <article>
+                <div class="Casas">
+                    <div class="Casa">
+                        <a href="MainCasa.html">
+                            <div class="imagenCasa">
+                                <div class="nombreCasa"><span>Casa Pepe</span></div>
+                                <div class="parteAbajoCasa">
+                                    <div class="precioCasa"><span>Desde 14€</span></div>
+                                    <span>
+                                        <ul>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="descripcionCasa">
+                            <div class="lugarCasa">Saucejo, Sevilla</div>
+                            <div class="textoCasa">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Soluta
+                                praesentium, animi, qui facilis et maiores odio eveniet non illum a sed autem. Impedit
+                                accusantium,
+                                dolore consectetur cum labore voluptas commodi.</div>
+                            <div class="botonReservar"><a href="MainCasa.html"><span>Reservar</span></a></div>
+                        </div>
+                    </div>
+                    <div class="Casa">
+                        <a href="MainCasa.html">
+                            <div class="imagenCasa">
+                                <div class="nombreCasa"><span>Casa Pepe</span></div>
+                                <div class="parteAbajoCasa">
+                                    <div class="precioCasa"><span>Desde 14€</span></div>
+                                    <span>
+                                        <ul>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="descripcionCasa">
+                            <div class="lugarCasa">Saucejo, Sevilla</div>
+                            <div class="textoCasa">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Soluta
+                                praesentium, animi, qui facilis et maiores odio eveniet non illum a sed autem. Impedit
+                                accusantium,
+                                dolore consectetur cum labore voluptas commodi.</div>
+                            <div class="botonReservar"><a href="MainCasa.html"><span>Reservar</span></a></div>
+                        </div>
+                    </div>
+                    <div class="Casa">
+                        <a href="MainCasa.html">
+                            <div class="imagenCasa">
+                                <div class="nombreCasa"><span>Casa Pepe</span></div>
+                                <div class="parteAbajoCasa">
+                                    <div class="precioCasa"><span>Desde 14€</span></div>
+                                    <span>
+                                        <ul>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="descripcionCasa">
+                            <div class="lugarCasa">Saucejo, Sevilla</div>
+                            <div class="textoCasa">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Soluta
+                                praesentium, animi, qui facilis et maiores odio eveniet non illum a sed autem. Impedit
+                                accusantium,
+                                dolore consectetur cum labore voluptas commodi.</div>
+                            <div class="botonReservar"><a href="MainCasa.html"><span>Reservar</span></a></div>
+                        </div>
+                    </div>
+                    <div class="Casa">
+                        <a href="MainCasa.html">
+                            <div class="imagenCasa">
+                                <div class="nombreCasa"><span>Casa Pepe</span></div>
+                                <div class="parteAbajoCasa">
+                                    <div class="precioCasa"><span>Desde 14€</span></div>
+                                    <span>
+                                        <ul>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="descripcionCasa">
+                            <div class="lugarCasa">Saucejo, Sevilla</div>
+                            <div class="textoCasa">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Soluta
+                                praesentium, animi, qui facilis et maiores odio eveniet non illum a sed autem. Impedit
+                                accusantium,
+                                dolore consectetur cum labore voluptas commodi.</div>
+                            <div class="botonReservar"><a href="MainCasa.html"><span>Reservar</span></a></div>
+                        </div>
+                    </div>
+                    <div class="Casa">
+                        <a href="MainCasa.html">
+                            <div class="imagenCasa">
+                                <div class="nombreCasa"><span>Casa Pepe</span></div>
+                                <div class="parteAbajoCasa">
+                                    <div class="precioCasa"><span>Desde 14€</span></div>
+                                    <span>
+                                        <ul>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="descripcionCasa">
+                            <div class="lugarCasa">Saucejo, Sevilla</div>
+                            <div class="textoCasa">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Soluta
+                                praesentium, animi, qui facilis et maiores odio eveniet non illum a sed autem. Impedit
+                                accusantium,
+                                dolore consectetur cum labore voluptas commodi.</div>
+                            <div class="botonReservar"><a href="MainCasa.html"><span>Reservar</span></a></div>
+                        </div>
+                    </div>
+                    <div class="Casa">
+                        <a href="MainCasa.html">
+                            <div class="imagenCasa">
+                                <div class="nombreCasa"><span>Casa Pepe</span></div>
+                                <div class="parteAbajoCasa">
+                                    <div class="precioCasa"><span>Desde 14€</span></div>
+                                    <span>
+                                        <ul>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                            <li><i class="fas fa-star"></i></li>
+                                        </ul>
+                                    </span>
+                                </div>
+                            </div>
+                        </a>
+                        <div class="descripcionCasa">
+                            <div class="lugarCasa">Saucejo, Sevilla</div>
+                            <div class="textoCasa">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Soluta
+                                praesentium, animi, qui facilis et maiores odio eveniet non illum a sed autem. Impedit
+                                accusantium,
+                                dolore consectetur cum labore voluptas commodi.</div>
+                            <div class="botonReservar"><a href="MainCasa.html"><span>Reservar</span></a></div>
+                        </div>
+                    </div>
+                </div>
+            </article>
+        </main>
+        <footer>
+            <div>
+                <header><span>Nosotros:</span></header>
+                <p>¿Quienes sómos?</p>
+                <p>Condiciones de uso.</p>
+                <p>Política y privacidad</p>
+                <p>Contactar</p>
+            </div>
+            <div>
+                <header><span>Viaja:</span></header>
+                <p>Guías de viaje</p>
+                <p>Agencias de viajes</p>
+                <p>Ofertas</p>
+            </div>
+            <div>
+                <div>
+                    <header><span>Idioma:</span></header>
+                    <select id="idioma" name="idioma">
+                        <option>Español</option>
+                        <option>Inglés</option>
+                        <option>Italiano</option>
+                        <option>Portugues</option>
+                        <option>Francés</option>
+                    </select>
+                </div>
+                <div>
+                    <header><span>Síguenos:</span></header>
+                    <ul>
+                        <li><i class="fab fa-facebook-square"></i></li>
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-instagram"></i></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+</body>
+
+</html>

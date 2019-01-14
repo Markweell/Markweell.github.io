@@ -1,20 +1,134 @@
-body{
-    text-align: center;
-    box-sizing: content-box;
-    border: 1px solid black;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
+:root {
+    --main-color: #f1f1f1;
+    --secundary-color: #FF4117;
 }
-a{
+
+@font-face {
+    font-family: 'Roboto';
+    src: url('Roboto-ThinItalic-webfont.eot');
+    src: url('Roboto-ThinItalic-webfont.eot?#iefix') format('embedded-opentype'),
+        url('Roboto-ThinItalic-webfont.woff') format('woff'),
+        url('Roboto-ThinItalic-webfont.ttf') format('truetype'),
+        url('Roboto-ThinItalic-webfont.svg#RobotoThinItalic') format('svg');
+    font-weight: 200;
+    font-style: italic;
+}
+
+body {
+    font-family: 'Roboto';
+    width: 100vw;
+    height: 100vh;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+
+a {
+    color: black;
     text-decoration: none;
 }
-.entrar{
-    font-size: 30px;
-    margin-bottom: 30px;
-    padding: 10px;
-    border-radius: 20px;
-    
+
+.entrar {
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+}
+
+.entrar span {
     border: 1px solid black;
+    padding: 10px 30px;
+    font-size: 30px;
+    border-radius: 20px;
+}
+
+.entrar span:hover {
+    border: 1px solid var(--main-color);
+    border-right: 1px solid var(--main-color);
+    text-shadow: 1px 1px 2px var(--secundary-color);
+    box-shadow: 3px 3px var(--secundary-color-transparence);
+}
+.cajaContenedora {
+    width: 250px;
+    height: 30vh;
+    perspective: 1600px;
+    margin: 100px auto;
+}
+
+.carrousel {
+    width: 100%;
+    animation: rotar 15s infinite linear;
+    transform-style: preserve-3d;
+}
+
+.carrousel figure {
+    width: 100%;
+    height: 150px;
+    position: absolute;
+}
+
+.carrousel:hover {
+    animation-play-state: paused;
+}
+
+.carrousel figure:nth-child(1) {
+    transform: rotateY(0deg) translateZ(400px);
+}
+
+.carrousel figure:nth-child(2) {
+    transform: rotateY(40deg) translateZ(400px);
+}
+
+.carrousel figure:nth-child(3) {
+    transform: rotateY(80deg) translateZ(400px);
+}
+
+.carrousel figure:nth-child(4) {
+    transform: rotateY(120deg) translateZ(400px);
+}
+
+.carrousel figure:nth-child(5) {
+    transform: rotateY(160deg) translateZ(400px);
+}
+
+.carrousel figure:nth-child(6) {
+    transform: rotateY(200deg) translateZ(400px);
+}
+
+.carrousel figure:nth-child(7) {
+    transform: rotateY(240deg) translateZ(400px);
+}
+
+.carrousel figure:nth-child(8) {
+    transform: rotateY(280deg) translateZ(400px);
+}
+
+.carrousel figure:nth-child(9) {
+    transform: rotateY(320deg) translateZ(400px);
+}
+
+.carrousel img {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    transition-duration: 0.5s;
+}
+
+.carrousel img:hover {
+    transform: scale(1.2);
+    transition-duration: 0.5s;
+}
+
+@keyframes rotar {
+    from {
+        transform: rotateY(0deg);
+    }
+
+    to {
+        transform: rotateY(360deg);
+    }
 }
