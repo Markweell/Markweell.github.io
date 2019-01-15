@@ -3,12 +3,17 @@
  */
 
 $(init);
+var numClics = 0;
+var numDobleClics = 0;
 
 function init() {
-    $("#enlace").mouseover(function (event) {
-        $("#capa").addClass("clasecss");
+
+    $("#micapa").dblclick(function (e) {
+        numDobleClics++;
+        $("#mensaje").html("Doble Clic " + numDobleClics);
     });
-    $("#enlace").mouseout(function (event) {
-        $("#capa").removeClass("clasecss");
+    $("#micapa").click(function (e) {
+        numClics++;
+        $("#mensaje").html("Clic " + numClics);
     });
 }

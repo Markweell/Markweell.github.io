@@ -3,7 +3,7 @@
  */
 
 $(document).ready(function () {
-    $("#enlace").click(function (evento) {
-        alert("Has pulsado el enlace...nAhora serás enviado a DesarrolloWeb.com");
-    });
+    $("#boton").click(function (i) {
+        $("td").removeAttr("noWrap");
+    })
 });

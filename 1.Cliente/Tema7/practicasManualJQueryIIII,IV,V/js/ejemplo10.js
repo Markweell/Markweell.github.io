@@ -2,11 +2,22 @@
  * @author Marcos Gallardo Pérez
  */
 function init() {
-    $("#capa").mouseenter(function (evento) {
-        $("#mensaje").css("display", "block");
+    $(".verde").live("click", function (e) {
+        var elem = $(this);
+        if (elem.html() != "Hiciste clic!!") {
+            elem.html("Hiciste clic!!");
+        } else {
+            elem.html("Hiciste de nuevo clic!!");
+        }
+    })
+
+    $("#insertarelem").click(function (e) {
+        var nuevoElemento = $('<div class="verde">Este elemento se ha creado e insertado dinamicamente (haz clic)</div>');
+        nuevoElemento.appendTo($(document.body));
     });
-    $("#capa").mouseleave(function (evento) {
-        $("#mensaje").css("display", "none");
+
+    $("#ponerclaseverde").click(function (e) {
+        $("#noverde").addClass("verde");
     });
 }
 $(init);

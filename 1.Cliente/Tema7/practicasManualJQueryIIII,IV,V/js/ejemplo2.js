@@ -2,11 +2,10 @@
  * @author Marcos Gallardo Pérez
  */
 function init() {
-    $("#capa").mouseenter(function (evento) {
-        $("#mensaje").css("display", "block");
-    });
-    $("#capa").mouseleave(function (evento) {
-        $("#mensaje").css("display", "none");
-    });
+    $('input.fecha').attr("value", function(indiceArray){
+        //indiceArray tiene el índice de este elemento en el objeto jQuery
+        var f = new Date();
+        return f.getDate() + "/" + (f.getMonth() +1) + "/" + f.getFullYear();
+        });
 }
 $(init);

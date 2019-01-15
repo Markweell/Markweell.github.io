@@ -16,25 +16,30 @@
             font-size: 3em;
             margin: 20px;
         }
+
+        .tip {
+            background-color: #ffcc99;
+            padding: 10px;
+            display: none;
+            position: absolute;
+        }
     </style>
     <title>Ejemplo 7</title>
 </head>
 
 <body>
     <noscript>Para el correcto funcionamiento de la página es necesario tener activado Javascript</noscript>
-    <span><a href="../../../1.Cliente/Tema7/practicasManualJQueryI,II,III/main.html"><i class="fas fa-arrow-left"></i></a></span>
-    <h3>Usar enlaces para mostrar o ocultar capas.</h3>
+    <span><a href="../../../1.Cliente/Tema7/practicasManualJQueryIIII,IV,V/main.html"><i class="fas fa-arrow-left"></i></a></span>
+    <h3>Efecto de tip simple en jQuery con los eventos mouseenter y mouseleave</h3>
 
-    <div id="capaefectos" style="background-color: #cc7700; color:fff; padding:10px;">
-        Esto es una capa que nos servirá para hacer efectos!
-        <br>
-        <br>
-        Pongo este texto simplemente de prueba
-    </div>
+    <h1>Trabajando con eventos en jQuery</h1>
+    <div id="elemento1" style="background-color: #ccccff; padding: 5px;">Pasa el ratón por encima de
+        este "elemento1".</div>
     <p>
-        <a href="#" id="ocultar">Ocultar la capa</a> |
-        <a href="#" id="mostrar">Mostrar la capa</a>
+        Este texto es para poner <a id="elemento2" href="#">otro elemento con tip</a>.
     </p>
+    <div class="tip" id="tip1">Esto es para explicar algo sobre el elemento1</div>
+    <div class="tip" id="tip2">Explico mejor este otro elemento con tip!!</div>
 
 </body>
 
