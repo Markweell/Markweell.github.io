@@ -2,11 +2,9 @@
  * @author Marcos Gallardo Pérez
  */
 function init() {
-    $("#capa").mouseenter(function (evento) {
-        $("#mensaje").css("display", "block");
-    });
-    $("#capa").mouseleave(function (evento) {
-        $("#mensaje").css("display", "none");
-    });
+    //selecciono todos los elementos de la clase "mitexto"
+    var ElementosMitexto = $(".mitexto");
+    //muestro el número de los párrafos encontrados
+    alert("Hay " + ElementosMitexto.length + " elementos de la clase mitexto");
 }
 $(init);

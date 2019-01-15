@@ -15,12 +15,23 @@
             font-size: 3em;
             margin: 20px;
         }
+
+        li {
+            margin: 10px;
+        }
+        .enunciadoPrincipal>a{
+            text-decoration: underline;
+            text-shadow: 0px 0px 10px black;
+
+        }
     </style>
 </head>
 
 <body>
     <noscript>Para el correcto funcionamiento de la página es necesario tener activado Javascript</noscript>
     <span><a href="../../../1.Cliente/Tema7/practicasManualJQueryI,II,III/index.html"><i class="fas fa-arrow-left"></i></a></span>
+    <h1>Para responder estas preguntas hemos usado el <a href="../manual-jquery.pdf">Manual de
+            JQuery.</a> de <a id="enlace" href="http://www.desarrolloweb.com">DesarrolloWeb.com</a></h1>
     <ol>
         <li><b>En una linea, define qué es jQuery:</b> Un conjunto de librerías de código que contienen funcionalidades
             o procesos para hacer más comodo o facilitar ciertos procesos rutinarios con JavaScript.</li>
@@ -32,34 +43,84 @@
             espacio, pero se podrá leer la implementación de las funciones del framework, que puede ser interesante en
             etapa de desarrollo, porque podremos bucear en el código de jQuery por si tenemos que entender algún asunto
             del trabajo con el framework.</li>
-        <li><b>Indica la línea donde introduces todo el código de la librería jQuery:</b> La etiqueta es: script src="dirección del archivo js" type="text/javascript"</li>
-        <li><b>Indica qué es el jQuery CDN:</b></li>
-        <li><b>Indica brevemente y con tus palabras las ventajas del CDN de jQuery:</b></li>
-        <li><b>Indica la línea donde introduces las últimas versiones de al menos dos jQuery CDN:</b></li>
+        <li><b>Indica la línea donde introduces todo el código de la librería jQuery:</b> La etiqueta es: script
+            src="dirección del archivo js" type="text/javascript"</li>
+        <li><b>Indica qué es el jQuery CDN:</b> CDN significa Content Delivery Network, que se traduciría como red de
+            entrega de contenido y no es otra cosa que un servicio que nos permite incluir las librerías de código de
+            jQuery desde los servidores de algunas importantes empresas. jQuery no es el único que utiliza estos
+            sistemas para distribuir sus paquetes de código, sino que es ampliamente utilizado por diversos frameworks
+            y librerías del entorno web. </li>
+        <li><b>Indica brevemente y con tus palabras las ventajas del CDN de jQuery:</b>Como ventajas: mayor velocidad
+            de entrega y probablemente ya está cacheado con anterioridad, por lo que va más rapido todo. Y como
+            inconvenientes: hace falta estar conectado a internet y no podemos tener control de todo lo que te está
+            trayendo ese script.</li>
+        <li><b>Indica la línea donde introduces las últimas versiones de al menos dos jQuery CDN:</b> Con la etiqueta
+            script, dentro de head. </li>
         <li><b>Indica cómo jquery ejecuta un código cuando el árbol DOM está totalmente cargado. Indica el equivalente
-                en javaScript:</b></li>
+                en javaScript:</b>En javascript tendrías que añadir un evento con
+            document.addEventListener('DOMContentLoaded', init); donde init es una función que se va a ejecutar cuando
+            el documento esté completamente cargado. Con JQuery con $(init) conseguiriamos el mismo resultado.</li>
         <li><b>Función $ o función jQuery. Indica brevemente los argumentos que puedes enviarle. Añádele a la
                 explicación un breve código de ejemplo (distinto al del manual):</b></li>
-        <li><b>Indica cómo puedes reemplazar el clásico $(document).ready(){...} con jQuery:</b></li>
-        <li><b>En una línea, explica qué hace el método each() de jQuery. Explica qué es la iteración implícita:</b></li>
-        <li><b>En una línea, explica qué hace el método each() de jQuery. Explica qué es la iteración implícita:</b></li>
-        <li><b>Englobado en el contexto del each:
-                <ol>
-                    <li>Explica la utilidad de la palabra reservada this.</li>
-                    <li>Indica cómo se utiliza el índice de la iteración.</li>
-                    <li>Explica la utilidad de return false.</li>
-                    <li>Indica la diferencia entre return true y no ponerlo. Explícalo mediante un trozo de código.</li>
-                </ol>
-            </b></li>
+        <li><b>Indica cómo puedes reemplazar el clásico $(document).ready(){...} con jQuery:</b> $(funcion)</li>
+        <li><b>En una línea, explica qué hace el método each() de jQuery. Explica qué es la iteración implícita:</b>Un
+            bucle foreach</li>
+        <li><b>Englobado en el contexto del each:</b>
+            <ol>
+                <li><b>Explica la utilidad de la palabra reservada this:</b> Se usa para hacer refencia a lo que
+                    está invocandolo.</li>
+                <li><b>Indica cómo se utiliza el índice de la iteración:</b> Con una función que tenga por
+                    parámetro 'i' como en el siguiente código: <br>$("p").each(function(i){
+                    if(i%2==0){
+                    $(this).css("background-color", "#eee");
+                    }else{
+                    $(this).css("background-color", "#ccc");
+                    } </li>
+                <li><b>Explica la utilidad de return false:</b> Cortar la ejecución del each();</li>
+                <li><b>Indica la diferencia entre return true y no ponerlo. Explícalo mediante un trozo de código:</b>
+                    En el caso en el que queramos cotar la ejecución del ciclo cuando se cumpla algo, diferenciando que
+                    si se cumple ese algo es true, y si se cumple por ejemplo otro algo, sería false.<br>$("div").each(function(i){
+                    elemento = $(this);
+                    if(elemento.html() == "white")
+                    return true;
+                    if(elemento.html() == "nada")
+                    return false;
+                    elemento.css("color", elemento.html());
+                    });</li>
+            </ol>
+        </li>
         <li><b>Indica las diferencias y semejanzas entre el método size() y la propiedad length. Indica las ventajas e
-                inconvenientes de utilizar uno u otra:</b></li>
-        <li><b>Indica qué hace el método data():</b></li>
-        <li><b>Tipos de datos admitidos por data():</b></li>
-        <li><b>Indica qué significa que data() almacena valores por referencia:</b></li>
-        <li><b>Cuántos objetos se crean si data() opera sobre un conjunto de elementos:</b></li>
-        <li><b>Indica qué hace el método removeData():</b></li>
+                inconvenientes de utilizar uno u otra:</b>Tanto el método size() con la propiedad length devolverán el
+            mismo valor, siendo las únicas diferencias la mencionada
+            rapidez adicional de la propiedad y el acceso a este valor, que como es una propiedad, se accede a través
+            del operador
+            punto, pero sin colocar los paréntesis después de length.</li>
+        <li><b>Indica qué hace el método data():</b> Sirve para almacenar, consultar cualquier tipo de dato en
+            elementos de la página.</li>
+        <li><b>Tipos de datos admitidos por data():</b> Admite cualquier tipo de dato</li>
+        <li><b>Indica qué significa que data() almacena valores por referencia:</b> En el caso que estemos almacenando
+            un objeto Javascript con data() sobre
+            uno o varios elementos, no se copia el objeto, sino que se asigna por referencia. Esto quiere decir que no
+            se harían
+            copias independientes del objeto a guardar, sino que permanecería tal cual y lo que se asignaría como dato
+            es una
+            referencia a ese único objeto.</li>
+        <li><b>Cuántos objetos se crean si data() opera sobre un conjunto de elementos:</b>Uno. </li>
+        <li><b>Indica qué hace el método removeData():</b>Este método sirve para eliminar un dato de un elemento y su
+            funcionamiento es tan simple como enviar por parámetro
+            el dato que se quiere eliminar del elemento.</li>
         <li><b>Identifica con tu propio código (en una línea a ser posible) los distintos tipos de selectores. Indica
-                cómo se recogen en una variable:</b></li>
+                cómo se recogen en una variable:</b><br>
+            let selectorEtiqueta = $("p");<br>
+            let selectorId =$("#id");<br>
+            let selectorClase = $(".clase");<br>
+            let selectorMultiple = $(".clase1,#id,.clase2");<br>
+            let selectorAll= $("*");<br>
+            let selectorAntecesorDecendant = $("table.mitabla td");<br>
+            let selectorParentChild = $("table.mitabla>td");<br>
+            let selectorSiguienteElemento = $("p.parraforojo + p"); //Esto selecciona los párrafos que están después de
+            cualquier párrafo que tenga la clase "parraforojo"<br>
+            let selectoMismoNivelDeJerarquia = $("#miparrafo ~ table");</li>
 
         <li>
             <h3>Ejemplos:</h3>
