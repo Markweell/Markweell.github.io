@@ -348,114 +348,217 @@ footer select {
     padding: 0px 20px;
     background: rgba(255, 255, 255, 0.5)
 }
-.descripcionCasaParticular>header{
-    margin:10px 0px; 
+
+.descripcionCasaParticular>header {
+    margin: 10px 0px;
 }
-.comentarioDelPropietario>h4{
-    margin:10px 0px; 
+
+.comentarioDelPropietario>h4 {
+    margin: 10px 0px;
 }
-.comentarioDelPropietario ul,.comentarioDelPropietario li{
+
+.comentarioDelPropietario ul,
+.comentarioDelPropietario li {
     padding: 0px;
     margin: 5px;
 }
-.tituloDescripcion{
+
+.tituloDescripcion {
     font-size: 30px;
 }
-.subTitutoliDescripcion{
-    font-size:15px;
+
+.subTitutoliDescripcion {
+    font-size: 15px;
 }
 
-.botonReservarCasaParticular{
+.botonReservarCasaParticular {
     margin: 15px;
     display: flex;
     justify-content: center;
 }
-.botonReservarCasaParticular span{
-    border:1px solid black;
-    padding: 10px 30px;  
+
+.botonReservarCasaParticular span {
+    border: 1px solid black;
+    padding: 10px 30px;
     font-size: 30px;
     border-radius: 20px;
 }
+
 .botonReservarCasaParticular span:hover {
     border: 1px solid var(--main-color);
     border-right: 1px solid var(--main-color);
     text-shadow: 1px 1px 2px var(--secundary-color);
     box-shadow: 3px 3px var(--secundary-color-transparence);
 }
-.informacionPropietario{
-    margin:20px auto;
-   border-radius: 20px;
-   border: 1px solid black;
-   width: 80%;
-   display: flex;
-   flex-flow: column;
-   justify-content: center; 
-   align-items: center;
+
+.informacionPropietario {
+    margin: 20px auto;
+    border-radius: 20px;
+    border: 1px solid black;
+    width: 80%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
 }
-.fotoPropietario{
+
+.fotoPropietario {
     height: 20vh;
     width: 40vw;
     border-radius: 100%;
     border: 1px solid black;
     margin: 15px 0px;
-    background:grey;
+    background: grey;
 }
-.nombrePropietario{
-    margin:10px;
+
+.nombrePropietario {
+    margin: 10px;
 }
-.contactoPropietario{
-    margin:20px;
+
+.contactoPropietario {
+    margin: 20px;
 }
-.contactoPropietario span{
+
+.contactoPropietario span {
     border: 1px solid black;
     padding: 10px 20px;
     font-size: 25px;
     border-radius: 20px;
 }
-.valoracionUsuario{
+
+.valoracionUsuario {
     margin-bottom: 10px;
 }
-.valoracionUsuario>ul{
+
+.valoracionUsuario>ul {
     display: flex;
 }
-.valoracionUsuario li{
+
+.valoracionUsuario li {
     text-shadow: 0px 0px 1px #000000;
-    color:gold;
+    color: gold;
 }
 
-.botonMapa,.botonComentarios{
+.botonMapa,
+.botonComentarios {
     margin: 30px;
     display: flex;
     justify-content: center;
 }
-.botonMapa span,.botonComentarios span{
-    border:1px solid black;
-    padding: 10px 30px;  
+
+.botonMapa span,
+.botonComentarios span {
+    border: 1px solid black;
+    padding: 10px 30px;
     font-size: 30px;
     border-radius: 20px;
 }
-.botonMapa span:hover,.botonComentarios span:hover{
+
+.botonMapa span:hover,
+.botonComentarios span:hover {
     border: 1px solid var(--main-color);
     border-right: 1px solid var(--main-color);
     text-shadow: 1px 1px 2px var(--secundary-color);
     box-shadow: 3px 3px var(--secundary-color-transparence);
 }
-.imagenMapa{
-    display: none;
-}
-.comentariosCasaParticular{
+
+.imagenMapa {
     display: none;
 }
 
+.comentariosCasaParticular {
+    display: none;
+}
+
+/* #region Formulario-Reserva */
+.formularioReserva {
+    display: flex;
+    flex-flow: column;
+}
+
+.formularioReserva input:required:invalid {
+    border:1px solid red;
+    border-color: red;
+}
+
+.formularioReserva input:required:valid {
+    border:1px solid green;
+    border-color: green;
+}
+
+.formularioReserva input,
+.formularioReserva label {
+    margin: 10px;
+    border-radius: 140px;
+    padding: 10px;
+}
+
+.formularioReserva input[type="email"] {
+    grid-area: "emailReserva";
+}
+
+.formularioReserva input[type="tel"] {
+    grid-area: "telefonoReserva";
+}
+
+#nombreReserva {
+    grid-area: "nombreReserva";
+}
+
+#apellidosReserva {
+    grid-area: "apellidosReserva";
+}
+
+#correoReserva {
+    grid-area: "correoReserva";
+}
+
+#telefonoReserva {
+    grid-area: "telefonoReserva";
+}
+
+#dniReserva {
+    grid-area: "dniReserva";
+}
+
+#lbfechaEntradaReserva {
+    grid-area: "lbfechaEntradaReserva";
+}
+
+#fechaEntradaReserva {
+    grid-area: "fechaEntradaReserva";
+}
+
+#lbfechaSalidaReserva {
+    grid-area: "lbfechaSalidaReserva";
+}
+
+#fechaSalidaReserva {
+    grid-area: "fechaSalidaReserva";
+}
+
+#lbNumOcupantesReserva {
+    grid-area: "lbNumOcupantesReserva";
+}
+
+#numOcupantesReserva {
+    grid-area: "numOcupantesReserva";
+}
+
+#buttonReserva {
+    grid-area: "buttonReserva";
+}
+
+/* #endregion */
 
 
 @media only screen and (min-width: 768px) {
-    
+
     .contenedorPrincipal {
         width: 85%;
     }
-    
-    /* -------------------------------------Cabezera 768px -------------------------------------*/
+
+    /* #region Cabezera 768px */
     .contenedorPrincipal>header {
         flex-flow: column;
     }
@@ -494,12 +597,14 @@ footer select {
         display: flex;
     }
 
-    /* -------------------------------------Formulario  768px------------------------------------- */
+    /* #endregion */
+
+    /* #region  Formulario  768px */
     .buscarAlojamientos {
         display: none;
     }
 
-    form {
+    .formularioBusqueda {
         display: grid;
         width: 80%;
         margin: 0 auto;
@@ -585,7 +690,9 @@ footer select {
         text-shadow: 3px 3px 10px var(--secundary-color);
     }
 
-    /* -------------------------------------Main-Lugares  768px------------------------------------- */
+    /* #endregion */
+
+    /* #region Main-Lugares  768px*/
     .lugares {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -598,7 +705,9 @@ footer select {
         height: 300px;
     }
 
-    /* -------------------------------------Footer  768px------------------------------------- */
+    /* #endregion */
+
+    /* #region Footer  768px*/
     footer>div header {
         font-size: 40px;
     }
@@ -616,7 +725,9 @@ footer select {
         height: 30px;
     }
 
-    /* -------------------------------------Main-Casa  768px------------------------------------- */
+    /* #endregion */
+
+    /* #region Main-Casa  768px*/
     .Casas {
         width: 100%;
         display: grid;
@@ -627,95 +738,122 @@ footer select {
     .imagenCasa {
         height: 300px;
     }
+
     .slider {
         height: 500px;
     }
-    .tituloDescripcion{
+
+    .tituloDescripcion {
         font-size: 40px;
     }
-    .subTitutoliDescripcion{
-        font-size:25px;
-    }
-    .comentarioDelPropietario>p,.comentarioDelPropietario>li{
+
+    .subTitutoliDescripcion {
         font-size: 25px;
     }
-    .fondoComentario{
+
+    .comentarioDelPropietario>p,
+    .comentarioDelPropietario>li {
+        font-size: 25px;
+    }
+
+    .fondoComentario {
         display: flex;
         justify-content: space-between;
     }
-    .imagenMapa{
+
+    .imagenMapa {
         display: inline;
     }
-    .informacionPropietario{
-        margin:20px 0px;
-       border-radius: 20px;
-       border: 1px solid black;
-       width: 30%;
-       display: flex;
-       flex-flow: column;
-       justify-content: center; 
-       align-items: center;
+
+    .informacionPropietario {
+        margin: 20px 0px;
+        border-radius: 20px;
+        border: 1px solid black;
+        width: 30%;
+        display: flex;
+        flex-flow: column;
+        justify-content: center;
+        align-items: center;
     }
-    .fotoPropietario{
+
+    .fotoPropietario {
         height: 100px;
         width: 70px;
         border-radius: 100%;
         border: 1px solid black;
         margin: 15px 0px;
-        background:grey;
+        background: grey;
     }
-    .imagenMapa{
-        margin:20px 0px;
+
+    .imagenMapa {
+        margin: 20px 0px;
         width: 65%;
         height: 100%;
         box-shadow: 0px 0px 5px #000000;
     }
-    .imagenMapa>img{
+
+    .imagenMapa>img {
         width: 100%;
         height: 100%;
     }
-    .botonMapa{
+
+    .botonMapa {
         display: none;
     }
-    .botonComentarios{
+
+    .botonComentarios {
         display: none;
     }
-    .comentariosCasaParticular{
+
+    .comentariosCasaParticular {
         display: inline;
     }
-    .comentarioIndividual{
+
+    .comentarioIndividual {
         width: 90%;
         margin: 10px auto;
         padding: 15px;
         border: 1px solid black;
-        border-radius:20px;
+        border-radius: 20px;
     }
-    .comentarioIndividual>header{
-        display:flex;
+
+    .comentarioIndividual>header {
+        display: flex;
         justify-content: space-between;
     }
-    .comentarioIndividual>p{
+
+    .comentarioIndividual>p {
         width: 90%;
         margin: 0 auto;
     }
-    .comentarioIndividual>footer{
-        border-top:1px solid var(--main-color);
-        margin-top:5px;
+
+    .comentarioIndividual>footer {
+        border-top: 1px solid var(--main-color);
+        margin-top: 5px;
     }
-    .comentarioIndividual>footer ul{
+
+    .comentarioIndividual>footer ul {
         display: flex;
 
     }
-    .comentarioIndividual>footer li{
+
+    .comentarioIndividual>footer li {
         margin-right: 10px;
     }
-    .comentarioIndividual>footer li:nth-child(2){
-        color:green
-    }
-    .comentarioIndividual>footer li:nth-child(4){
-        color:red
+
+    .comentarioIndividual>footer li:nth-child(2) {
+        color: green
     }
 
+    .comentarioIndividual>footer li:nth-child(4) {
+        color: red
+    }
+
+    /* #endregion */
+
+    /* #region Formulario-Reserva */
+
+    /* #endregion */
 }
 
 @media only screen and (min-width: 1280px) {
@@ -745,7 +883,7 @@ footer select {
 
     /* -------------------------------------Formulario 1280px------------------------------------- */
 
-    form {
+    .formularioBusqueda {
         display: grid;
         width: 100%;
         margin: 0 auto;
@@ -755,10 +893,9 @@ footer select {
             "lbBuscador buscador lbNumOcupantes numOcupantes"
             "lbfechaEntrada fechaEntrada lbPrecio precio"
             "lbfechaSalida fechaSalida button button"
-            " . . button button"
+            " . . button button";
     }
 
-    /* -------------------------------------Main-Lugares 1280px------------------------------------- */
     /* -------------------------------------Main-Casa 1280px------------------------------------- */
     .Casas {
         width: 100%;
@@ -771,85 +908,5 @@ footer select {
         height: 700px;
     }
 
+
 }
-
-
-
-/* #button {
-    display: none;
-}
-
-main {
-    margin-left: 15vw;
-    margin-right: 15vw;
-    display: flex;
-    flex-flow: column;
-}
-
-
-
-article:nth-child(1) {
-    height: 50vh;
-    display: flex;
-    align-items: center;
-    background: linear-gradient(to right, #33691E, #AED581);
-    ;
-    background-size: cover;
-    margin: 20px 0px;
-} */
-
-
-
-/* @media only screen and (min-width: 768px) {
-    form {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr 0.5fr 1fr;
-        grid-template-areas:
-            ". lbBuscador lbBuscador lbBuscador ."
-            ". buscador  buscador buscador ."
-            ". lbfechaEntrada lbfechaEntrada  . ."
-            ".  fechaEntrada fechaEntrada . ."
-            ". lbfechaSalida lbfechaSalida  . ."
-            ".  fechaSalida fechaSalida lbButton ."
-    }
-
-    label {
-        color: #F1F8E9;
-    }
-
-    input {
-        border-radius: 20px;
-        font-size: 10px;
-        padding: 0px 5px 0px 5px;
-    }
-
-    #lbBuscador {
-        grid-area: lbBuscador;
-    }
-
-    #buscador {
-        grid-area: buscador;
-    }
-
-    #fechaEntrada {
-        grid-area: fechaEntrada;
-    }
-
-    #lbfechaEntrada {
-        grid-area: lbfechaEntrada;
-    }
-
-    #fechaSalida {
-        grid-area: fechaSalida;
-    }
-
-    #lbfechaSalida {
-        grid-area: lbfechaSalida;
-    }
-
-    #lbButton {
-        grid-area: lbButton;
-        padding: 3.5px 0px 0px 0px;
-        text-align: center;
-    }
-} */

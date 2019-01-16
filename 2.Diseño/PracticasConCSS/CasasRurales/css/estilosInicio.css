@@ -52,7 +52,9 @@ a {
     text-shadow: 1px 1px 2px var(--secundary-color);
     box-shadow: 3px 3px var(--secundary-color-transparence);
 }
+
 .cajaContenedora {
+    display: inherit;
     width: 250px;
     height: 30vh;
     perspective: 1600px;

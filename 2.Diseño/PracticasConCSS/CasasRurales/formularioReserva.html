@@ -34,23 +34,24 @@
         </header>
         <main>
             <article>
-                <div class="buscarAlojamientos"><a href=""><span>Buscar Alojamientos</span></a></div>
-                <form action="principal.html" method="post">
-                    <label for="buscador" id="lbBuscador">Lugar: </label>
-                    <input type="search" name="buscador" id="buscador" placeholder="Comunidad autonoma, provincia, zona...">
-                    <label for="fechaEntrada" id="lbfechaEntrada">Entrada: </label>
-                    <input type="date" name="fechaEntrada" id="fechaEntrada">
-                    <label for="fechaSalida" id="lbfechaSalida">Salida: </label>
-                    <input type="date" name="fechaSalida" id="fechaSalida">
-                    <label for="numOcupantes" id="lbNumOcupantes">Número Ocupantes:</label>
-                    <input type="number" name="numOcupantes" id="numOcupantes">
-                    <label for="precio" id="lbPrecio">Precio max:</label>
-                    <input type="range" name="precio" id="precio">
-                    <input type="button" value="Buscar" id="button">
+                
+                <form class="formularioReserva" action="principal.html" method="post">
+                    <input type="search" name="nombre" id="nombreReserva" placeholder="Nombre" required>
+                    <input type="search" name="apellidos" id="apellidosReserva" placeholder="Apellidos" required>
+                    <input type="email" name="correo" id="correoReserva" placeholder="Correo:" required>
+                    <input type="tel" name="telefono" id="telefonoReserva" placeholder="Telefono: " required>
+                    <input type="search" name="dni" id="dniReserva" placeholder="DNI, NIF, NIE:" required>
+                    <label for="fechaEntradaReserva" id="lbfechaEntradaReserva">Entrada: </label>
+                    <input type="date" name="fechaEntradaReserva" id="fechaEntradaReserva" required>
+                    <label for="fechaSalidaReserva" id="lbfechaSalidaReserva">Salida: </label>
+                    <input type="date" name="fechaSalidaReserva" id="fechaSalidaReserva" required>
+                    <label for="numOcupantesReserva" id="lbNumOcupantesReserva">Número Ocupantes:</label>
+                    <input type="number" name="numOcupantesReserva" id="numOcupantesReserva" required>
+                    <input type="button" value="Reservar" id="buttonReserva">
                 </form>
             </article>
             <article>
-               
+
             </article>
         </main>
         <footer>
@@ -70,21 +71,21 @@
             <div>
                 <div>
                     <header><span>Idioma:</span></header>
-                    <select id = "idioma" name="idioma">
-                            <option>Español</option>
-                            <option>Inglés</option>
-                            <option>Italiano</option>
-                            <option>Portugues</option>
-                            <option>Francés</option>
+                    <select id="idioma" name="idioma">
+                        <option>Español</option>
+                        <option>Inglés</option>
+                        <option>Italiano</option>
+                        <option>Portugues</option>
+                        <option>Francés</option>
                     </select>
                 </div>
                 <div>
                     <header><span>Síguenos:</span></header>
-                   <ul>
-                       <li><i class="fab fa-facebook-square"></i></li>
-                       <li><i class="fab fa-twitter"></i></li>
-                       <li><i class="fab fa-instagram"></i></li>
-                   </ul>
+                    <ul>
+                        <li><i class="fab fa-facebook-square"></i></li>
+                        <li><i class="fab fa-twitter"></i></li>
+                        <li><i class="fab fa-instagram"></i></li>
+                    </ul>
                 </div>
             </div>
         </footer>
