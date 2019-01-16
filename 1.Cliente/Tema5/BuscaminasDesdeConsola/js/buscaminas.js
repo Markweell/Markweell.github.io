@@ -3,6 +3,8 @@ let buscaminas = (function () {
     let campoMinas;
     let perdida = true;
     let numLibres = 0;
+    let columnasCampoMinas; 
+    let filasCampoMinas;
 
     function Casilla(valor, bandera = false, tapada = true) {
         this.valor = valor;
@@ -61,6 +63,8 @@ let buscaminas = (function () {
             }
         }
         campoMinas = matriz;
+        filasCampoMinas = campoMinas.length - 1;
+        columnasCampoMinas= campoMinas[1].length - 1;
     }
 
     function insertarMinas(numMinas) {
@@ -68,8 +72,8 @@ let buscaminas = (function () {
         let num2;
         for (let i = 0; i < numMinas; i++) {
             do {
-                num1 = generaNumeroAleatorio(0, campoMinas.length - 1);
-                num2 = generaNumeroAleatorio(0, campoMinas[1].length - 1);
+                num1 = generaNumeroAleatorio(0, filasCampoMinas);
+                num2 = generaNumeroAleatorio(0, columnasCampoMinas);
             } while (campoMinas[num1][num2].valor == 9)
             campoMinas[num1][num2].valor = 9;
         }
@@ -83,25 +87,25 @@ let buscaminas = (function () {
                     if (i != 0)
                         if (campoMinas[i - 1][j].valor !== 9)
                             campoMinas[i - 1][j].valor++;
-                    if (i != campoMinas.length - 1)
+                    if (i != filasCampoMinas)
                         if (campoMinas[i + 1][j].valor !== 9)
                             campoMinas[i + 1][j].valor++;
-                    if (j != campoMinas[1].length - 1)
+                    if (j != columnasCampoMinas)
                         if (campoMinas[i][j + 1].valor !== 9)
                             campoMinas[i][j + 1].valor++;
                     if (j != 0)
                         if (campoMinas[i][j - 1].valor !== 9)
                             campoMinas[i][j - 1].valor++;
-                    if (j !== 0 && i !== campoMinas.length - 1)
+                    if (j !== 0 && i !== filasCampoMinas)
                         if (campoMinas[i + 1][j - 1].valor !== 9)
                             campoMinas[i + 1][j - 1].valor++;
                     if (i != 0 && j != 0)
                         if (campoMinas[i - 1][j - 1].valor !== 9)
                             campoMinas[i - 1][j - 1].valor++;
-                    if (i != campoMinas.length - 1 && j != campoMinas[1].length - 1)
+                    if (i !=filasCampoMinas && j != columnasCampoMinas)
                         if (campoMinas[i + 1][j + 1].valor !== 9)
                             campoMinas[i + 1][j + 1].valor++;
-                    if (i != 0 && j != campoMinas[1].length - 1)
+                    if (i != 0 && j != columnasCampoMinas)
                         if (campoMinas[i - 1][j + 1].valor !== 9)
                             campoMinas[i - 1][j + 1].valor++;
                 }
@@ -131,25 +135,25 @@ let buscaminas = (function () {
             if (i != 0)
                 if (campoMinas[i - 1][j].tapada)
                     picar(i - 1, j);
-            if (i != campoMinas.length - 1)
+            if (i != filasCampoMinas)
                 if (campoMinas[i + 1][j].tapada)
                     picar(i + 1, j);
-            if (j != campoMinas[1].length - 1)
+            if (j != columnasCampoMinas)
                 if (campoMinas[i][j + 1].tapada)
                     picar(i, j + 1);
             if (j != 0)
                 if (campoMinas[i][j - 1].tapada)
                     picar(i, j - 1);
-            if (j !== 0 && i !== campoMinas.length - 1)
+            if (j !== 0 && i !== filasCampoMinas)
                 if (campoMinas[i + 1][j - 1].tapada)
                     picar(i + 1, j - 1);
             if (i != 0 && j != 0)
                 if (campoMinas[i - 1][j - 1].tapada)
                     picar(i - 1, j - 1);
-            if (i != campoMinas.length - 1 && j != campoMinas[1].length - 1)
+            if (i != filasCampoMinas && j != columnasCampoMinas)
                 if (campoMinas[i + 1][j + 1].tapada)
                     picar(i + 1, j + 1);
-            if (i != 0 && j != campoMinas[1].length - 1)
+            if (i != 0 && j != columnasCampoMinas)
                 if (campoMinas[i - 1][j + 1].tapada)
                     picar(i - 1, j + 1);
         }
@@ -174,25 +178,25 @@ let buscaminas = (function () {
         if (i != 0)
             if (campoMinas[i - 1][j].bandera)
                 numBanderas++;
-        if (i != campoMinas.length - 1)
+        if (i != filasCampoMinas)
             if (campoMinas[i + 1][j].bandera)
                 numBanderas++;
-        if (j != campoMinas[1].length - 1)
+        if (j != columnasCampoMinas)
             if (campoMinas[i][j + 1].bandera)
                 numBanderas++;
         if (j != 0)
             if (campoMinas[i][j - 1].bandera)
                 numBanderas++;
-        if (j !== 0 && i !== campoMinas.length - 1)
+        if (j !== 0 && i !== filasCampoMinas)
             if (campoMinas[i + 1][j - 1].bandera)
                 numBanderas++;
         if (i != 0 && j != 0)
             if (campoMinas[i - 1][j - 1].bandera)
                 numBanderas++;
-        if (i != campoMinas.length - 1 && j != campoMinas[1].length - 1)
+        if (i != filasCampoMinas && j != columnasCampoMinas)
             if (campoMinas[i + 1][j + 1].bandera)
                 numBanderas++;
-        if (i != 0 && j != campoMinas[1].length - 1)
+        if (i != 0 && j != columnasCampoMinas)
             if (campoMinas[i - 1][j + 1].bandera)
                 numBanderas++;
 
@@ -200,25 +204,25 @@ let buscaminas = (function () {
             if (i != 0)
                 if (campoMinas[i - 1][j].tapada && !campoMinas[i - 1][j].bandera)
                     picar(i - 1, j);
-            if (i != campoMinas.length - 1)
+            if (i != filasCampoMinas)
                 if (campoMinas[i + 1][j].tapada && !campoMinas[i + 1][j].bandera)
                     picar(i + 1, j);
-            if (j != campoMinas[1].length - 1)
+            if (j != columnasCampoMinas)
                 if (campoMinas[i][j + 1].tapada && !campoMinas[i][j + 1].bandera)
                     picar(i, j + 1);
             if (j != 0)
                 if (campoMinas[i][j - 1].tapada && !campoMinas[i][j - 1].bandera)
                     picar(i, j - 1);
-            if (j !== 0 && i !== campoMinas.length - 1)
+            if (j !== 0 && i !== filasCampoMinas)
                 if (campoMinas[i + 1][j - 1].tapada && !campoMinas[i + 1][j - 1].bandera)
                     picar(i + 1, j - 1);
             if (i != 0 && j != 0)
                 if (campoMinas[i - 1][j - 1].tapada && !campoMinas[i - 1][j - 1].bandera)
                     picar(i - 1, j - 1);
-            if (i != campoMinas.length - 1 && j != campoMinas[1].length - 1)
+            if (i != filasCampoMinas && j != columnasCampoMinas)
                 if (campoMinas[i + 1][j + 1].tapada && !campoMinas[i + 1][j + 1].bandera)
                     picar(i + 1, j + 1);
-            if (i != 0 && j != campoMinas[1].length - 1)
+            if (i != 0 && j != columnasCampoMinas)
                 if (campoMinas[i - 1][j + 1].tapada && !campoMinas[i - 1][j + 1].bandera)
                     picar(i - 1, j + 1);
         }
