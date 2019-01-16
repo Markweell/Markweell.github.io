@@ -244,7 +244,7 @@ let buscaminas = (function () {
 
     function accionMostrando(i, j, funcion) {
         try {
-            if (perdida == true) {
+            if (perdida) {
                 throw new Error("Has perdido, inicia una partida.");
             }
             if (numLibres == 0) {
@@ -289,9 +289,9 @@ let buscaminas = (function () {
         console.log(tablero);
 
         function pintarResultado(i, j) {
-            if (campoMinas[i][j].tapada == false) {
+            if (!campoMinas[i][j].tapada) {
                 tablero += campoMinas[i][j].valor + "  ";
-            } else if (campoMinas[i][j].bandera == true) {
+            } else if (campoMinas[i][j].bandera ) {
                 tablero += "╦ " + " ";
             } else
                 tablero += "■ " + " ";
