@@ -148,7 +148,7 @@
         if (!tableroArrayDom[i][j].hasClass("casillaDescubierta")) {
             tableroArrayDom[i][j].removeClass("casillaBuscamina");
             tableroArrayDom[i][j].addClass("casillaDescubierta");
-            if (campoMinas[i][j].valor != 0) {
+            if (campoMinas[i][j].valor !== 0) {
                 tableroArrayDom[i][j].html(campoMinas[i][j].valor);
             }
         }
