@@ -9,17 +9,28 @@
     <title>Ejemplos con JQuery II</title>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
         crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="js/respuesta1.js"></script>
     <style>
         body>span {
             text-align: right;
             font-size: 3em;
             margin: 20px;
         }
+        form{
+            margin: 10px;
+            border: 1px solid black;
+            padding: 10px;
+        }
+        form *{
+            margin: 0px 20px;
+        }
     </style>
 </head>
 
 <body>
-        <noscript>Para el correcto funcionamiento de la página es necesario tener activado Javascript</noscript>
+    <noscript>Para el correcto funcionamiento de la página es necesario tener activado Javascript</noscript>
     <span><a href="../../../1.Cliente/Tema7/practicasManualJQueryIIII,IV,V/index.html"><i class="fas fa-arrow-left"></i></a></span>
     <h1>Para responder estas preguntas hemos usado el <a href="../manual-jquery.pdf">Manual de
             JQuery.</a> de <a id="enlace" href="http://www.desarrolloweb.com">DesarrolloWeb.com</a></h1>
@@ -27,15 +38,34 @@
         <li><b>Distintas formas de acceder al atributo checked. Compruébalo en las distintas plataformas, tanto con
                 input como con radio buttons:</b>
             <ol>
-                <li>:selected Selector</li>
-                <li>.prop()</li>
-                <li>.attr()</li>
-                <li>:checked Selector</li>
-                <li>.val()</li>
+                <li> <b>:selected Selector:</b> <span id="selected"></span></li>
+                <li><b>.prop(): </b><span id="prop"></span> </li>
+                <li><b>.attr(): </b><span id="attr"></span></li>
+                <li>:checked Selector</li><span id="checked"></span>
+                <li>.val()</li><span id="val"></span>
             </ol>
+
+            <form action="main.html" method="post" id="hola">
+                <input type="text" name="nombre" id="texto">
+                <input type="radio" name="opciones" class="opciones" id="opcion1">
+                <input type="radio" name="opciones" class="opciones" id="opcion2">
+                <input type="radio" name="opciones" class="opciones" id="opcion3">
+                <input type="checkbox" name="checkBox" class="checkBox" id="checkBox1">
+                <input type="checkbox" name="checkBox" class="checkBox" id="checkBox2">
+                <input type="checkbox" name="checkBox" class="checkBox" id="checkBox3">
+
+                <select name="selecciones" id="selecciones">
+                    <option>Flowers</option>
+                    <option selected="selected">Shrubs</option>
+                    <option>Trees</option>
+                    <option selected="selected">Bushes</option>
+                    <option>Grass</option>
+                    <option>Dirt</option>
+                </select>
+            </form>
         </li>
         <li><b>De tres 'input type="checkbox"' que te deshabilite 2 al seleccionar una de ellas:</b> </li>
-        <li><b>Asociar dintintos eventos mediante .on().:</b> </li>
+        <li><b>Asociar distintos eventos mediante .on().:</b> </li>
         <li><b>Indica los eventos estándares en el DOM:</b> </li>
         <li><b>Los atributos pageX, pageY, currentTarget, timeStamp... ¿A qué objeto pertenecen? Demuestra su uso:</b>
         </li>
