@@ -107,7 +107,6 @@
     }
 
     function perder() {
-
         $.each(campoMinas, function (index) {
             $.each(campoMinas[index], function (index2, value) {
                 if (value.valor == 9) {
@@ -149,7 +148,9 @@
         if (!tableroArrayDom[i][j].hasClass("casillaDescubierta")) {
             tableroArrayDom[i][j].removeClass("casillaBuscamina");
             tableroArrayDom[i][j].addClass("casillaDescubierta");
-            tableroArrayDom[i][j].html(campoMinas[i][j].valor);
+            if (campoMinas[i][j].valor != 0) {
+                tableroArrayDom[i][j].html(campoMinas[i][j].valor);
+            }
         }
     }
 
@@ -157,7 +158,7 @@
         if (tableroArrayDom[i][j].hasClass("casillaBuscamina")) {
             tableroArrayDom[i][j].addClass("casillaMarcada");
             tableroArrayDom[i][j].removeClass("casillaBuscamina");
-        } else if (tableroArrayDom[i][j].hasClass("casillaMarcada")) {
+        } else {
             tableroArrayDom[i][j].addClass("casillaBuscamina");
             tableroArrayDom[i][j].removeClass("casillaMarcada");
         }
