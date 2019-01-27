@@ -28,11 +28,11 @@ let buscaminas = (function () {
                 numComlumnas = 30;
                 numMinas = 99;
                 break;
-            case 1:
+            //case 1:
             default:
                 numFilas = 8;
                 numComlumnas = 8;
-                numMinas = 3;
+                numMinas = 1;
                 break;
         }
         crearTablero(numFilas, numComlumnas, numMinas);

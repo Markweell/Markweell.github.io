@@ -8,6 +8,8 @@
     <meta name="author" content="Marcos Gallardo Pérez">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+    <script src="js/velocity.js"></script>
+    <script src="js/ui.js"></script>
     <script src="js/buscaminas.js"></script>
     <script src="js/main.js"></script>
     <link rel="stylesheet" href="css/estilo.css">
@@ -20,10 +22,10 @@
     <noscript>Para el correcto funcionamiento de la página es necesario tener activado Javascript</noscript>
     <span id="undo"><a href="../../../1.Cliente/Tema7/BuscaminasConJQuery/index.html"><i class="fas fa-arrow-left"></i></a></span>
     <h1>Marcos Gallardo Pérez - Buscaminas En JQuery</h1>
-    
+
     <div class="entornoJuego">
         <header>
-            <div class="Reloj">00:00:00</div>
+            <div class="Reloj"><span id="horas">00</span>:<span id="minutos">00</span>:<span id="segundos">00</span></div>
             <div class="Banderas"><span id="numBanderas">0</span><span><i class="fas fa-flag"></i></span></div>
             <div class="Dificultad">
                 <select name="dificultad" id="dificultad">

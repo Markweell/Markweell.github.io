@@ -85,6 +85,7 @@ p {
 
 .casillaBuscamina span {
     font-size: 20px;
+    
 }
 
 
@@ -119,12 +120,32 @@ p {
     justify-content: center;
     align-items: center;
     transition: 1s; 
+    transform-style: preserve-3d;
+    background-size: cover;
 }
 .casillaMarcada{
-    background-color: Red;
+    background: url('../img/bandera.png');
+    background-size: cover;
     border: 1px solid white;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@-webkit-keyframes animacion{
+    50%{
+        transform: translate(-10%,-10%);
+        *transform: rotateY(180deg);
+        *transform: rotateX(180deg);
+        *transform: rotateZ(180deg);
+        
+    }
+    100%{
+        transform: translate(0,0);
+        transform: scale(1);
+        transform: rotateY(0deg);
+        transform: rotateX(0deg);
+        transform: rotateZ(0deg);
+    }
 }

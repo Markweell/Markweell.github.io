@@ -8,15 +8,26 @@
     let arrayDestapadas;
     let tableroDom;
     let reiniciaDom;
+    let numeroDeBanderasDom;
+    let numeroDeBanderas;
+    let arrayMina;
+    let banderasDom;
+    let corriendo = false;
+    let tiempo_corriendo;
+
+    let horasDom;
+    let minutosDom;
+    let segundosDom;
 
     function init() {
         tableroDom = $(".Tablero");
-        reiniciaDom = $(".Reinicia")
-        reiniciaDom.click(function () {
-            iniciarPartida();
-            alternaReinicia('none');
-        })
+        reiniciaDom = $(".Reinicia");
+        numeroDeBanderasDom = $("#numBanderas");
+        banderasDom = $(".Banderas");
 
+        horasDom = $("#horas");
+        minutosDom = $("#minutos");
+        segundosDom = $("#segundos");
         $("#dificultad").change(iniciarPartida).change();
 
         asignacionEventosDom();
@@ -36,19 +47,22 @@
             default:
                 buscaminas.init();
         }
-        creacionTablero();
         alternaReinicia('none');
+        restaurarReloj();
+        creacionTablero();
     }
 
     function asignacionEventosDom() {
         //Quitar el menu contextual
         tableroDom.contextmenu(function (e) {
             e.preventDefault();
-        })
-
+        });
         //Añadimos los eventos del teclado
         tableroDom.mousedown(function (e) {
             [i, j] = e.target.id.split("_");
+            if (!corriendo) {
+                activaFuncionamientoReloj();
+            }
             try {
                 //Click Doble
                 if (e.button == 2 && e.buttons == 3) {
@@ -77,25 +91,47 @@
                 if (e.message == "Enhorabuena, has ganado.") {
                     ganar();
                 }
+                if (e.message == "Has perdido, inicia una partida." || e.message == "Enhorabuena, has ganado.") {
+                    reiniciaDom
+                        .velocity({ //Pequeña animación para recordarnos que tenemos que empezar una partida si hemos perdido.
+                            "font-size": "1000px"
+                        }, 100, "linear")
+                        .velocity({
+                            "font-size": "100px"
+                        }, 100, "linear");
+
+                }
                 console.log(e.message);
             }
-        })
+        });
+        reiniciaDom.click(function () {
+            iniciarPartida();
+            alternaReinicia('none');
+        });
     }
 
     function creacionTablero() {
+        arrayMina = [];
+        numeroDeBanderas = 0;
         tableroArrayDom = [campoMinas.length];
-        let divContenedor = $('<div></div>');
+        let divContenedor = $('<div></div>'); //Div intermedio, lo usamos para no hacer más de una carga al Dom. 
         for (let i = 0; i < campoMinas.length; i++) {
             tableroArrayDom[i] = [campoMinas.length];
             for (let j = 0; j < campoMinas[1].length; j++) {
                 tableroArrayDom[i][j] = $('<div class="casillaBuscamina"><span><span></div>');
                 tableroArrayDom[i][j].attr('id', i + "_" + j);
                 divContenedor.append(tableroArrayDom[i][j]);
+                if (campoMinas[i][j].valor == 9) {
+                    arrayMina.push(tableroArrayDom[i][j]); //Creación de una array con las coordenadas de las minas para acceder a ellas de una manera más facil.
+                    numeroDeBanderas++;
+                }
             }
         }
+        numeroDeBanderasDom.text(numeroDeBanderas);
         tableroDom.html(divContenedor);
         $('.Tablero>div').css("grid-template-columns", "repeat(" + campoMinas.length + ",1fr)");
         $('.casillaBuscamina').css("height", tableroArrayDom[1][2].css('width'));
+        //Ajustamos el tamaño de las casillas al ancho deseado y hacemos que sean cuadradas.
     }
 
     function actualizaTableroPicar() {
@@ -107,21 +143,25 @@
     }
 
     function perder() {
-        $.each(campoMinas, function (index) {
-            $.each(campoMinas[index], function (index2, value) {
-                if (value.valor == 9) {
-                    tableroArrayDom[index][index2].css({
-                        background: "yellow"
-                    })
-                }
-            })
+        $(".casillaDescubierta").css({
+            "background-color": "rgba(185,53,53,0.64)"
         });
-
+        for (value of arrayMina) {
+            value.css({
+                background: "url(img/mina.png)",
+                "background-size": "cover",
+                border: "1px solid red"
+            })
+        }
+        detenerReloj();
         alternaReinicia("inline");
     }
 
     function ganar() {
         tableroDom.append("<p class='mensajeVictoria'>Enhorabuena, has ganado.</p>");
+        $(".casillaDescubierta").css({
+            "background-color": "rgba(106,185,53,0.64)"
+        });
         $.each(campoMinas, function (index) {
             $.each(campoMinas[index], function (index2, value) {
                 if (value.valor != 9) {
@@ -129,11 +169,13 @@
                 }
                 if (value.valor == 9) {
                     tableroArrayDom[index][index2].css({
-                        background: "green"
+                        background: "url(img/ganar.png)",
+                        "background-size": "cover"
                     })
                 }
             })
         });
+        detenerReloj();
         alternaReinicia("inline");
     }
 
@@ -145,23 +187,174 @@
     }
 
     function descubreCasilla(i, j) {
-        if (!tableroArrayDom[i][j].hasClass("casillaDescubierta")) {
+        if (!tableroArrayDom[i][j].hasClass("casillaDescubierta")) { //Si no está descubierta ya
             tableroArrayDom[i][j].removeClass("casillaBuscamina");
             tableroArrayDom[i][j].addClass("casillaDescubierta");
-            if (campoMinas[i][j].valor !== 0) {
-                tableroArrayDom[i][j].html(campoMinas[i][j].valor);
+            if (campoMinas[i][j].valor !== 0) { //Si el valor es 0, no muestro su valor.
+                switch (campoMinas[i][j].valor) {
+                    case 1:
+                        tableroArrayDom[i][j].css({
+                            background: "url(img/uno.png)"
+                        });
+                        break;
+                    case 2:
+                        tableroArrayDom[i][j].css({
+                            background: "url(img/dos.png)"
+                        })
+                        break;
+                    case 3:
+                        tableroArrayDom[i][j].css({
+                            background: "url(img/tres.png)"
+                        })
+                        break;
+                    case 4:
+                        tableroArrayDom[i][j].css({
+                            background: "url(img/cuatro.png)"
+                        })
+                        break
+                    case 5:
+                        tableroArrayDom[i][j].css({
+                            background: "url(img/cinco.png)"
+                        })
+                        break;
+                    case 6:
+                        tableroArrayDom[i][j].css({
+                            background: "url(img/seis.png)"
+                        })
+                        break;
+                    case 7:
+                        tableroArrayDom[i][j].css({
+                            background: "url(img/siete.png)"
+                        })
+                        break;
+                    case 8:
+                        tableroArrayDom[i][j].css({
+                            background: "url(img/ocho.png)"
+                        })
+                        break;
+                }
             }
+            tableroArrayDom[i][j].css({
+                "animation": "animacion 0.3s 1 linear",
+                "background-size": "cover"
+            });
         }
     }
 
     function marcaCasilla(i, j) {
         if (tableroArrayDom[i][j].hasClass("casillaBuscamina")) {
+            if (numeroDeBanderas === 0) { //Si ya has puesto todas las banderas, no te deja marcar más
+                banderasDom.css({
+                    "color": "red"
+                });
+                banderasDom
+                    .velocity({
+                        "font-size": "50px"
+                    }, 200, "linear")
+                    .velocity({
+                        "font-size": "20px"
+                    }, 400, "linear");
+                return;
+            }
             tableroArrayDom[i][j].addClass("casillaMarcada");
             tableroArrayDom[i][j].removeClass("casillaBuscamina");
-        } else {
+            numeroDeBanderasDom.text(--numeroDeBanderas);
+
+        } else { //Esto ocurre al picar sobre una bandera ya puesta
+            banderasDom.css({
+                "color": "black"
+            });
             tableroArrayDom[i][j].addClass("casillaBuscamina");
             tableroArrayDom[i][j].removeClass("casillaMarcada");
+            numeroDeBanderasDom.text(++numeroDeBanderas);
         }
     }
 
+    function activaFuncionamientoReloj() {
+        let tiempo = {
+            hora: 0,
+            minuto: 0,
+            segundo: 0
+        };
+
+        tiempo_corriendo = null;
+
+
+        tiempo_corriendo = setInterval(function () {
+            // Segundos
+            tiempo.segundo++;
+            if (tiempo.segundo >= 60) {
+                tiempo.segundo = 0;
+                tiempo.minuto++;
+            }
+
+            // Minutos
+            if (tiempo.minuto >= 60) {
+                tiempo.minuto = 0;
+                tiempo.hora++;
+            }
+
+            horasDom.text(tiempo.hora < 10 ? '0' + tiempo.hora : tiempo.hora);
+            minutosDom.text(tiempo.minuto < 10 ? '0' + tiempo.minuto : tiempo.minuto);
+            segundosDom.text(tiempo.segundo < 10 ? '0' + tiempo.segundo : tiempo.segundo);
+        }, 1000);
+        corriendo = true;
+
+    }
+
+    function detenerReloj() {
+        clearInterval(tiempo_corriendo);
+        corriendo = false;
+    }
+    function restaurarReloj() {
+        horasDom.text('00');
+        minutosDom.text('00');
+        segundosDom.text('00');
+    }
+
+
 }
+/*
+$(document).ready(function(){
+
+    var tiempo = {
+        hora: 0,
+        minuto: 0,
+        segundo: 0
+    };
+
+    var tiempo_corriendo = null;
+
+    $("#btn-comenzar").click(function(){
+        if ( $(this).text() == 'Comenzar' )
+        {
+            $(this).text('Detener');                        
+            tiempo_corriendo = setInterval(function(){
+                // Segundos
+                tiempo.segundo++;
+                if(tiempo.segundo >= 60)
+                {
+                    tiempo.segundo = 0;
+                    tiempo.minuto++;
+                }      
+
+                // Minutos
+                if(tiempo.minuto >= 60)
+                {
+                    tiempo.minuto = 0;
+                    tiempo.hora++;
+                }
+
+                $("#hour").text(tiempo.hora < 10 ? '0' + tiempo.hora : tiempo.hora);
+                $("#minute").text(tiempo.minuto < 10 ? '0' + tiempo.minuto : tiempo.minuto);
+                $("#second").text(tiempo.segundo < 10 ? '0' + tiempo.segundo : tiempo.segundo);
+            }, 1000);
+        }
+        else 
+        {
+            $(this).text('Comenzar');
+            clearInterval(tiempo_corriendo);
+        }
+    })
+})
+*/
