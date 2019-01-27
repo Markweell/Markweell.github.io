@@ -48,8 +48,11 @@
                 buscaminas.init();
         }
         alternaReinicia('none');
-        restaurarReloj();
+        restaurarReloj();detenerReloj();
         creacionTablero();
+        banderasDom.css({
+            "color": "black"
+        });
     }
 
     function asignacionEventosDom() {
@@ -60,9 +63,6 @@
         //Añadimos los eventos del teclado
         tableroDom.mousedown(function (e) {
             [i, j] = e.target.id.split("_");
-            if (!corriendo) {
-                activaFuncionamientoReloj();
-            }
             try {
                 //Click Doble
                 if (e.button == 2 && e.buttons == 3) {
@@ -82,6 +82,9 @@
                     if (!tableroArrayDom[i][j].hasClass("casillaDescubierta")) {
                         arrayDestapadas = buscaminas.picar(parseInt(i), parseInt(j));
                         actualizaTableroPicar();
+                        if (!corriendo) {
+                            activaFuncionamientoReloj();
+                        }
                     }
                 }
             } catch (e) {
@@ -92,13 +95,17 @@
                     ganar();
                 }
                 if (e.message == "Has perdido, inicia una partida." || e.message == "Enhorabuena, has ganado.") {
-                    reiniciaDom
-                        .velocity({ //Pequeña animación para recordarnos que tenemos que empezar una partida si hemos perdido.
-                            "font-size": "1000px"
-                        }, 100, "linear")
-                        .velocity({
-                            "font-size": "100px"
-                        }, 100, "linear");
+                    if(reiniciaDom.hasClass('scale-animation')){
+                        reiniciaDom.removeClass('scale-animation');
+                        reiniciaDom.offset();
+                    }
+                    reiniciaDom.addClass('scale-animation');
+                        // .velocity({ //Pequeña animación para recordarnos que tenemos que empezar una partida si hemos perdido.
+                        //     "font-size": "200px"
+                        // }, 100, "linear")
+                        // .velocity({
+                        //     "font-size": "100px"
+                        // }, 10000, "linear");
 
                 }
                 console.log(e.message);
@@ -135,11 +142,13 @@
     }
 
     function actualizaTableroPicar() {
+
         $.each(arrayDestapadas, function (index, value) {
             setTimeout(function () {
                 descubreCasilla(value.i, value.j)
             }, index * 10 + 100);
         });
+
     }
 
     function perder() {
@@ -247,13 +256,18 @@
                 banderasDom.css({
                     "color": "red"
                 });
-                banderasDom
-                    .velocity({
-                        "font-size": "50px"
-                    }, 200, "linear")
-                    .velocity({
-                        "font-size": "20px"
-                    }, 400, "linear");
+                if(banderasDom.hasClass('scale-animation')){
+                    banderasDom.removeClass('scale-animation');
+                    banderasDom.offset();
+                }
+                banderasDom.addClass('scale-animation');
+                // banderasDom
+                //     .velocity({
+                //         "font-size": "50px"
+                //     }, 200, "linear")
+                //     .velocity({
+                //         "font-size": "20px"
+                //     }, 400, "linear");
                 return;
             }
             tableroArrayDom[i][j].addClass("casillaMarcada");
@@ -314,47 +328,3 @@
 
 
 }
-/*
-$(document).ready(function(){
-
-    var tiempo = {
-        hora: 0,
-        minuto: 0,
-        segundo: 0
-    };
-
-    var tiempo_corriendo = null;
-
-    $("#btn-comenzar").click(function(){
-        if ( $(this).text() == 'Comenzar' )
-        {
-            $(this).text('Detener');                        
-            tiempo_corriendo = setInterval(function(){
-                // Segundos
-                tiempo.segundo++;
-                if(tiempo.segundo >= 60)
-                {
-                    tiempo.segundo = 0;
-                    tiempo.minuto++;
-                }      
-
-                // Minutos
-                if(tiempo.minuto >= 60)
-                {
-                    tiempo.minuto = 0;
-                    tiempo.hora++;
-                }
-
-                $("#hour").text(tiempo.hora < 10 ? '0' + tiempo.hora : tiempo.hora);
-                $("#minute").text(tiempo.minuto < 10 ? '0' + tiempo.minuto : tiempo.minuto);
-                $("#second").text(tiempo.segundo < 10 ? '0' + tiempo.segundo : tiempo.segundo);
-            }, 1000);
-        }
-        else 
-        {
-            $(this).text('Comenzar');
-            clearInterval(tiempo_corriendo);
-        }
-    })
-})
-*/

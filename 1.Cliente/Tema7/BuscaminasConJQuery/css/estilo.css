@@ -95,7 +95,7 @@ p {
     right: 50px;
     bottom: 50px;
     font-size: 100px;
-    transition-duration: 1s;
+    /* transition-duration: 1s; */
 }
 
 .Reinicia:hover {
@@ -147,5 +147,18 @@ p {
         transform: rotateY(0deg);
         transform: rotateX(0deg);
         transform: rotateZ(0deg);
+    }
+}
+
+.scale-animation{
+    animation: scale-animation 1s;
+}
+@-webkit-keyframes scale-animation{
+    50%{
+        transform: scale(1.5);
+    }
+    100%{
+        transform: scale(1);
+        
     }
 }
