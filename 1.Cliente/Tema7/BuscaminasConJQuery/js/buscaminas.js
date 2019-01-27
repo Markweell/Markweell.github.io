@@ -32,7 +32,7 @@ let buscaminas = (function () {
             default:
                 numFilas = 8;
                 numComlumnas = 8;
-                numMinas = 1;
+                numMinas = 10;
                 break;
         }
         crearTablero(numFilas, numComlumnas, numMinas);
