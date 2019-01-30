@@ -256,18 +256,18 @@
                 banderasDom.css({
                     "color": "red"
                 });
-                if(banderasDom.hasClass('scale-animation')){
-                    banderasDom.removeClass('scale-animation');
-                    banderasDom.offset();
-                }
-                banderasDom.addClass('scale-animation');
-                // banderasDom
-                //     .velocity({
-                //         "font-size": "50px"
-                //     }, 200, "linear")
-                //     .velocity({
-                //         "font-size": "20px"
-                //     }, 400, "linear");
+                // if(banderasDom.hasClass('scale-animation')){
+                //     banderasDom.removeClass('scale-animation');
+                //     banderasDom.offset();
+                // }
+                // banderasDom.addClass('scale-animation');
+                 banderasDom
+                     .velocity({
+                         "font-size": "50px"
+                     }, 200, "linear")
+                     .velocity({
+                         "font-size": "20px"
+                     }, 400, "linear");
                 return;
             }
             tableroArrayDom[i][j].addClass("casillaMarcada");
