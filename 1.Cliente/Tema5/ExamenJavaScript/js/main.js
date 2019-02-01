@@ -32,11 +32,8 @@
             return;
         }
 
-        let span;
-        for (let eSpan of spans) {
-            if (("s" + element.id) === eSpan.id)
-                span = eSpan;
-        }
+        let span = document.getElementById("s" + element.id);
+ 
         if (!patrones[element.id][0].test(element.value)) {
             span.innerHTML = " " + patrones[element.id][1];
 
