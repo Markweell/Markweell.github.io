@@ -103,7 +103,9 @@
         } catch (e) {
             if (e.message === 'Fecha invalida') {
                 domDate.innerHTML = ' Fecha invalida';
-            } else if (e.message === 'Debe seleccionar una edad') {
+            } else if(e.message === 'La fecha de reserva debe ser superior o igual al día actual'){
+                domDate.innerHTML = 'La fecha de reserva debe ser superior o igual al día actual';
+            }else if (e.message === 'Debe seleccionar una edad') {
                 domEdad.style.border = '3px Solid red';
             }
             //console.log(e.message);

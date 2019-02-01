@@ -6,7 +6,7 @@
 function Reserva(nombre = "", correo = "", fecha = "", hora = "", numNoches = "", numPersonas = "", servicioRes = "", edadCliente = "") {
     this.nombre = this.comprobarNombre(nombre);
     this.correo = this.comprobarCorreo(correo);
-    this.fecha = this.comprobarFecha(fecha);
+    [this.fecha,this.diasFaltantes] = this.comprobarFecha(fecha);
     this.hora = this.comprobarHora(hora);
     this.numNoches = this.comprobarNumNoches(numNoches);
     this.numPersonas = this.comprobarNumPersonas(numPersonas);
@@ -44,6 +44,7 @@ Reserva.prototype.comprobarCorreo = function (correo) {
 };
 
 Reserva.prototype.comprobarFecha = function (fecha) {
+    
     [, dia, , mes, anio] = patrones['fecha'][0].exec(fecha);
     if (parseInt(dia) > 31 || parseInt(mes) > 12) {
         throw new Error('Fecha invalida');
@@ -80,7 +81,14 @@ Reserva.prototype.comprobarFecha = function (fecha) {
             break;
 
     }
-    return fecha;
+    let fechaReserva = new Date(anio,mes-1,dia).getTime();
+    let fechaActual = new Date().getTime();
+    let seconds_left = (fechaReserva - fechaActual) / 1000;
+    diasFaltantes = parseInt(seconds_left / 86400);
+    if(diasFaltantes<0){
+        throw new Error('La fecha de reserva debe ser superior o igual al día actual'); 
+    }
+    return [fecha,diasFaltantes+1];
 };
 
 Reserva.prototype.comprobarHora = function (hora) {
