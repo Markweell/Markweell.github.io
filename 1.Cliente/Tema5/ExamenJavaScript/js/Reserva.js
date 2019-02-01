@@ -127,7 +127,7 @@ Reserva.prototype.uniqueID = (function () {
 
 Reserva.prototype.mostrar = function () {
 
-    ventana = window.open("", "", "height=200,width=300,top=50,left=50");
+    let ventana = window.open("", "", "height=200,width=300,top=50,left=50");
     ventana.document.write(
         `
     <html>
