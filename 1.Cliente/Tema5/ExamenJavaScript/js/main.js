@@ -119,7 +119,7 @@
     }
 
     function compruebaElementosExcentos(element) {
-        return /servRestaurante/.test(element.id) || /edad/.test(element.id) || /button/.test(element.id);
+        return /servRestaurante/.test(element.id) || /edad/.test(element.id);
     }
 
 
