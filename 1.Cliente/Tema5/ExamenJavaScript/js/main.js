@@ -2,127 +2,69 @@
  * Comportamiento del html
  * @author Marcos Gallardo Pérez
  */
-
 {
     document.addEventListener('DOMContentLoaded', init);
     let inputs;
-    let spans;
+    let checkboxs;
     let domDate;
     let domEdad;
     let focuseado;
 
     function init() {
-        document.getElementById('button').addEventListener('click', comprobarFormulario)
-        inputs = document.getElementsByTagName("input");
-        spans = document.getElementsByTagName('span');
+        inputs = document.querySelectorAll('input[type="text"]');
+        checkboxs = document.querySelectorAll('input[type="checkbox"]');
         domDate = document.getElementById('sfecha');
         domEdad = document.getElementById('edad');
-        focuseado=false;
-        Array.from(inputs).pop();
-        Array.from(spans).pop();
+        focuseado = false;
+        asignacionEventos();
+    }
+
+    function asignacionEventos() {
         for (let element of inputs) {
-            if (compruebaElementosExcentos(element)) {
-                continue;
-            }
             element.addEventListener('blur', compruebaCampo.bind(null, element));
         }
+        document.getElementById('button').addEventListener('click', comprobarFormulario)
     }
 
     function compruebaCampo(element) {
-        if (compruebaElementosExcentos(element)) {
-            return;
-        }
         let span = document.getElementById("s" + element.id);
         if (!patrones[element.id][0].test(element.value)) {
             span.innerHTML = " " + patrones[element.id][1];
-            if(!focuseado){
+            if (!focuseado) {
                 document.getElementById(element.id).focus();
-                focuseado=true;
+                focuseado = true;
             }
         } else
             span.innerHTML = "";
-
     }
 
     function comprobarFormulario() {
-        let nombre;
-        let correo;
-        let fecha;
-        let hora;
-        let numNoches;
-        let numPersonas;
-        let servicioRes = "";
-        let edadCliente = '';
+        let servicioRes = "",
+            edadCliente = "";
         domEdad.style.border = '1px Solid black';
-        focuseado=false;
+        for(let element of checkboxs){
+            if (element.checked)
+                servicioRes+=element.id;
+        }
+        try{
+            let edad = document.querySelectorAll('input[type="radio"]:checked')[0].className;
+            edad<20?edadCliente="Menor de 20": edadCliente="Entre 20 y 40";
+            edad>40?edadCliente="Mayor de 40":"";
+        }catch(e){}
+        focuseado = false;
         for (let element of inputs) {
             compruebaCampo(element);
-            switch (element.id) {
-                case "nombre":
-                    nombre = element.value;
-                    break;
-                case "correo":
-                    correo = element.value;
-                    break;
-                case "fecha":
-                    fecha = element.value;
-                    break;
-                case "hora":
-                    hora = element.value;
-                    break;
-                case "numNoches":
-                    numNoches = element.value;
-                    break;
-                case "numPersonas":
-                    numPersonas = element.value;
-                case "servRestauranteD":
-                    if (element.checked)
-                        servicioRes += 'd';
-                    break;
-                case "servRestauranteA":
-                    if (element.checked)
-                        servicioRes += 'a';
-                    break;
-                case "servRestauranteC":
-                    if (element.checked)
-                        servicioRes += 'c';
-                    break;
-                case "edad20":
-                    if (element.checked)
-                        edadCliente = 'Menor que 20';
-                    break;
-                case "edad20y40":
-                    if (element.checked)
-                        edadCliente = 'Entre 20 y 40';
-                    break;
-                case "edad40":
-                    if (element.checked)
-                        edadCliente = 'Mayor de 40';
-                    break;
-            }
         }
+
         try {
-            new Reserva(nombre, correo, fecha, hora, numNoches, numPersonas, servicioRes, edadCliente);
+            new Reserva(inputs[0].value, inputs[1].value, inputs[2].value,inputs[3].value, inputs[4].value, inputs[5].value, servicioRes, edadCliente);
         } catch (e) {
-            if (e.message === 'Fecha invalida') {
-                domDate.innerHTML = ' Fecha invalida';
-            } else if(e.message === 'La fecha de reserva debe ser superior o igual al día actual'){
-                domDate.innerHTML = 'La fecha de reserva debe ser superior o igual al día actual';
-            }else if (e.message === 'Debe seleccionar una edad') {
-                domEdad.style.border = '3px Solid red';
+            if (e.message === 'Fecha invalida' || e.message === 'La fecha de reserva debe ser superior o igual al día actual' ) {
+                domDate.innerHTML = e.message;
+                document.getElementById("fecha").focus();
+            } else if (e.message === 'Debe seleccionar una edad') {
+                domEdad.style.border = '6px Solid red';
             }
-            // for (let element of spans) {
-            //     if (element.textContent != "") {
-            //         document.getElementById(element.id.replace("s", "")).focus();
-            //         return;
-            //     }
-            // }
         }
     }
-
-    function compruebaElementosExcentos(element) {
-        return /servRestaurante/.test(element.id) || /edad/.test(element.id) ||/button/.test(element.id);
-    }
-
-
 }

@@ -18,7 +18,6 @@ function Reserva(nombre = "", correo = "", fecha = "", hora = "", numNoches = ""
 }
 
 const patrones = {
-
     nombre: [/^[A-Z][a-z]{1,30}$/, "Primera letra en mayuscula, las siguientes en minusculas."],
     correo: [/^[a-z]{1,10}[@][a-z]{1,6}[\.][a-z]{1,4}$/, "Formato Esperado: eeeee@eeee.eee donde 'e' es cualquier letra."],
     fecha: [/^(\d\d)([-\/\: ])(\d\d)\2(\d\d\d\d)$/, "Formato Esperado: dd/mm/yyyy, dd-mm-yyyy o dd mm yyyy  donde 'e' es cualquier letra."],
@@ -144,6 +143,7 @@ Reserva.prototype.mostrar = function () {
         Correo : ${this.correo}<br>
         Fecha : ${this.fecha}<br>
         Hora : ${this.hora}<br>
+        Dias que Faltan : ${this.diasFaltantes}<br>
         Número de noches: ${this.numNoches}<br>
         Número de Personas : ${this.numPersonas}<br>
         Servicios Restaurante : ${this.servicioRes}<br>
