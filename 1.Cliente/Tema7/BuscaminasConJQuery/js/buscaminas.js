@@ -38,6 +38,7 @@ let buscaminas = (function () {
         crearTablero(numFilas, numComlumnas, numMinas);
         numLibres = numFilas * numComlumnas - numMinas;
         perdida = false;
+        mostrarTableroJuego();
         return campoMinas;
     }
 
@@ -303,7 +304,7 @@ let buscaminas = (function () {
             i = i;
             j = j;
             funcion(i, j);
-            mostrarTableroJuego();
+            //mostrarTableroJuego();
         } catch (e) {
             if (e.message == "BOMM!!")
                 perdida = true;
@@ -338,13 +339,14 @@ let buscaminas = (function () {
         }
 
         function pintarResultado(i, j) {
-            if (!campoMinas[i][j].tapada) {
+            if (campoMinas[i][j].tapada) {
                 tablero += campoMinas[i][j].valor + "  ";
             } else if (campoMinas[i][j].bandera) {
                 tablero += "╦ " + " ";
             } else
                 tablero += "■ " + " ";
         }
+        console.log(tablero);
     }
 
     return {

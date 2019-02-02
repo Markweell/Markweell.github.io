@@ -153,6 +153,7 @@ p {
 .scale-animation{
     animation: scale-animation 1s;
 }
+
 @-webkit-keyframes scale-animation{
     50%{
         transform: scale(1.5);
