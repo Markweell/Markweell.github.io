@@ -1,0 +1,435 @@
+#Eyelash1 {
+  left: 0%;
+  cursor: pointer;
+}
+
+#Eyelash2 {
+  left: 25%;
+  cursor: pointer;
+}
+
+#Eyelash3 {
+  left: 50%;
+  cursor: pointer;
+}
+
+#Eyelash4 {
+  left: 75%;
+  cursor: pointer;
+}
+
+#Eyelash5 {
+  left: 100%;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: "roboto";
+  src: url("../fuentes/Roboto/Roboto-Regular.ttf");
+  font-family: "robotoLightItalic";
+  src: url("../fuentes/Roboto/Roboto-LightItalic.ttf");
+}
+body {
+  width: 100%;
+  height: 100vh;
+}
+
+#fondoPantalla {
+  width: 100%;
+  height: 100%;
+  transition: 1s;
+  background: url(../img/fondo4.svg) no-repeat 0% 0%;
+  background-size: 2000px;
+}
+
+#container {
+  opacity: 1;
+  border-radius: 40px;
+  box-shadow: 10px 10px 11px -1px rgba(0, 0, 0, 0.8);
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: animacionAparicion 2s 1 linear;
+}
+@media screen and (min-width: 768px) {
+  #container {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    height: 95vh;
+  }
+}
+#container nav li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  position: absolute;
+  height: 10%;
+  top: 10px;
+  border-radius: 20px 20px 0 0;
+  font-size: 1.5em;
+}
+@media screen and (max-height: 400px) {
+  #container nav li {
+    height: 15%;
+  }
+}
+@media screen and (max-height: 650px) {
+  #container nav li {
+    height: 20%;
+    top: 0px;
+  }
+}
+#container nav li span {
+  font-family: "roboto";
+  margin: 10px 0 0 0;
+  display: none;
+}
+@media screen and (min-width: 980px) {
+  #container nav li span {
+    display: inline;
+  }
+}
+#container nav li i {
+  margin: 10px 0 0 0;
+  font-size: 1.5em;
+}
+@media screen and (min-width: 980px) {
+  #container nav li i {
+    display: none;
+  }
+}
+#container div {
+  margin: 0;
+}
+#container article {
+  position: absolute;
+  width: 100%;
+  height: 90%;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-height: 400px) {
+  #container article {
+    height: 85%;
+  }
+}
+@media screen and (max-height: 650px) {
+  #container article {
+    height: 80%;
+  }
+}
+#container article .cuerpo {
+  width: 90%;
+  height: 90%;
+  overflow: auto;
+  padding: 20px;
+  *border: 1px solid black;
+  position: relative;
+  display: flex;
+  flex-flow: column;
+  animation: animacionOpacidad 4s 1;
+}
+@media screen and (min-height: 440px) {
+  #container article .cuerpo {
+    width: 80%;
+    height: 80%;
+  }
+}
+#container article .cuerpo #perfil {
+  background: url(../img/perfil1.jpg);
+  border-top: 10px solid #2196f3;
+  display: none;
+  transition-duration: 2s;
+  transition-delay: 4s;
+}
+@media screen and (min-width: 950px) {
+  #container article .cuerpo #perfil {
+    display: initial;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 400px;
+    width: 300px;
+    border-radius: 50px;
+    background-size: cover;
+  }
+}
+#container article .cuerpo #fotoEstudio {
+  border-top: 10px solid #ffff00;
+  background: url(../img/libros.jpg);
+  display: none;
+}
+@media screen and (min-width: 950px) {
+  #container article .cuerpo #fotoEstudio {
+    display: initial;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 400px;
+    width: 300px;
+    border-radius: 50px;
+    background-size: cover;
+  }
+}
+#container article .cuerpo #fotoVidaLaboral {
+  background: url(../img/camarero.jpg);
+  border-top: 10px solid #ff5722;
+  display: none;
+}
+@media screen and (min-width: 950px) {
+  #container article .cuerpo #fotoVidaLaboral {
+    display: initial;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 400px;
+    width: 300px;
+    border-radius: 50px;
+    background-size: cover;
+  }
+}
+#container article .cuerpo #tituloPresentacion {
+  border-bottom: 1px solid #2196f3;
+  font-family: "robotoLightItalic";
+  font-size: 1.5em;
+  text-align: center;
+}
+@media screen and (min-width: 950px) {
+  #container article .cuerpo #tituloPresentacion {
+    font-size: 3em;
+  }
+}
+#container article .cuerpo #tituloEstudio {
+  border-bottom: 1px solid #c7cc00;
+  font-family: "robotoLightItalic";
+  font-size: 1.5em;
+  text-align: center;
+}
+@media screen and (min-width: 950px) {
+  #container article .cuerpo #tituloEstudio {
+    font-size: 3em;
+  }
+}
+#container article .cuerpo #tituloVidaLaboral {
+  border-bottom: 1px solid #c41c00;
+  font-family: "robotoLightItalic";
+  font-size: 1.5em;
+  text-align: center;
+}
+@media screen and (min-width: 950px) {
+  #container article .cuerpo #tituloVidaLaboral {
+    font-size: 3em;
+  }
+}
+#container article .cuerpo section {
+  animation: animacionOpacidad 6s 1;
+  position: static;
+  width: 100%;
+}
+#container article .cuerpo section ol {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: space-around;
+}
+#container article .cuerpo section ol li {
+  list-style: none;
+  animation: scaleIntermitente 2s infinite;
+}
+#container article .cuerpo section ol li a {
+  font-size: 2em;
+  text-decoration: none;
+  color: #2196f3;
+}
+#container article .cuerpo section p {
+  text-align: justify;
+}
+@media screen and (min-width: 450px) {
+  #container article .cuerpo section {
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 765px) {
+  #container article .cuerpo section {
+    font-size: 1.5em;
+  }
+}
+@media screen and (min-width: 950px) {
+  #container article .cuerpo section {
+    position: absolute;
+    left: 50%;
+    width: 50%;
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 1450px) {
+  #container article .cuerpo section {
+    left: 30%;
+    width: 60%;
+    font-size: 1.5em;
+  }
+}
+#container article .cuerpo #sectionProyectos {
+  position: static;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+}
+#container article .cuerpo #sectionProyectos > div {
+  padding: 10px;
+  border-radius: 20px;
+  *border: 1px solid #43a047;
+  display: flex;
+  margin-bottom: 20px;
+  box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+#container article .cuerpo #sectionProyectos > div img {
+  display: none;
+}
+@media screen and (min-width: 1000px) {
+  #container article .cuerpo #sectionProyectos > div img {
+    display: inline;
+    width: 30%;
+    height: 100%;
+    margin-right: 10px;
+    border-radius: 20px;
+  }
+}
+#container article .cuerpo #sectionProyectos > div footer {
+  display: flex;
+  justify-content: space-between;
+}
+#container article .cuerpo #sectionProyectos > div footer .acceso {
+  display: flex;
+  justify-content: space-between;
+}
+#container article .cuerpo #sectionProyectos > div footer .acceso a {
+  text-decoration: none;
+  color: black;
+}
+#container article .cuerpo #sectionProyectos > div footer .acceso div {
+  border-radius: 20px;
+  padding: 5px;
+  *border: 1px solid green;
+  margin-left: 15px;
+  background: #76d275;
+  box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+}
+#container article .cuerpo #tituloProyecto {
+  border-bottom: 1px solid #43a047;
+  margin: 0 0 20px 0;
+  font-family: "robotoLightItalic";
+  font-size: 1.5em;
+  text-align: center;
+}
+@media screen and (min-width: 950px) {
+  #container article .cuerpo #tituloProyecto {
+    font-size: 3em;
+  }
+}
+#container #Eyelash1 {
+  background-color: #0069c0;
+  width: 25%;
+}
+#container #presentacion {
+  background-color: #f0f0f0;
+  border-top: 15px solid #0069c0;
+  z-index: 10;
+}
+#container #Eyelash2 {
+  background-color: #c7cc00;
+  width: 25%;
+}
+#container #javascript {
+  background: #f0f0f0;
+  border-top: 15px solid #c7cc00;
+  z-index: 9;
+}
+#container #Eyelash3 {
+  background-color: #00701a;
+  width: 25%;
+}
+#container #disenio {
+  background: #f0f0f0;
+  border-top: 15px solid #00701a;
+  z-index: 8;
+}
+#container #Eyelash4 {
+  background-color: #c41c00;
+  width: 25%;
+}
+#container #php {
+  background: #f0f0f0;
+  border-top: 15px solid #c41c00;
+  z-index: 7;
+}
+#container #Eyelash5 {
+  background-color: #6a0080;
+  width: 25%;
+}
+#container #android {
+  background: #f0f0f0;
+  border-top: 15px solid #6a0080;
+  z-index: 6;
+}
+
+@keyframes scaleIntermitente {
+  0% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.2);
+  }
+  30% {
+    transform: scale(1);
+  }
+}
+@-webkit-keyframes animacionAparicion {
+  0% {
+    opacity: 0.1;
+    transform: scale(0.1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.5);
+    top: 40%;
+    left: 70%;
+    transform: translate(-50%, -50%);
+  }
+  70% {
+    opacity: 0.7;
+    transform: scale(0.7);
+    top: 55%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+  }
+  100% {
+    transform: scale(1);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+@-webkit-keyframes animacionAparicion;
+@-webkit-keyframes animacionOpacidad {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

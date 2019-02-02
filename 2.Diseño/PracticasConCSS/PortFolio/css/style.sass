@@ -1,0 +1,345 @@
+$tamanioPestania:25%
+
+$fondoColor:#f0f0f0
+
+$paleta1Primary:#2196f3
+$paleta1PDark:#0069c0
+$paleta1PLight:rgba(110,198,255,0.5)
+
+$paleta2Primary:#ffff00
+$paleta2PDark:#c7cc00
+$paleta2PLight:#ffff5a
+
+$paleta3Primary:#43a047
+$paleta3PDark:#00701a
+$paleta3PLight:#76d275
+
+$paleta4Primary:#ff5722
+$paleta4PDark:#c41c00
+$paleta4PLight:#ff8a50
+
+$paleta5Primary:#9c27b0
+$paleta5PDark:#6a0080
+$paleta5PLight:#d05ce3
+
+
+        
+@for $i from 0 through 4
+    #Eyelash#{$i+1}  
+        left: 0%+$i*$tamanioPestania
+        cursor: pointer
+
+@mixin comportamientoTitulo
+    font-family: 'robotoLightItalic'  
+    font-size: 1.5em
+    text-align: center
+    @media screen and (min-width: 950px) 
+        font-size: 3em
+
+@mixin comportamientoFoto
+    display: none
+    @media screen and (min-width: 950px)
+        display: initial
+        position: absolute
+        top: 0px
+        left: 0px
+        height: 400px
+        width: 300px
+        border-radius: 50px
+        background-size: cover
+            
+
+@font-face
+    font-family: 'roboto'
+    src: url('../fuentes/Roboto/Roboto-Regular.ttf')
+    font-family: 'robotoLightItalic'
+    src: url('../fuentes/Roboto/Roboto-LightItalic.ttf')
+
+body
+    width: 100%
+    height: 100vh
+#fondoPantalla
+    width: 100%
+    height: 100%
+    transition: 1s
+    background: url(../img/fondo4.svg) no-repeat 0% 0%
+    background-size: 2000px
+    
+    
+#container
+    opacity: 1
+    border-radius:40px
+    box-shadow: 10px 10px 11px -1px rgba(0,0,0,0.8)
+    position: absolute
+    width: 100%
+    height: 100vh
+    top:50%
+    left:50%
+    transform: translate(-50%,-50%)
+    animation: animacionAparicion 2s 1 linear
+
+    @media screen and (min-width: 768px)
+        top:50%
+        left:50%
+        transform: translate(-50%,-50%)
+        width: 90%
+        height: 95vh 
+    
+    nav
+        li
+            list-style: none
+            display: flex
+            justify-content: center
+            position: absolute
+            height: 10%
+            top: 10px
+            border-radius: 20px 20px 0 0
+            font-size: 1.5em
+            @media screen and (max-height: 400px)
+                height: 15%
+            @media screen and (max-height: 650px)
+                height: 20%
+                top:0px
+            span
+                font-family: 'roboto'
+                margin: 10px 0 0 0
+                display: none
+                @media screen and (min-width: 980px)
+                    display: inline
+            i
+                margin: 10px 0 0 0
+                font-size: 1.5em
+                @media screen and (min-width: 980px)
+                    display: none
+            
+
+    div
+        margin: 0
+
+    article
+        position: absolute
+        width: 100%
+        height: 90%
+        bottom:0
+        display: flex
+        align-items: center
+        justify-content: center
+        @media screen and (max-height: 400px)
+            height: 85%
+        @media screen and (max-height: 650px)
+            height: 80%
+
+        .cuerpo
+            width: 90%
+            height: 90%
+            overflow: auto
+            padding: 20px
+            *border: 1px solid black
+            position: relative
+            display: flex
+            flex-flow: column
+            animation: animacionOpacidad 4s 1
+            
+            @media screen and (min-height: 440px)
+                width: 80%
+                height: 80%
+
+            #perfil
+                background: url(../img/perfil1.jpg)
+                border-top: 10px solid $paleta1Primary
+                @include comportamientoFoto
+                transition-duration: 2s
+                transition-delay: 4s
+
+            #fotoEstudio
+                border-top: 10px solid $paleta2Primary
+                background: url(../img/libros.jpg)
+                @include comportamientoFoto
+
+            #fotoVidaLaboral
+                background: url(../img/camarero.jpg)
+                border-top: 10px solid $paleta4Primary
+                @include comportamientoFoto
+
+            #tituloPresentacion
+                
+                border-bottom: 1px solid $paleta1Primary
+                @include comportamientoTitulo
+      
+
+            #tituloEstudio
+                border-bottom: 1px solid $paleta2PDark
+                @include comportamientoTitulo
+            
+
+            #tituloVidaLaboral
+                border-bottom: 1px solid $paleta4PDark
+                @include comportamientoTitulo
+                    
+            section
+                animation: animacionOpacidad 6s 1
+                position: static
+                width: 100%
+                ol
+                    margin:0
+                    padding: 0
+                    display: flex
+                    justify-content: space-around
+                    
+                    li
+                        list-style: none
+                        animation: scaleIntermitente  2s infinite 
+                        a
+                            font-size: 2em
+                            text-decoration: none
+                            color: $paleta1Primary
+                p
+                    text-align: justify
+                @media screen and (min-width: 450px)
+                    font-size: 1em
+                @media screen and (min-width: 765px)
+                    font-size: 1.5em
+                @media screen and (min-width: 950px)
+                    position: absolute
+                    left: 50%
+                    width: 50%
+                    font-size: 1em
+                @media screen and (min-width: 1450px)
+                    left: 30%
+                    width: 60%
+                    font-size: 1.5em
+                
+            #sectionProyectos
+                position: static
+                width: 100%
+                height: 100%
+                display: flex
+                flex-flow: column
+                align-items: center
+                >div
+                    padding: 10px
+                    border-radius:20px
+                    *border: 1px solid $paleta3Primary
+                    display: flex
+                    margin-bottom:20px
+                    box-shadow:  2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0)
+                    img
+                        display: none
+                        @media screen and (min-width: 1000px)
+                            display: inline
+                            width: 30%
+                            height: 100%
+                            margin-right: 10px
+                            border-radius: 20px
+
+                    footer
+                        display: flex
+                        justify-content: space-between
+                        .acceso
+                            display: flex
+                            justify-content: space-between
+                            a
+                                text-decoration: none
+                                color: black
+                            div
+                                border-radius: 20px
+                                padding: 5px
+                                *border:1px solid green
+                                margin-left: 15px
+                                background: $paleta3PLight
+                                box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0)
+
+                
+            #tituloProyecto
+                border-bottom: 1px solid $paleta3Primary
+                margin:0 0 20px 0
+                @include comportamientoTitulo     
+
+
+    #Eyelash1
+        background-color: $paleta1PDark
+        width: $tamanioPestania
+       
+
+    #presentacion
+        background-color: $fondoColor
+        border-top: 15px solid $paleta1PDark
+        z-index: 10
+        
+
+    #Eyelash2
+        background-color: $paleta2PDark
+        width: $tamanioPestania
+
+    #javascript
+        background: $fondoColor
+        border-top: 15px solid $paleta2PDark
+        z-index: 9
+
+    #Eyelash3
+        background-color: $paleta3PDark
+        width: $tamanioPestania 
+
+    #disenio
+        background: $fondoColor
+        border-top: 15px solid $paleta3PDark
+        z-index: 8
+
+    #Eyelash4
+        background-color: $paleta4PDark
+        width: $tamanioPestania
+
+    #php
+        background: $fondoColor
+        border-top: 15px solid $paleta4PDark
+        z-index: 7
+
+    #Eyelash5
+        background-color: $paleta5PDark
+        width: $tamanioPestania 
+
+    #android
+        background: $fondoColor
+        border-top: 15px solid $paleta5PDark
+        z-index: 6
+
+@keyframes scaleIntermitente
+    0%
+        transform: scale(1)
+    15%
+        transform: scale(1.2)
+    30%
+        transform: scale(1)
+            
+@-webkit-keyframes animacionAparicion
+    0% 
+        opacity: 0.1
+        transform: scale(0.1)
+    
+    50%
+        opacity: 0.5
+        transform: scale(0.5)
+        top: 40%
+        left: 70%
+        transform: translate(-50%,-50%)
+    70%
+        opacity: 0.7
+        transform: scale(.7)
+        top:55%
+        left:60%
+        transform: translate(-50%,-50%)
+    100%
+        transform: scale(1)
+        top:50%
+        left:50%
+        transform: translate(-50%,-50%)
+
+@-webkit-keyframes animacionAparicion
+
+@-webkit-keyframes animacionOpacidad
+    0%
+        opacity: 0
+    50%
+        opacity: 0
+    100%
+        opacity: 1
