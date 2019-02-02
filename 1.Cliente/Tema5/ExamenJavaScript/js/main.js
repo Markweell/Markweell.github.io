@@ -4,12 +4,12 @@
  */
 
 {
-    let reserva
     document.addEventListener('DOMContentLoaded', init);
     let inputs;
     let spans;
     let domDate;
     let domEdad;
+    let focuseado;
 
     function init() {
         document.getElementById('button').addEventListener('click', comprobarFormulario)
@@ -17,6 +17,7 @@
         spans = document.getElementsByTagName('span');
         domDate = document.getElementById('sfecha');
         domEdad = document.getElementById('edad');
+        focuseado=false;
         Array.from(inputs).pop();
         Array.from(spans).pop();
         for (let element of inputs) {
@@ -31,12 +32,13 @@
         if (compruebaElementosExcentos(element)) {
             return;
         }
-
         let span = document.getElementById("s" + element.id);
- 
         if (!patrones[element.id][0].test(element.value)) {
             span.innerHTML = " " + patrones[element.id][1];
-
+            if(!focuseado){
+                document.getElementById(element.id).focus();
+                focuseado=true;
+            }
         } else
             span.innerHTML = "";
 
@@ -52,6 +54,7 @@
         let servicioRes = "";
         let edadCliente = '';
         domEdad.style.border = '1px Solid black';
+        focuseado=false;
         for (let element of inputs) {
             compruebaCampo(element);
             switch (element.id) {
@@ -99,7 +102,7 @@
             }
         }
         try {
-            reserva = new Reserva(nombre, correo, fecha, hora, numNoches, numPersonas, servicioRes, edadCliente);
+            new Reserva(nombre, correo, fecha, hora, numNoches, numPersonas, servicioRes, edadCliente);
         } catch (e) {
             if (e.message === 'Fecha invalida') {
                 domDate.innerHTML = ' Fecha invalida';
@@ -108,18 +111,17 @@
             }else if (e.message === 'Debe seleccionar una edad') {
                 domEdad.style.border = '3px Solid red';
             }
-            //console.log(e.message);
-            for (let element of spans) {
-                if (element.textContent != "") {
-                    document.getElementById(element.id.replace("s", "")).focus();
-                    return;
-                }
-            }
+            // for (let element of spans) {
+            //     if (element.textContent != "") {
+            //         document.getElementById(element.id.replace("s", "")).focus();
+            //         return;
+            //     }
+            // }
         }
     }
 
     function compruebaElementosExcentos(element) {
-        return /servRestaurante/.test(element.id) || /edad/.test(element.id);
+        return /servRestaurante/.test(element.id) || /edad/.test(element.id) ||/button/.test(element.id);
     }
 
 
