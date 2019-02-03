@@ -18,6 +18,7 @@ form {
 }
 form input[type=text] {
   border-radius: 20px;
+  padding: 5px;
 }
 
 /*# sourceMappingURL=style.css.map */
