@@ -301,6 +301,7 @@ body {
   border-radius: 20px;
   *border: 1px solid #43a047;
   display: flex;
+  align-items: center;
   margin-bottom: 20px;
   box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
 }
