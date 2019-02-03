@@ -33,7 +33,7 @@
                 'transition':'0.1s',
                 'transition-delay':'0.1s',
                 'border': '1px solid black',
-                'background': 'white',
+                'background': '#f0f0f0',
                 'color': 'black'
             });
         });
