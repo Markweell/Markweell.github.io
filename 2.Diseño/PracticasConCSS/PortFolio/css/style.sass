@@ -226,13 +226,16 @@ body
                 display: flex
                 flex-flow: column
                 >div
-                    padding: 10px
-                    border-radius:20px
-                    *border: 1px solid $paleta3Primary
-                    display: flex
-                    align-items: center
-                    margin-bottom: 20px
-                    box-shadow:  2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0)
+                    >div
+                        padding: 10px
+                        border-radius:20px
+                        display: flex
+                        border: 1px solid $paleta3Primary
+                        margin-bottom: 20px
+                        box-shadow:  2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0,0,0,0)
+                        @media screen and (min-width: 1600px)
+                            font-size:1.5em 
+                    
                     img
                         display: none
                         @media screen and (min-width: 1000px)
