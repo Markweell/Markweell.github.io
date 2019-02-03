@@ -225,7 +225,6 @@ body
                 width: 100%
                 display: flex
                 flex-flow: column
-                align-items: center
                 >div
                     padding: 10px
                     border-radius:20px
@@ -237,7 +236,7 @@ body
                     img
                         display: none
                         @media screen and (min-width: 1000px)
-                            display: inline
+                            display: block
                             width: 30%
                             height: 100%
                             margin-right: 10px
@@ -322,7 +321,7 @@ body
     30%
         transform: scale(1)
             
-@-webkit-keyframes animacionAparicion
+@keyframes animacionAparicion
     0% 
         opacity: 0.1
         transform: scale(0.1)
@@ -345,7 +344,7 @@ body
         left:50%
         transform: translate(-50%,-50%)
 
-@-webkit-keyframes animacionOpacidad
+@keyframes animacionOpacidad
     0%
         opacity: 0
     50%

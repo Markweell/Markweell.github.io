@@ -294,7 +294,6 @@ body {
   width: 100%;
   display: flex;
   flex-flow: column;
-  align-items: center;
 }
 #container article .cuerpo #sectionProyectos > div {
   padding: 10px;
@@ -310,7 +309,7 @@ body {
 }
 @media screen and (min-width: 1000px) {
   #container article .cuerpo #sectionProyectos > div img {
-    display: inline;
+    display: block;
     width: 30%;
     height: 100%;
     margin-right: 10px;
@@ -406,7 +405,7 @@ body {
     transform: scale(1);
   }
 }
-@-webkit-keyframes animacionAparicion {
+@keyframes animacionAparicion {
   0% {
     opacity: 0.1;
     transform: scale(0.1);
@@ -432,7 +431,7 @@ body {
     transform: translate(-50%, -50%);
   }
 }
-@-webkit-keyframes animacionOpacidad {
+@keyframes animacionOpacidad {
   0% {
     opacity: 0;
   }
