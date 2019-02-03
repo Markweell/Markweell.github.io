@@ -58,12 +58,19 @@ $paleta5PLight:#d05ce3
 body
     width: 100%
     height: 100vh
+    overflow: hidden
+    
+
 #fondoPantalla
     width: 100%
-    height: 100%
+    height: 100vh
     transition: 1s
     background: url(../img/fondo4.svg) no-repeat 0% 0%
-    background-size: 2000px
+    background-size: cover
+    @media screen and (min-width: 1248px)
+        width: 120%
+        height: 120vh
+        overflow: hidden
     
     
 #container
@@ -179,7 +186,6 @@ body
                 @include comportamientoTitulo
                     
             section
-                
                 position: static
                 width: 100%
                 ol
@@ -190,7 +196,7 @@ body
                     
                     li
                         list-style: none
-                        animation: scaleIntermitente  2s infinite 
+                        *animation: scaleIntermitente  2s infinite 
                         a
                             font-size: 2em
                             text-decoration: none
@@ -215,8 +221,9 @@ body
                 
             #sectionProyectos
                 position: static
+                padding-bottom: 20px
                 width: 100%
-                height: 100%
+                
                 display: flex
                 flex-flow: column
                 align-items: center

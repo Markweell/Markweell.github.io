@@ -32,14 +32,22 @@
 body {
   width: 100%;
   height: 100vh;
+  overflow: hidden;
 }
 
 #fondoPantalla {
   width: 100%;
-  height: 100%;
+  height: 100vh;
   transition: 1s;
   background: url(../img/fondo4.svg) no-repeat 0% 0%;
-  background-size: 2000px;
+  background-size: cover;
+}
+@media screen and (min-width: 1248px) {
+  #fondoPantalla {
+    width: 120%;
+    height: 120vh;
+    overflow: hidden;
+  }
 }
 
 #container {
@@ -244,7 +252,7 @@ body {
 }
 #container article .cuerpo section ol li {
   list-style: none;
-  animation: scaleIntermitente 2s infinite;
+  *animation: scaleIntermitente 2s infinite;
 }
 #container article .cuerpo section ol li a {
   font-size: 2em;
@@ -282,8 +290,8 @@ body {
 }
 #container article .cuerpo #sectionProyectos {
   position: static;
+  padding-bottom: 20px;
   width: 100%;
-  height: 100%;
   display: flex;
   flex-flow: column;
   align-items: center;
