@@ -69,9 +69,7 @@
                 if (e.buttons == 3) {
                     [arrayDestapadas, arrayCircundantes] = buscaminas.despejar(parseInt(i), parseInt(j));
                     actualizaTableroPicar();
-                    console.log(arrayCircundantes)
                     $.each(arrayCircundantes, function (index, value) {
-                        //console.log(tableroArrayDom[value.i][value.j].hasClass('casillaBuscamina'))
                         if (tableroArrayDom[value.i][value.j].hasClass('casillaBuscamina')) {
                             if (tableroArrayDom[value.i][value.j].hasClass('colorAnimation')) {
                                 tableroArrayDom[value.i][value.j].removeClass('colorAnimation');
