@@ -35,20 +35,21 @@
 
     function iniciarPartida() {
         switch ($("select option:selected").text()) {
-            case "Facil":
+            case "Fácil":
                 campoMinas = buscaminas.init();
                 break;
             case "Medio":
                 campoMinas = buscaminas.init(2);
                 break;
-            case "Dificil":
+            case "Difícil":
                 campoMinas = buscaminas.init(3);
                 break;
             default:
                 buscaminas.init();
         }
         alternaReinicia('none');
-        restaurarReloj();detenerReloj();
+        restaurarReloj();
+        detenerReloj();
         creacionTablero();
         banderasDom.css({
             "color": "black"
@@ -65,9 +66,20 @@
             [i, j] = e.target.id.split("_");
             try {
                 //Click Doble
-                if ( e.buttons == 3) {
-                    arrayDestapadas = buscaminas.despejar(parseInt(i), parseInt(j));
+                if (e.buttons == 3) {
+                    [arrayDestapadas, arrayCircundantes] = buscaminas.despejar(parseInt(i), parseInt(j));
                     actualizaTableroPicar();
+                    console.log(arrayCircundantes)
+                    $.each(arrayCircundantes, function (index, value) {
+                        //console.log(tableroArrayDom[value.i][value.j].hasClass('casillaBuscamina'))
+                        if (tableroArrayDom[value.i][value.j].hasClass('casillaBuscamina')) {
+                            if (tableroArrayDom[value.i][value.j].hasClass('colorAnimation')) {
+                                tableroArrayDom[value.i][value.j].removeClass('colorAnimation');
+                                tableroArrayDom[value.i][value.j].offset();
+                            }
+                            tableroArrayDom[value.i][value.j].addClass('colorAnimation');
+                        }
+                    });
                 }
                 //Click Derecho
                 if (e.button == 2 && e.buttons == 2) {
@@ -95,17 +107,17 @@
                     ganar();
                 }
                 if (e.message == "Has perdido, inicia una partida." || e.message == "Enhorabuena, has ganado.") {
-                    if(reiniciaDom.hasClass('scale-animation')){
+                    if (reiniciaDom.hasClass('scale-animation')) {
                         reiniciaDom.removeClass('scale-animation');
                         reiniciaDom.offset();
                     }
                     reiniciaDom.addClass('scale-animation');
-                        // .velocity({ //Pequeña animación para recordarnos que tenemos que empezar una partida si hemos perdido.
-                        //     "font-size": "200px"
-                        // }, 100, "linear")
-                        // .velocity({
-                        //     "font-size": "100px"
-                        // }, 10000, "linear");
+                    // .velocity({ //Pequeña animación para recordarnos que tenemos que empezar una partida si hemos perdido.
+                    //     "font-size": "200px"
+                    // }, 100, "linear")
+                    // .velocity({
+                    //     "font-size": "100px"
+                    // }, 10000, "linear");
 
                 }
                 console.log(e.message);
@@ -136,8 +148,19 @@
         }
         numeroDeBanderasDom.text(numeroDeBanderas);
         tableroDom.html(divContenedor);
-        $('.Tablero>div').css("grid-template-columns", "repeat(" + campoMinas.length + ",1fr)");
-        $('.casillaBuscamina').css("height", tableroArrayDom[1][2].css('width'));
+        //$('.Tablero>div').css("grid-template-columns", "repeat(" + campoMinas.length + ",1fr)");
+        if (campoMinas.length < 10) {
+            $('.Tablero>div').css("grid-template-columns", "repeat(" + campoMinas.length + ",113px)");
+            $('.casillaBuscamina').css("height", '110px');
+        } else if (campoMinas.length > 10 && campoMinas.length < 17) {
+            $('.Tablero>div').css("grid-template-columns", "repeat(" + campoMinas.length + ",56px)");
+            $('.casillaBuscamina').css("height", '56px');
+        } else if (campoMinas.length > 25 && campoMinas.length < 120) {
+            $('.Tablero>div').css("grid-template-columns", "repeat(" + campoMinas.length + ",30px)");
+            $('.casillaBuscamina').css("height", '30px');
+            console.log('hola')
+        }
+        //$('.casillaBuscamina').css("height", tableroArrayDom[1][2].css('width'));
         //Ajustamos el tamaño de las casillas al ancho deseado y hacemos que sean cuadradas.
     }
 
@@ -256,18 +279,18 @@
                 banderasDom.css({
                     "color": "red"
                 });
-                // if(banderasDom.hasClass('scale-animation')){
-                //     banderasDom.removeClass('scale-animation');
-                //     banderasDom.offset();
-                // }
-                // banderasDom.addClass('scale-animation');
-                 banderasDom
-                     .velocity({
-                         "font-size": "50px"
-                     }, 200, "linear")
-                     .velocity({
-                         "font-size": "20px"
-                     }, 400, "linear");
+                if (banderasDom.hasClass('scale-animation')) {
+                    banderasDom.removeClass('scale-animation');
+                    banderasDom.offset();
+                }
+                banderasDom.addClass('scale-animation');
+                //  banderasDom
+                //      .velocity({
+                //          "font-size": "50px"
+                //      }, 200, "linear")
+                //      .velocity({
+                //          "font-size": "20px"
+                //      }, 400, "linear");
                 return;
             }
             tableroArrayDom[i][j].addClass("casillaMarcada");
@@ -320,6 +343,7 @@
         clearInterval(tiempo_corriendo);
         corriendo = false;
     }
+
     function restaurarReloj() {
         horasDom.text('00');
         minutosDom.text('00');

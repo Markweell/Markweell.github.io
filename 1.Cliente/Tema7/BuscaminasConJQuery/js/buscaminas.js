@@ -6,6 +6,7 @@ let buscaminas = (function () {
     let columnasCampoMinas;
     let filasCampoMinas;
     let arrayLevantadas;
+    let arrayCircundantes;
 
     function Casilla(valor, bandera = false, tapada = true) {
         this.valor = valor;
@@ -28,7 +29,7 @@ let buscaminas = (function () {
                 numComlumnas = 30;
                 numMinas = 99;
                 break;
-            //case 1:
+                //case 1:
             default:
                 numFilas = 8;
                 numComlumnas = 8;
@@ -177,32 +178,83 @@ let buscaminas = (function () {
             throw new Error("No puedes despejar una casilla tapada.");
         }
 
-        if (i != 0)
+        if (i != 0) {
             if (campoMinas[i - 1][j].bandera)
                 numBanderas++;
-        if (i != filasCampoMinas)
+            else
+                arrayCircundantes.push({
+                    i: i - 1,
+                    j: j
+                });
+        }
+        if (i != filasCampoMinas) {
             if (campoMinas[i + 1][j].bandera)
                 numBanderas++;
-        if (j != columnasCampoMinas)
+            else
+                arrayCircundantes.push({
+                    i: i + 1,
+                    j: j
+                });
+        }
+        if (j != columnasCampoMinas) {
             if (campoMinas[i][j + 1].bandera)
                 numBanderas++;
-        if (j != 0)
+            else
+                arrayCircundantes.push({
+                    i: i,
+                    j: j + 1
+                });
+        }
+        if (j != 0) {
             if (campoMinas[i][j - 1].bandera)
                 numBanderas++;
-        if (j !== 0 && i !== filasCampoMinas)
+            else
+                arrayCircundantes.push({
+                    i: i,
+                    j: j - 1
+                });
+        }
+        if (j !== 0 && i !== filasCampoMinas) {
             if (campoMinas[i + 1][j - 1].bandera)
                 numBanderas++;
-        if (i != 0 && j != 0)
+            else
+                arrayCircundantes.push({
+                    i: i + 1,
+                    j: j - 1
+                });
+        }
+        if (i != 0 && j != 0) {
             if (campoMinas[i - 1][j - 1].bandera)
                 numBanderas++;
-        if (i != filasCampoMinas && j != columnasCampoMinas)
+            else
+                arrayCircundantes.push({
+                    i: i - 1,
+                    j: j - 1
+                });
+        }
+        if (i != filasCampoMinas && j != columnasCampoMinas) {
             if (campoMinas[i + 1][j + 1].bandera)
                 numBanderas++;
-        if (i != 0 && j != columnasCampoMinas)
+            else
+                arrayCircundantes.push({
+                    i: i + 1,
+                    j: j + 1
+                });
+        }
+
+
+        if (i != 0 && j != columnasCampoMinas) {
             if (campoMinas[i - 1][j + 1].bandera)
                 numBanderas++;
+            else
+                arrayCircundantes.push({
+                    i: i - 1,
+                    j: j + 1
+                });
+        }
 
         if (numBanderas == campoMinas[i][j].valor) {
+            arrayCircundantes=[];
             if (i != 0)
                 if (campoMinas[i - 1][j].tapada && !campoMinas[i - 1][j].bandera) {
                     picar(i - 1, j);
@@ -289,8 +341,9 @@ let buscaminas = (function () {
 
     function despejarCasilla(i, j) {
         arrayLevantadas = [];
+        arrayCircundantes = [];
         accionMostrando(i, j, despejar);
-        return arrayLevantadas;
+        return [arrayLevantadas, arrayCircundantes];
     }
 
     function accionMostrando(i, j, funcion) {
