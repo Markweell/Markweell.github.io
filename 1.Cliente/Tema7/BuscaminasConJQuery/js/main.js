@@ -65,7 +65,7 @@
             [i, j] = e.target.id.split("_");
             try {
                 //Click Doble
-                if (e.button == 2 && e.buttons == 3) {
+                if ( e.buttons == 3) {
                     arrayDestapadas = buscaminas.despejar(parseInt(i), parseInt(j));
                     actualizaTableroPicar();
                 }
