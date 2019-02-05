@@ -17,9 +17,9 @@
 
     function init() {
         [pestaniapresentacion, pestaniaJavascript, pestaniaDisenio, pestaniaPhp, pestaniaAndroid] = [$("#Eyelash1"), $("#Eyelash2"), $("#Eyelash3"), $("#Eyelash4"), $("#Eyelash5")];
-        [cuerpoPresentacion, cuerpoJavascript, cuerpoDisenio, cuerpoPhp] = [$("#presentacion"), $("#javascript"), $("#disenio"), $("#php")]
+        [cuerpoPresentacion, cuerpoJavascript, cuerpoDisenio, cuerpoPhp] = [$("#presentacion"), $("#tecnologias"), $("#proyectos"), $("#contacto")]
         posicion = 1;
-
+        console.log($("#perfil"));
         fondoPantallaDom = $("#fondoPantalla");
 
         pestaniapresentacion.click(() => {

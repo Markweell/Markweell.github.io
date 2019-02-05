@@ -1,25 +1,19 @@
+* {
+  color: #212121;
+}
+
 #Eyelash1 {
   left: 0%;
   cursor: pointer;
 }
 
 #Eyelash2 {
-  left: 25%;
+  left: 20%;
   cursor: pointer;
 }
 
 #Eyelash3 {
-  left: 50%;
-  cursor: pointer;
-}
-
-#Eyelash4 {
-  left: 75%;
-  cursor: pointer;
-}
-
-#Eyelash5 {
-  left: 100%;
+  left: 40%;
   cursor: pointer;
 }
 
@@ -39,11 +33,12 @@ body {
   width: 100%;
   height: 100vh;
   transition: 1s;
-  background: url(../img/fondo4.svg) no-repeat 0% 0%;
-  background-size: cover;
+  background: #795548;
 }
-@media screen and (min-width: 1248px) {
+@media screen and (min-width: 768px) {
   #fondoPantalla {
+    background: url(../img/fondo4.svg) no-repeat 0% 0%;
+    background-size: cover;
     width: 120%;
     height: 120vh;
     overflow: hidden;
@@ -51,64 +46,90 @@ body {
 }
 
 #container {
-  opacity: 1;
-  border-radius: 40px;
-  box-shadow: 10px 10px 11px -1px rgba(0, 0, 0, 0.8);
+  background: #f0f0f0;
   position: absolute;
   width: 100%;
-  height: 100vh;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  height: 90vh;
+  bottom: 0;
+  border-radius: 30px;
 }
 @media screen and (min-width: 768px) {
   #container {
     top: 50%;
     left: 50%;
+    box-shadow: 5px 5px 15px 5px #000000;
     transform: translate(-50%, -50%);
     width: 90%;
-    height: 95vh;
-    animation: animacionAparicion 2s 1 linear;
+    height: 90vh;
+    *animation: animacionAparicion 2s 1 linear;
   }
+}
+#container nav {
+  position: absolute;
+  top: 5px;
+  z-index: 20;
+  width: 100%;
+}
+#container nav ul {
+  width: 80%;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
 }
 #container nav li {
   list-style: none;
+  width: 45px;
+  height: 45px;
   display: flex;
   justify-content: center;
-  position: absolute;
-  height: 10%;
-  top: 10px;
-  border-radius: 20px 20px 0 0;
-  font-size: 1.5em;
+  align-items: center;
+  border: 2px solid #BDBDBD;
+  border-radius: 50%;
+  background: #8BC34A;
+  color: white;
+  box-shadow: 3px 3px 30px 2px #000000;
 }
-@media screen and (max-height: 400px) {
+@media screen and (min-height: 600px) {
   #container nav li {
-    height: 15%;
+    width: 75px;
+    height: 75px;
   }
 }
-@media screen and (max-height: 650px) {
+@media screen and (min-height: 600px) and (max-width: 500px) {
   #container nav li {
-    height: 20%;
-    top: 0px;
-  }
-}
-#container nav li span {
-  font-family: "roboto";
-  margin: 10px 0 0 0;
-  display: none;
-}
-@media screen and (min-width: 980px) {
-  #container nav li span {
-    display: inline;
+    width: 50px;
+    height: 50px;
   }
 }
 #container nav li i {
-  margin: 10px 0 0 0;
+  *text-shadow: 2px 2px 0 #212121, 2px -2px 0 #212121, -2px 2px 0 #212121, -2px -2px 0 #212121, 2px 0px 0 #212121, 0px 2px 0 #212121, -2px 0px 0 #212121, 0px -2px 0 #212121;
   font-size: 1.5em;
+  color: white;
 }
-@media screen and (min-width: 980px) {
+@media screen and (max-height: 600px) {
   #container nav li i {
-    display: none;
+    font-size: 1.2em;
+  }
+}
+@media screen and (min-width: 768px) {
+  #container nav li:nth-child(1) {
+    background: #dd10c6;
+  }
+}
+@media screen and (min-width: 768px) {
+  #container nav li:nth-child(2) {
+    background: #e76033;
+  }
+}
+@media screen and (min-width: 768px) {
+  #container nav li:nth-child(3) {
+    background: #26c5ce;
+  }
+}
+@media screen and (min-width: 768px) {
+  #container nav li:nth-child(4) {
+    background: #1049be;
   }
 }
 #container div {
@@ -120,227 +141,239 @@ body {
   height: 90%;
   bottom: 0;
   display: flex;
+  background-color: #f0f0f0;
   align-items: center;
   justify-content: center;
+  border-radius: 30px;
 }
-@media screen and (max-height: 400px) {
-  #container article {
-    height: 85%;
-  }
-}
-@media screen and (max-height: 650px) {
-  #container article {
-    height: 80%;
-  }
-}
-#container article .cuerpo {
+#container article .cuerpoPresentacion {
   width: 90%;
   height: 90%;
-  overflow: auto;
-  padding: 20px;
-  *border: 1px solid black;
   position: relative;
+  overflow: auto;
   display: flex;
   flex-flow: column;
-}
-@media screen and (min-height: 440px) {
-  #container article .cuerpo {
-    width: 80%;
-    height: 80%;
-  }
+  align-items: center;
 }
 @media screen and (min-width: 768px) {
-  #container article .cuerpo {
-    animation: animacionOpacidad 4s 1;
+  #container article .cuerpoPresentacion {
+    flex-flow: row;
+    margin-left: 20px;
   }
 }
-#container article .cuerpo #perfil {
-  background: url(../img/perfil1.jpg);
-  border-top: 10px solid #2196f3;
-  display: none;
-  transition-duration: 2s;
-  transition-delay: 4s;
+#container article .cuerpoPresentacion #perfil {
+  background: url(../img/perfil.jpg);
+  background-size: cover;
+  min-width: 175px;
+  min-height: 230px;
+  overflow: auto;
+  border-radius: 30px;
 }
-@media screen and (min-width: 950px) {
-  #container article .cuerpo #perfil {
-    display: initial;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 400px;
-    width: 300px;
-    border-radius: 50px;
-    background-size: cover;
+@media screen and (min-width: 768px) {
+  #container article .cuerpoPresentacion #perfil {
+    min-height: 460px;
+    min-width: 350px;
   }
 }
-#container article .cuerpo #fotoEstudio {
-  border-top: 10px solid #ffff00;
-  background: url(../img/libros.jpg);
-  display: none;
-}
-@media screen and (min-width: 950px) {
-  #container article .cuerpo #fotoEstudio {
-    display: initial;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 400px;
-    width: 300px;
-    border-radius: 50px;
-    background-size: cover;
-  }
-}
-#container article .cuerpo #fotoVidaLaboral {
-  background: url(../img/camarero.jpg);
-  border-top: 10px solid #ff5722;
-  display: none;
-}
-@media screen and (min-width: 950px) {
-  #container article .cuerpo #fotoVidaLaboral {
-    display: initial;
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    height: 400px;
-    width: 300px;
-    border-radius: 50px;
-    background-size: cover;
-  }
-}
-#container article .cuerpo #tituloPresentacion {
-  border-bottom: 1px solid #2196f3;
-  font-family: "robotoLightItalic";
-  font-size: 1.5em;
-  text-align: center;
-}
-@media screen and (min-width: 950px) {
-  #container article .cuerpo #tituloPresentacion {
-    font-size: 3em;
-  }
-}
-#container article .cuerpo #tituloEstudio {
-  border-bottom: 1px solid #c7cc00;
-  font-family: "robotoLightItalic";
-  font-size: 1.5em;
-  text-align: center;
-}
-@media screen and (min-width: 950px) {
-  #container article .cuerpo #tituloEstudio {
-    font-size: 3em;
-  }
-}
-#container article .cuerpo #tituloVidaLaboral {
-  border-bottom: 1px solid #c41c00;
-  font-family: "robotoLightItalic";
-  font-size: 1.5em;
-  text-align: center;
-}
-@media screen and (min-width: 950px) {
-  #container article .cuerpo #tituloVidaLaboral {
-    font-size: 3em;
-  }
-}
-#container article .cuerpo section {
+#container article .cuerpoPresentacion section {
   position: static;
-  width: 100%;
-}
-#container article .cuerpo section ol {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  justify-content: space-around;
-}
-#container article .cuerpo section ol li {
-  list-style: none;
-  *animation: scaleIntermitente 2s infinite;
-}
-#container article .cuerpo section ol li a {
-  font-size: 2em;
-  text-decoration: none;
-  color: #2196f3;
-}
-#container article .cuerpo section p {
-  text-align: justify;
-}
-@media screen and (min-width: 450px) {
-  #container article .cuerpo section {
-    font-size: 1em;
-  }
-}
-@media screen and (min-width: 765px) {
-  #container article .cuerpo section {
-    font-size: 1.5em;
-    animation: animacionOpacidad 5s 1;
-  }
-}
-@media screen and (min-width: 950px) {
-  #container article .cuerpo section {
-    position: absolute;
-    left: 50%;
-    width: 50%;
-    font-size: 1em;
-  }
-}
-@media screen and (min-width: 1450px) {
-  #container article .cuerpo section {
-    left: 30%;
-    width: 60%;
-    font-size: 1.5em;
-  }
-}
-#container article .cuerpo #sectionProyectos {
-  position: static;
-  padding-bottom: 20px;
   width: 100%;
   display: flex;
   flex-flow: column;
+  align-items: center;
 }
-#container article .cuerpo #sectionProyectos > div > div {
+#container article .cuerpoPresentacion section #tituloPresentacion {
+  font-family: "robotoLightItalic";
+  font-size: 1.5em;
+  text-align: center;
+}
+@media screen and (min-width: 950px) {
+  #container article .cuerpoPresentacion section #tituloPresentacion {
+    font-size: 3em;
+  }
+}
+#container article .cuerpoPresentacion section #tituloPresentacion ~ p {
+  color: #757575;
+  text-align: center;
+}
+@media screen and (min-width: 950px) {
+  #container article .cuerpoPresentacion section #tituloPresentacion ~ p {
+    font-size: 2em;
+  }
+}
+#container article .cuerpoTecnologias {
+  width: 90%;
+  height: 90%;
+  position: relative;
+  overflow: auto;
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+}
+#container article .cuerpoTecnologias #tituloTecnologias {
+  font-family: "robotoLightItalic";
+  font-size: 1.5em;
+  text-align: center;
+}
+@media screen and (min-width: 950px) {
+  #container article .cuerpoTecnologias #tituloTecnologias {
+    font-size: 3em;
+  }
+}
+#container article .cuerpoTecnologias ul {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  padding: 0;
+  grid-gap: 15px;
+}
+#container article .cuerpoTecnologias ul li {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 4em;
+}
+#container article .cuerpoProyectos {
+  width: 90%;
+  height: 90%;
+  position: relative;
+  overflow: auto;
+  display: flex;
+  flex-flow: column;
+  align-content: center;
+}
+#container article .cuerpoProyectos #tituloProyecto {
+  text-align: center;
+  font-family: "robotoLightItalic";
+  font-size: 1.5em;
+  text-align: center;
+}
+@media screen and (min-width: 950px) {
+  #container article .cuerpoProyectos #tituloProyecto {
+    font-size: 3em;
+  }
+}
+#container article .cuerpoProyectos section {
+  width: 95%;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 20px;
+}
+@media screen and (min-width: 767px) {
+  #container article .cuerpoProyectos section {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media screen and (min-width: 1300px) {
+  #container article .cuerpoProyectos section {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+#container article .cuerpoProyectos section .Buscaminas {
+  background: url(../img/buscaminas.jpg) no-repeat 0% 0%;
+  background-size: cover;
+  border-radius: 30px;
+  border: 1px solid #BDBDBD;
+}
+#container article .cuerpoProyectos section .CasasRurales {
+  background: url(../img/casasRurales.jpg) no-repeat 0% 0%;
+  background-size: cover;
+  border-radius: 30px;
+  border: 1px solid #BDBDBD;
+}
+#container article .cuerpoProyectos section .Java {
+  background: url(../img/JuegoJava.jpg) no-repeat 0% 0%;
+  background-size: cover;
+  border-radius: 30px;
+  border: 1px solid #BDBDBD;
+}
+#container article .cuerpoProyectos section .cuerpoProyecto {
+  opacity: 0;
+  border-radius: 30px;
+  background: rgba(0, 0, 0, 0.7);
   padding: 10px;
-  border-radius: 20px;
   display: flex;
-  border: 1px solid #43a047;
-  margin-bottom: 20px;
-  box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+  flex-flow: column;
+  align-items: center;
 }
-@media screen and (min-width: 1600px) {
-  #container article .cuerpo #sectionProyectos > div > div {
-    font-size: 1.5em;
-  }
-}
-#container article .cuerpo #sectionProyectos > div img {
-  display: none;
-}
-@media screen and (min-width: 1000px) {
-  #container article .cuerpo #sectionProyectos > div img {
-    display: block;
-    width: 30%;
-    height: 100%;
-    margin-right: 10px;
-    border-radius: 20px;
-  }
-}
-#container article .cuerpo #sectionProyectos > div footer {
+#container article .cuerpoProyectos section .cuerpoProyecto footer {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
-#container article .cuerpo #sectionProyectos > div footer .acceso {
+#container article .cuerpoProyectos section .cuerpoProyecto footer .acceso {
   display: flex;
   justify-content: space-between;
 }
-#container article .cuerpo #sectionProyectos > div footer .acceso a {
+#container article .cuerpoProyectos section .cuerpoProyecto footer .acceso a {
+  margin-left: 10px;
   text-decoration: none;
+}
+#container article .cuerpoProyectos section .cuerpoProyecto footer .acceso a div {
+  background: rgba(255, 255, 255, 0.7);
+  padding: 5px;
   color: black;
 }
-#container article .cuerpo #sectionProyectos > div footer .acceso div {
-  border-radius: 20px;
-  padding: 5px;
-  *border: 1px solid green;
-  margin-left: 15px;
-  background: #76d275;
-  box-shadow: 2px 5px 16px 0px #0B325E, 5px 5px 15px 5px rgba(0, 0, 0, 0);
+#container article .cuerpoProyectos section .cuerpoProyecto * {
+  color: white;
+  font-family: "roboto";
 }
-#container article .cuerpo #tituloProyecto {
+#container article .cuerpoProyectos section .cuerpoProyecto:hover {
+  opacity: 1;
+}
+#container article .cuerpoContacto {
+  width: 90%;
+  height: 90%;
+  position: relative;
+  overflow: auto;
+  display: flex;
+  flex-flow: column;
+}
+#container article .cuerpoContacto #tituloContacto {
+  text-align: center;
+  font-family: "robotoLightItalic";
+  font-size: 1.5em;
+  text-align: center;
+}
+@media screen and (min-width: 950px) {
+  #container article .cuerpoContacto #tituloContacto {
+    font-size: 3em;
+  }
+}
+#container article .cuerpoContacto section {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  height: 100%;
+}
+#container article .cuerpoContacto section ol {
+  padding: 0;
+  height: 70%;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-around;
+}
+#container article .cuerpoContacto section ol li {
+  list-style: none;
+  font-size: 1.1em;
+}
+@media screen and (min-width: 450px) {
+  #container article .cuerpoContacto section ol li {
+    font-size: 1.2em;
+  }
+}
+@media screen and (min-width: 650px) {
+  #container article .cuerpoContacto section ol li {
+    font-size: 1.4em;
+  }
+}
+#container article .cuerpoContacto section ol li a {
+  text-decoration: none;
+}
+#container article .cuerpoContacto section ol li span {
+  margin-left: 10px;
+}
+#container article .cuerpoContacto #tituloProyecto {
   border-bottom: 1px solid #43a047;
   margin: 0 0 20px 0;
   font-family: "robotoLightItalic";
@@ -348,54 +381,21 @@ body {
   text-align: center;
 }
 @media screen and (min-width: 950px) {
-  #container article .cuerpo #tituloProyecto {
+  #container article .cuerpoContacto #tituloProyecto {
     font-size: 3em;
   }
 }
-#container #Eyelash1 {
-  background-color: #0069c0;
-  width: 25%;
-}
 #container #presentacion {
-  background-color: #f0f0f0;
-  border-top: 15px solid #0069c0;
   z-index: 10;
 }
-#container #Eyelash2 {
-  background-color: #c7cc00;
-  width: 25%;
-}
 #container #javascript {
-  background: #f0f0f0;
-  border-top: 15px solid #c7cc00;
   z-index: 9;
 }
-#container #Eyelash3 {
-  background-color: #00701a;
-  width: 25%;
-}
 #container #disenio {
-  background: #f0f0f0;
-  border-top: 15px solid #00701a;
   z-index: 8;
 }
-#container #Eyelash4 {
-  background-color: #c41c00;
-  width: 25%;
-}
 #container #php {
-  background: #f0f0f0;
-  border-top: 15px solid #c41c00;
   z-index: 7;
-}
-#container #Eyelash5 {
-  background-color: #6a0080;
-  width: 25%;
-}
-#container #android {
-  background: #f0f0f0;
-  border-top: 15px solid #6a0080;
-  z-index: 6;
 }
 
 @keyframes scaleIntermitente {
