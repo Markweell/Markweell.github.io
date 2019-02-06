@@ -64,7 +64,7 @@
             [i, j] = e.target.id.split("_");
             try {
                 //Click Doble
-                if (e.buttons == 3) {
+                if (e.buttons === 3) {
                     [arrayDestapadas, arrayCircundantes] = buscaminas.despejar(parseInt(i), parseInt(j));
                     actualizaTableroPicar();
                     $.each(arrayCircundantes, function (index, value) {
@@ -78,7 +78,7 @@
                     });
                 }
                 //Click Derecho
-                if (e.button == 2 && e.buttons == 2) {
+                else if (e.buttons === 2) {
                     if (tableroArrayDom[i][j].hasClass("casillaDescubierta")) {
                         return;
                     }
@@ -86,7 +86,7 @@
                     marcaCasilla(i, j);
                 }
                 //Click Izquierdo
-                if (e.button == 0 && e.buttons == 1) {
+                else if (e.buttons === 1) {
                     if (!tableroArrayDom[i][j].hasClass("casillaDescubierta")) {
                         arrayDestapadas = buscaminas.picar(parseInt(i), parseInt(j));
                         actualizaTableroPicar();
