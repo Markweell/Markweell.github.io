@@ -33,7 +33,8 @@ body {
   width: 100%;
   height: 100vh;
   transition: 1s;
-  background: #795548;
+  background: url(../img/fondo4.svg) no-repeat 0% 0%;
+  background-size: cover;
 }
 @media screen and (min-width: 768px) {
   #fondoPantalla {
@@ -61,7 +62,11 @@ body {
     transform: translate(-50%, -50%);
     width: 90%;
     height: 90vh;
-    *animation: animacionAparicion 2s 1 linear;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #container {
+    animation: animacionAparicion 1s 1 linear;
   }
 }
 #container nav {
@@ -77,7 +82,10 @@ body {
   display: flex;
   justify-content: space-between;
 }
-#container nav li {
+#container nav ul li:hover {
+  border: 2px solid black;
+}
+#container nav ul li {
   list-style: none;
   width: 45px;
   height: 45px;
@@ -90,47 +98,58 @@ body {
   color: white;
   box-shadow: 3px 3px 30px 2px #000000;
 }
-@media screen and (min-height: 600px) {
-  #container nav li {
-    width: 75px;
+@media screen and (min-height: 700px) {
+  #container nav ul li {
+    width: 20%;
     height: 75px;
+    border-radius: 20px;
   }
 }
-@media screen and (min-height: 600px) and (max-width: 500px) {
-  #container nav li {
+@media screen and (min-height: 700px) and (max-width: 500px) {
+  #container nav ul li {
     width: 50px;
     height: 50px;
   }
 }
-#container nav li i {
+#container nav ul li i {
   *text-shadow: 2px 2px 0 #212121, 2px -2px 0 #212121, -2px 2px 0 #212121, -2px -2px 0 #212121, 2px 0px 0 #212121, 0px 2px 0 #212121, -2px 0px 0 #212121, 0px -2px 0 #212121;
   font-size: 1.5em;
   color: white;
 }
 @media screen and (max-height: 600px) {
-  #container nav li i {
+  #container nav ul li i {
     font-size: 1.2em;
   }
 }
-@media screen and (min-width: 768px) {
-  #container nav li:nth-child(1) {
-    background: #dd10c6;
+#container nav ul li span {
+  display: none;
+  color: white;
+  font-family: "roboto";
+  font-size: 1.5em;
+  margin-left: 10px;
+}
+@media screen and (min-width: 1200px) {
+  #container nav ul li span {
+    display: inline;
   }
 }
-@media screen and (min-width: 768px) {
-  #container nav li:nth-child(2) {
-    background: #e76033;
+@media screen and (min-width: 1200px) and (max-height: 700px) {
+  #container nav ul li span {
+    display: none;
   }
 }
-@media screen and (min-width: 768px) {
-  #container nav li:nth-child(3) {
-    background: #26c5ce;
-  }
+#container nav li:nth-child(1) {
+  background: grey;
+  box-shadow: 0px 0px 15px 1px yellow;
 }
-@media screen and (min-width: 768px) {
-  #container nav li:nth-child(4) {
-    background: #1049be;
-  }
+#container nav li:nth-child(2) {
+  background: #e76033;
+}
+#container nav li:nth-child(3) {
+  background: #26c5ce;
+}
+#container nav li:nth-child(4) {
+  background: #1049be;
 }
 #container div {
   margin: 0;
@@ -155,7 +174,7 @@ body {
   flex-flow: column;
   align-items: center;
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1000px) {
   #container article .cuerpoPresentacion {
     flex-flow: row;
     margin-left: 20px;
@@ -168,6 +187,8 @@ body {
   min-height: 230px;
   overflow: auto;
   border-radius: 30px;
+  transition-duration: 2s;
+  animation: animacionOpacidad 2s 1 linear;
 }
 @media screen and (min-width: 768px) {
   #container article .cuerpoPresentacion #perfil {
@@ -181,13 +202,14 @@ body {
   display: flex;
   flex-flow: column;
   align-items: center;
+  animation: animacionOpacidad 3s 1 linear;
 }
 #container article .cuerpoPresentacion section #tituloPresentacion {
   font-family: "robotoLightItalic";
   font-size: 1.5em;
   text-align: center;
 }
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 767px) {
   #container article .cuerpoPresentacion section #tituloPresentacion {
     font-size: 3em;
   }
@@ -209,29 +231,77 @@ body {
   display: flex;
   flex-flow: column;
   align-content: center;
+  transition: 2s;
 }
 #container article .cuerpoTecnologias #tituloTecnologias {
   font-family: "robotoLightItalic";
   font-size: 1.5em;
   text-align: center;
 }
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 767px) {
   #container article .cuerpoTecnologias #tituloTecnologias {
     font-size: 3em;
   }
 }
-#container article .cuerpoTecnologias ul {
+#container article .cuerpoTecnologias #elementosListados {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   padding: 0;
   grid-gap: 15px;
+  height: 100%;
 }
-#container article .cuerpoTecnologias ul li {
+@media screen and (min-width: 767px) {
+  #container article .cuerpoTecnologias #elementosListados {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, auto);
+  }
+}
+@media screen and (min-width: 767px) and (min-width: 1200px) {
+  #container article .cuerpoTecnologias #elementosListados {
+    display: none;
+  }
+}
+#container article .cuerpoTecnologias #elementosListados li {
   list-style: none;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 4em;
+}
+#container article .cuerpoTecnologias #clasificacion {
+  display: none;
+  padding: 0;
+}
+@media screen and (min-width: 1200px) {
+  #container article .cuerpoTecnologias #clasificacion {
+    display: flex;
+    justify-content: space-around;
+  }
+  #container article .cuerpoTecnologias #clasificacion > li {
+    list-style: none;
+    width: 25%;
+    border-radius: 30px;
+    box-shadow: 15px 15px 10px -5px #000000;
+    padding: 15px;
+  }
+  #container article .cuerpoTecnologias #clasificacion > li > ul {
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 40px;
+  }
+  #container article .cuerpoTecnologias #clasificacion > li > ul > li {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+#container article .cuerpoTecnologias #clasificacion h2 {
+  font-family: "robotoLightItalic";
+}
+#container article .cuerpoTecnologias #clasificacion * {
+  font-size: 1.5em;
 }
 #container article .cuerpoProyectos {
   width: 90%;
@@ -248,23 +318,25 @@ body {
   font-size: 1.5em;
   text-align: center;
 }
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 767px) {
   #container article .cuerpoProyectos #tituloProyecto {
     font-size: 3em;
   }
 }
 #container article .cuerpoProyectos section {
-  width: 95%;
+  width: 70%;
+  margin: 0 auto;
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-gap: 20px;
+  grid-gap: 50px;
 }
-@media screen and (min-width: 767px) {
+@media screen and (min-width: 600px) {
   #container article .cuerpoProyectos section {
     grid-template-columns: repeat(2, 1fr);
+    width: 90%;
   }
 }
-@media screen and (min-width: 1300px) {
+@media screen and (min-width: 1200px) {
   #container article .cuerpoProyectos section {
     grid-template-columns: repeat(3, 1fr);
   }
@@ -273,31 +345,47 @@ body {
   background: url(../img/buscaminas.jpg) no-repeat 0% 0%;
   background-size: cover;
   border-radius: 30px;
+  padding: 10px;
   border: 1px solid #BDBDBD;
+  height: 100%;
 }
 #container article .cuerpoProyectos section .CasasRurales {
   background: url(../img/casasRurales.jpg) no-repeat 0% 0%;
   background-size: cover;
   border-radius: 30px;
+  padding: 10px;
   border: 1px solid #BDBDBD;
+  height: 100%;
 }
 #container article .cuerpoProyectos section .Java {
   background: url(../img/JuegoJava.jpg) no-repeat 0% 0%;
   background-size: cover;
   border-radius: 30px;
+  padding: 10px;
   border: 1px solid #BDBDBD;
+  height: 100%;
 }
 #container article .cuerpoProyectos section .cuerpoProyecto {
   opacity: 0;
+  transition-property: opacity;
+  transition-duration: 0.5s;
   border-radius: 30px;
-  background: rgba(0, 0, 0, 0.7);
-  padding: 10px;
+  background: rgba(0, 0, 0, 0.8);
+  *padding: 10px;
   display: flex;
   flex-flow: column;
   align-items: center;
+  justify-content: space-around;
+}
+#container article .cuerpoProyectos section .cuerpoProyecto h2 {
+  width: 90%;
+  margin: 0;
+}
+#container article .cuerpoProyectos section .cuerpoProyecto p {
+  width: 90%;
 }
 #container article .cuerpoProyectos section .cuerpoProyecto footer {
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
 }
@@ -310,15 +398,27 @@ body {
   text-decoration: none;
 }
 #container article .cuerpoProyectos section .cuerpoProyecto footer .acceso a div {
+  border-radius: 30px;
   background: rgba(255, 255, 255, 0.7);
   padding: 5px;
   color: black;
 }
+#container article .cuerpoProyectos section .cuerpoProyecto footer .acceso a :hover {
+  transition: 0.5s;
+  background: rgba(156, 39, 176, 0.9);
+}
 #container article .cuerpoProyectos section .cuerpoProyecto * {
   color: white;
   font-family: "roboto";
+  font-size: 1em;
+}
+@media screen and (min-height: 1024px) and (max-width: 1000px) {
+  #container article .cuerpoProyectos section .cuerpoProyecto * {
+    font-size: 0.8em;
+  }
 }
 #container article .cuerpoProyectos section .cuerpoProyecto:hover {
+  transition: 0.5s;
   opacity: 1;
 }
 #container article .cuerpoContacto {
@@ -335,7 +435,7 @@ body {
   font-size: 1.5em;
   text-align: center;
 }
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 767px) {
   #container article .cuerpoContacto #tituloContacto {
     font-size: 3em;
   }
@@ -352,6 +452,13 @@ body {
   display: flex;
   flex-flow: column;
   justify-content: space-around;
+}
+@media screen and (min-width: 950px) {
+  #container article .cuerpoContacto section ol {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 50px;
+  }
 }
 #container article .cuerpoContacto section ol li {
   list-style: none;
@@ -380,7 +487,7 @@ body {
   font-size: 1.5em;
   text-align: center;
 }
-@media screen and (min-width: 950px) {
+@media screen and (min-width: 767px) {
   #container article .cuerpoContacto #tituloProyecto {
     font-size: 3em;
   }

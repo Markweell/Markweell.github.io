@@ -5,7 +5,6 @@
         pestaniaJavascript,
         pestaniaDisenio,
         pestaniaPhp,
-        pestaniaAndroid,
         cuerpoPresentacion,
         cuerpoJavascript,
         cuerpoDisenio,
@@ -16,12 +15,26 @@
         posicion;
 
     function init() {
-        [pestaniapresentacion, pestaniaJavascript, pestaniaDisenio, pestaniaPhp, pestaniaAndroid] = [$("#Eyelash1"), $("#Eyelash2"), $("#Eyelash3"), $("#Eyelash4"), $("#Eyelash5")];
+        [pestaniapresentacion, pestaniaJavascript, pestaniaDisenio, pestaniaPhp] = [$("#Eyelash1"), $("#Eyelash2"), $("#Eyelash3"), $("#Eyelash4")];
         [cuerpoPresentacion, cuerpoJavascript, cuerpoDisenio, cuerpoPhp] = [$("#presentacion"), $("#tecnologias"), $("#proyectos"), $("#contacto")]
         posicion = 1;
         console.log($("#perfil"));
         fondoPantallaDom = $("#fondoPantalla");
 
+        let tamanioMaximo = ""
+        $(".cuerpoProyectos > section > div").each((index, value) => {
+            $(value).css("height") > tamanioMaximo ? tamanioMaximo = $(value).css("height") : "";
+        })
+        $(".cuerpoProyectos > section > div").each((index, value) => {
+            $(value).css({
+                "height": tamanioMaximo
+            });
+        })
+        $(".cuerpoProyecto").each((index, value) => {
+            $(value).css({
+                "height": tamanioMaximo
+            });
+        })
         pestaniapresentacion.click(() => {
             subirElemento(cuerpoPresentacion);
             posicion = 1;
@@ -39,10 +52,7 @@
             subirElemento(cuerpoPhp);
             posicion = 4;
         })
-        pestaniaAndroid.click(() => {
-            subirElemento(cuerpoAndroid);
-            posicion = 5;
-        })
+
         $("#buscaminas").click(() => {
             location.href = "https://github.com/Markweell/Markweell.github.io/tree/master/1.Cliente/Tema7/BuscaminasConJQuery";
         })
@@ -52,6 +62,7 @@
         $("#JuegoJava").click(() => {
             location.href = "https://github.com/Markweell/ProyectoJuegoJava/tree/master/proyecto_final_2018";
         })
+
         $("#container").mouseover((ev) => {
             x = ev.offsetX / 80
             y = ev.offsetY / 80
@@ -91,6 +102,34 @@
         cuerpoJavascript.css("z-index", "9");
         cuerpoDisenio.css("z-index", "8");
         cuerpoPhp.css("z-index", "7");
+        elemento==cuerpoPresentacion?pestaniapresentacion.css({
+            "background": "grey",
+            "box-shadow" : "0px 0px 15px 1px yellow"
+        }):pestaniapresentacion.css({
+            "background": "rgb(221,16,198)",
+            "box-shadow" : "3px 3px 30px 2px black"
+        });
+        elemento==cuerpoJavascript?pestaniaJavascript.css({
+            "background": "grey",
+            "box-shadow" : "0px 0px 15px 1px yellow"
+        }):pestaniaJavascript.css({
+            "background": "rgb(231,96,51)",
+            "box-shadow" : "3px 3px 30px 2px black"
+        });
+        elemento==cuerpoDisenio?pestaniaDisenio.css({
+            "background": "grey",
+            "box-shadow" : "0px 0px 15px 1px yellow"
+        }):pestaniaDisenio.css({
+            "background": "rgb(38,197,206)",
+            "box-shadow" : "3px 3px 30px 2px black"
+        });
+        elemento==cuerpoPhp?pestaniaPhp.css({
+            "background": "grey",
+            "box-shadow" : "0px 0px 15px 1px yellow"
+        }):pestaniaPhp.css({
+            "background": "rgb(16,73,190)",
+            "box-shadow" : "3px 3px 30px 2px black"
+        });
         elemento.css("z-index", "11");
     }
 }
