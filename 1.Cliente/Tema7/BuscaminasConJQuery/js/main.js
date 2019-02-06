@@ -35,9 +35,6 @@
 
     function iniciarPartida() {
         switch ($("select option:selected").text()) {
-            case "Fácil":
-                campoMinas = buscaminas.init();
-                break;
             case "Medio":
                 campoMinas = buscaminas.init(2);
                 break;
@@ -45,7 +42,8 @@
                 campoMinas = buscaminas.init(3);
                 break;
             default:
-                buscaminas.init();
+                campoMinas = buscaminas.init();
+                break;
         }
         alternaReinicia('none');
         restaurarReloj();
