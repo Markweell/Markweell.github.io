@@ -97,14 +97,14 @@
                 }
             } catch (e) {
 
-                if (e.message == "BOMM!!")
+                if (e.message === "BOMM!!")
                     perder();
-                else if (e.message == "Enhorabuena, has ganado.")
+                else if (e.message === "Enhorabuena, has ganado.")
                     ganar();
                 else
                     console.log(e.message); // Para recoger otro tipo de errores.
 
-                if (e.message == "Has perdido, inicia una partida." || e.message == "Enhorabuena, has ganado.") {
+                if (e.message === "Has perdido, inicia una partida." || e.message === "Enhorabuena, has ganado.") {
                     if (reiniciaDom.hasClass('scale-animation')) {
                         reiniciaDom.removeClass('scale-animation');
                         reiniciaDom.offset();
@@ -131,7 +131,7 @@
                 tableroArrayDom[i][j] = $('<div class="casillaBuscamina"><span><span></div>');
                 tableroArrayDom[i][j].attr('id', i + "_" + j);
                 divContenedor.append(tableroArrayDom[i][j]);
-                if (campoMinas[i][j].valor == 9) {
+                if (campoMinas[i][j].valor === 9) {
                     arrayMina.push(tableroArrayDom[i][j]); //Creación de una array con las coordenadas de las minas para acceder a ellas de una manera más facil.
                     numeroDeBanderas++;
                 }
@@ -189,7 +189,7 @@
                 if (value.valor != 9) {
                     descubreCasilla(index, index2);
                 }
-                if (value.valor == 9) {
+                if (value.valor === 9) {
                     tableroArrayDom[index][index2].css({
                         background: "url(img/ganar.png)",
                         "background-size": "cover"

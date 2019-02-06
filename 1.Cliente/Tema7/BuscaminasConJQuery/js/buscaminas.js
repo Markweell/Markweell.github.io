@@ -68,7 +68,7 @@ let buscaminas = (function () {
             do {
                 num1 = generaNumeroAleatorio(0, filasCampoMinas);
                 num2 = generaNumeroAleatorio(0, columnasCampoMinas);
-            } while (campoMinas[num1][num2].valor == 9)
+            } while (campoMinas[num1][num2].valor === 9)
             campoMinas[num1][num2].valor = 9;
         }
         actualizaTablero();
@@ -77,7 +77,7 @@ let buscaminas = (function () {
     function actualizaTablero() {
         for (let i = 0; i < campoMinas.length; i++) {
             for (let j = 0; j < campoMinas[1].length; j++) {
-                if (campoMinas[i][j].valor == 9) {
+                if (campoMinas[i][j].valor === 9) {
                     if (i != 0)
                         if (campoMinas[i - 1][j].valor !== 9)
                             campoMinas[i - 1][j].valor++;
@@ -117,7 +117,7 @@ let buscaminas = (function () {
         if (campoMinas[i][j].bandera) {
             return;
         }
-        if (campoMinas[i][j].valor == 9) {
+        if (campoMinas[i][j].valor === 9) {
             throw new Error("BOMM!!");
         }
         arrayLevantadas.push({
@@ -130,11 +130,11 @@ let buscaminas = (function () {
 
         campoMinas[i][j].tapada = false;
         numLibres--;
-        if (numLibres == 0) {
+        if (numLibres === 0) {
             throw new Error("Enhorabuena, has ganado.");
         }
 
-        if (campoMinas[i][j].valor == 0) {
+        if (campoMinas[i][j].valor === 0) {
             if (i != 0)
                 if (campoMinas[i - 1][j].tapada)
                     picar(i - 1, j);
@@ -253,7 +253,7 @@ let buscaminas = (function () {
                 });
         }
 
-        if (numBanderas == campoMinas[i][j].valor) {
+        if (numBanderas === campoMinas[i][j].valor) {
             arrayCircundantes=[];
             if (i != 0)
                 if (campoMinas[i - 1][j].tapada && !campoMinas[i - 1][j].bandera) {
@@ -351,7 +351,7 @@ let buscaminas = (function () {
             if (perdida) {
                 throw new Error("Has perdido, inicia una partida.");
             }
-            if (numLibres == 0) {
+            if (numLibres === 0) {
                 throw new Error("Enhorabuena, has ganado.");
             }
             i = i;
@@ -359,7 +359,7 @@ let buscaminas = (function () {
             funcion(i, j);
             //mostrarTableroJuego();
         } catch (e) {
-            if (e.message == "BOMM!!")
+            if (e.message === "BOMM!!")
                 perdida = true;
             throw new Error(e.message);
         }
@@ -369,7 +369,7 @@ let buscaminas = (function () {
     function mostrarTableroJuego() {
         tablero = "  ";
         for (let i = 0; i < campoMinas.length; i++) {
-            if (i == 0) {
+            if (i === 0) {
                 for (let j = 0; j < campoMinas[i].length; j++) {
                     if (j < 10) {
                         tablero += " ";
