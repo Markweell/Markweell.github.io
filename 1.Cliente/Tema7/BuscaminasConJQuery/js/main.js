@@ -79,11 +79,7 @@
                 }
                 //Click Derecho
                 else if (e.buttons === 2) {
-                    if (tableroArrayDom[i][j].hasClass("casillaDescubierta")) {
-                        return;
-                    }
-                    buscaminas.marcar(parseInt(i), parseInt(j));
-                    marcaCasilla(i, j);
+                    marcaCasilla(i,j);
                 }
                 //Click Izquierdo
                 else if (e.buttons === 1) {
@@ -262,8 +258,14 @@
             });
         }
     }
+    function marcaCasilla(i,j){
+        if (!tableroArrayDom[i][j].hasClass("casillaDescubierta")) {
+            buscaminas.marcar(parseInt(i), parseInt(j));
+            marcaCasillaDOM(i, j);
+        }
 
-    function marcaCasilla(i, j) {
+    }
+    function marcaCasillaDOM(i, j) {
         if (tableroArrayDom[i][j].hasClass("casillaBuscamina")) {
             if (numeroDeBanderas === 0) { //Si ya has puesto todas las banderas, no te deja marcar más
                 banderasDom.css({
