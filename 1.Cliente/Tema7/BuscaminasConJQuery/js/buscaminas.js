@@ -130,6 +130,7 @@ let buscaminas = (function () {
 
         campoMinas[i][j].tapada = false;
         numLibres--;
+
         if (numLibres === 0) {
             throw new Error("Enhorabuena, has ganado.");
         }
@@ -352,7 +353,9 @@ let buscaminas = (function () {
                 throw new Error("Has perdido, inicia una partida.");
             }
             if (numLibres === 0) {
+                console.log(arrayLevantadas);
                 throw new Error("Enhorabuena, has ganado.");
+                
             }
             i = i;
             j = j;
@@ -361,6 +364,11 @@ let buscaminas = (function () {
         } catch (e) {
             if (e.message === "BOMM!!")
                 perdida = true;
+            else if(e.message==="Enhorabuena, has ganado."){
+                let error = new Error("Enhorabuena, has ganado.");
+                error.arrayLevantadas=arrayLevantadas;
+                throw error;
+            }
             throw new Error(e.message);
         }
 

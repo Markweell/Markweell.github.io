@@ -78,9 +78,9 @@
             } catch (e) {
                 if (e.message === "BOMM!!")
                     perder();
-                else if (e.message === "Enhorabuena, has ganado.")
-                    ganar();
-                else
+                else if (e.message === "Enhorabuena, has ganado."){
+                    ganar(e);
+                }else
                     console.log(e.message); // Para recoger otro tipo de errores.
 
                 if (e.message === "Has perdido, inicia una partida." || e.message === "Enhorabuena, has ganado.") {
@@ -117,7 +117,10 @@
         }
         numeroDeBanderasDom.text(numeroDeBanderas);
         tableroDom.html(divContenedor);
+        aplicaEstilosTablero();
+    }
 
+    function aplicaEstilosTablero(){
         if (campoMinas.length < 10) {
             $('.Tablero>div').css("grid-template-columns", "repeat(" + campoMinas.length + ",113px)");
             $('.casillaBuscamina').css("height", '110px');
@@ -128,10 +131,7 @@
             $('.Tablero>div').css("grid-template-columns", "repeat(" + campoMinas.length + ",30px)");
             $('.casillaBuscamina').css("height", '30px');
         }
-        //$('.casillaBuscamina').css("height", tableroArrayDom[1][2].css('width'));
-        //Ajustamos el tamaño de las casillas al ancho deseado y hacemos que sean cuadradas.
     }
-
     function picarCasilla(i, j) {
         if (!tableroArrayDom[i][j].hasClass("casillaDescubierta")) {
             arrayDestapadas = buscaminas.picar(parseInt(i), parseInt(j));
@@ -180,23 +180,18 @@
         alternaReinicia("inline");
     }
 
-    function ganar() {
+    function ganar(e) {
         tableroDom.append("<p class='mensajeVictoria'>Enhorabuena, has ganado.</p>");
+        arrayDestapadas = e.arrayLevantadas;
+        actualizaTableroPicar();
+        for (value of arrayMina) {
+            value.css({
+                background: "url(img/ganar.png)",
+                "background-size": "cover"
+            })
+        }
         $(".casillaDescubierta").css({
             "background-color": "rgba(106,185,53,0.64)"
-        });
-        $.each(campoMinas, function (index) {
-            $.each(campoMinas[index], function (index2, value) {
-                if (value.valor != 9) {
-                    descubreCasilla(index, index2);
-                }
-                if (value.valor === 9) {
-                    tableroArrayDom[index][index2].css({
-                        background: "url(img/ganar.png)",
-                        "background-size": "cover"
-                    })
-                }
-            })
         });
         detenerReloj();
         alternaReinicia("inline");
@@ -283,13 +278,6 @@
                     banderasDom.offset();
                 }
                 banderasDom.addClass('scale-animation');
-                //  banderasDom
-                //      .velocity({
-                //          "font-size": "50px"
-                //      }, 200, "linear")
-                //      .velocity({
-                //          "font-size": "20px"
-                //      }, 400, "linear");
                 return;
             }
             tableroArrayDom[i][j].addClass("casillaMarcada");
