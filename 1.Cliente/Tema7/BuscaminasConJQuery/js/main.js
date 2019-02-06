@@ -65,34 +65,17 @@
             try {
                 //Click Doble
                 if (e.buttons === 3) {
-                    [arrayDestapadas, arrayCircundantes] = buscaminas.despejar(parseInt(i), parseInt(j));
-                    actualizaTableroPicar();
-                    $.each(arrayCircundantes, function (index, value) {
-                        if (tableroArrayDom[value.i][value.j].hasClass('casillaBuscamina')) {
-                            if (tableroArrayDom[value.i][value.j].hasClass('colorAnimation')) {
-                                tableroArrayDom[value.i][value.j].removeClass('colorAnimation');
-                                tableroArrayDom[value.i][value.j].offset();
-                            }
-                            tableroArrayDom[value.i][value.j].addClass('colorAnimation');
-                        }
-                    });
+                    descubrirCasilla(i, j);
                 }
                 //Click Derecho
                 else if (e.buttons === 2) {
-                    marcaCasilla(i,j);
+                    marcaCasilla(i, j);
                 }
                 //Click Izquierdo
                 else if (e.buttons === 1) {
-                    if (!tableroArrayDom[i][j].hasClass("casillaDescubierta")) {
-                        arrayDestapadas = buscaminas.picar(parseInt(i), parseInt(j));
-                        actualizaTableroPicar();
-                        if (!corriendo) {
-                            activaFuncionamientoReloj();
-                        }
-                    }
+                    picarCasilla(i, j);
                 }
             } catch (e) {
-
                 if (e.message === "BOMM!!")
                     perder();
                 else if (e.message === "Enhorabuena, has ganado.")
@@ -107,7 +90,6 @@
                     }
                     reiniciaDom.addClass('scale-animation');
                 }
-
             }
         });
         reiniciaDom.click(function () {
@@ -150,8 +132,31 @@
         //Ajustamos el tamaño de las casillas al ancho deseado y hacemos que sean cuadradas.
     }
 
-    function actualizaTableroPicar() {
+    function picarCasilla(i, j) {
+        if (!tableroArrayDom[i][j].hasClass("casillaDescubierta")) {
+            arrayDestapadas = buscaminas.picar(parseInt(i), parseInt(j));
+            actualizaTableroPicar();
+            if (!corriendo) {
+                activaFuncionamientoReloj();
+            }
+        }
+    }
 
+    function descubrirCasilla(i, j) {
+        [arrayDestapadas, arrayCircundantes] = buscaminas.despejar(parseInt(i), parseInt(j));
+        actualizaTableroPicar();
+        $.each(arrayCircundantes, function (index, value) {
+            if (tableroArrayDom[value.i][value.j].hasClass('casillaBuscamina')) {
+                if (tableroArrayDom[value.i][value.j].hasClass('colorAnimation')) {
+                    tableroArrayDom[value.i][value.j].removeClass('colorAnimation');
+                    tableroArrayDom[value.i][value.j].offset();
+                }
+                tableroArrayDom[value.i][value.j].addClass('colorAnimation');
+            }
+        });
+    }
+
+    function actualizaTableroPicar() {
         $.each(arrayDestapadas, function (index, value) {
             setTimeout(function () {
                 descubreCasilla(value.i, value.j)
@@ -258,13 +263,15 @@
             });
         }
     }
-    function marcaCasilla(i,j){
+
+    function marcaCasilla(i, j) {
         if (!tableroArrayDom[i][j].hasClass("casillaDescubierta")) {
             buscaminas.marcar(parseInt(i), parseInt(j));
             marcaCasillaDOM(i, j);
         }
 
     }
+
     function marcaCasillaDOM(i, j) {
         if (tableroArrayDom[i][j].hasClass("casillaBuscamina")) {
             if (numeroDeBanderas === 0) { //Si ya has puesto todas las banderas, no te deja marcar más
