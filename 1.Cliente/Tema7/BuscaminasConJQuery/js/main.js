@@ -96,27 +96,22 @@
                     }
                 }
             } catch (e) {
-                if (e.message == "BOMM!!") {
+
+                if (e.message == "BOMM!!")
                     perder();
-                }
-                if (e.message == "Enhorabuena, has ganado.") {
+                else if (e.message == "Enhorabuena, has ganado.")
                     ganar();
-                }
+                else
+                    console.log(e.message);// Para recoger otro tipo de errores.
+
                 if (e.message == "Has perdido, inicia una partida." || e.message == "Enhorabuena, has ganado.") {
                     if (reiniciaDom.hasClass('scale-animation')) {
                         reiniciaDom.removeClass('scale-animation');
                         reiniciaDom.offset();
                     }
                     reiniciaDom.addClass('scale-animation');
-                    // .velocity({ //Pequeña animación para recordarnos que tenemos que empezar una partida si hemos perdido.
-                    //     "font-size": "200px"
-                    // }, 100, "linear")
-                    // .velocity({
-                    //     "font-size": "100px"
-                    // }, 10000, "linear");
-
                 }
-                console.log(e.message);
+
             }
         });
         reiniciaDom.click(function () {
@@ -144,7 +139,7 @@
         }
         numeroDeBanderasDom.text(numeroDeBanderas);
         tableroDom.html(divContenedor);
-        //$('.Tablero>div').css("grid-template-columns", "repeat(" + campoMinas.length + ",1fr)");
+
         if (campoMinas.length < 10) {
             $('.Tablero>div').css("grid-template-columns", "repeat(" + campoMinas.length + ",113px)");
             $('.casillaBuscamina').css("height", '110px');
@@ -154,7 +149,6 @@
         } else if (campoMinas.length > 25 && campoMinas.length < 120) {
             $('.Tablero>div').css("grid-template-columns", "repeat(" + campoMinas.length + ",30px)");
             $('.casillaBuscamina').css("height", '30px');
-            console.log('hola')
         }
         //$('.casillaBuscamina').css("height", tableroArrayDom[1][2].css('width'));
         //Ajustamos el tamaño de las casillas al ancho deseado y hacemos que sean cuadradas.
