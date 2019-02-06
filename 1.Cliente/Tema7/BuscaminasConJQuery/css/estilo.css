@@ -119,8 +119,8 @@ p {
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 1s; 
-    transform-style: preserve-3d;
+    *transition: 1s; 
+    *transform-style: preserve-3d;
     background-size: cover;
 }
 .casillaMarcada{

@@ -65,7 +65,7 @@
             try {
                 //Click Doble
                 if (e.buttons === 3) {
-                    descubrirCasilla(i, j);
+                    ayudaDescubrirCasilla(i, j);
                 }
                 //Click Derecho
                 else if (e.buttons === 2) {
@@ -78,17 +78,15 @@
             } catch (e) {
                 if (e.message === "BOMM!!")
                     perder();
-                else if (e.message === "Enhorabuena, has ganado."){
+                else if (e.message === "Enhorabuena, has ganado.") {
                     ganar(e);
-                }else
+                } else
                     console.log(e.message); // Para recoger otro tipo de errores.
 
                 if (e.message === "Has perdido, inicia una partida." || e.message === "Enhorabuena, has ganado.") {
-                    if (reiniciaDom.hasClass('scale-animation')) {
-                        reiniciaDom.removeClass('scale-animation');
-                        reiniciaDom.offset();
-                    }
-                    reiniciaDom.addClass('scale-animation');
+                    reiniciaDom.hide(1, () => {
+                        reiniciaDom.show('shake');
+                    });
                 }
             }
         });
@@ -120,7 +118,7 @@
         aplicaEstilosTablero();
     }
 
-    function aplicaEstilosTablero(){
+    function aplicaEstilosTablero() {
         if (campoMinas.length < 10) {
             $('.Tablero>div').css("grid-template-columns", "repeat(" + campoMinas.length + ",113px)");
             $('.casillaBuscamina').css("height", '110px');
@@ -132,6 +130,7 @@
             $('.casillaBuscamina').css("height", '30px');
         }
     }
+
     function picarCasilla(i, j) {
         if (!tableroArrayDom[i][j].hasClass("casillaDescubierta")) {
             arrayDestapadas = buscaminas.picar(parseInt(i), parseInt(j));
@@ -142,7 +141,7 @@
         }
     }
 
-    function descubrirCasilla(i, j) {
+    function ayudaDescubrirCasilla(i, j) {
         [arrayDestapadas, arrayCircundantes] = buscaminas.despejar(parseInt(i), parseInt(j));
         actualizaTableroPicar();
         $.each(arrayCircundantes, function (index, value) {
@@ -208,6 +207,10 @@
         if (!tableroArrayDom[i][j].hasClass("casillaDescubierta")) { //Si no está descubierta ya
             tableroArrayDom[i][j].removeClass("casillaBuscamina");
             tableroArrayDom[i][j].addClass("casillaDescubierta");
+            tableroArrayDom[i][j].fadeOut(1, () => {
+                tableroArrayDom[i][j].fadeIn(500);
+            });
+
             if (campoMinas[i][j].valor !== 0) { //Si el valor es 0, no muestro su valor.
                 switch (campoMinas[i][j].valor) {
                     case 1:
@@ -253,7 +256,6 @@
                 }
             }
             tableroArrayDom[i][j].css({
-                "animation": "animacion 0.3s 1 linear",
                 "background-size": "cover"
             });
         }
@@ -273,11 +275,9 @@
                 banderasDom.css({
                     "color": "red"
                 });
-                if (banderasDom.hasClass('scale-animation')) {
-                    banderasDom.removeClass('scale-animation');
-                    banderasDom.offset();
-                }
-                banderasDom.addClass('scale-animation');
+                banderasDom.hide(1, () => {
+                    banderasDom.show('bounce');
+                });
                 return;
             }
             tableroArrayDom[i][j].addClass("casillaMarcada");
