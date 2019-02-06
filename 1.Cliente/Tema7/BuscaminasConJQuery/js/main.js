@@ -102,7 +102,7 @@
                 else if (e.message == "Enhorabuena, has ganado.")
                     ganar();
                 else
-                    console.log(e.message);// Para recoger otro tipo de errores.
+                    console.log(e.message); // Para recoger otro tipo de errores.
 
                 if (e.message == "Has perdido, inicia una partida." || e.message == "Enhorabuena, has ganado.") {
                     if (reiniciaDom.hasClass('scale-animation')) {
