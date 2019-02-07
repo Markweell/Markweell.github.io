@@ -4,25 +4,69 @@ const patrones = {
     correo: /^[a-zA-Zñ]{1,10}([.][a-zA-Zñ]{1,10}){0,3}[@][a-z]{1,6}([\.][a-z]{1,4}){1,4}$/
 }
 jQuery.fn.revisaFormulario = function () {
-    focusedo=false;
-    this.each(function () {
-        if (!patrones[$(this).attr("tipo")].test($(this).val())){
-            $(this).css({
-                'border': '2px solid #ffD3D7',
+
+    let $inputs = $("input[type='text']", $(this)),
+        $textArea = $('textarea'),
+        $elementoAFocusear = "",
+        nombre,
+        apellido,
+        correo;
+    $textArea.prop("disabled", true);
+    focusedo = false;
+
+
+    $('input[type="submit"]').click((e) => {
+        e.preventDefault();
+        focusedo = false;
+        $elementoAFocusear = "";
+        $inputs.blur();
+        if ($elementoAFocusear != "")
+            $elementoAFocusear.focus();
+        
+        $.post("php/servidor.php", {
+            nombre: nombre,
+            apellido: apellido,
+            correo: correo
+        }, function (respuesta) {
+            $textArea.text(respuesta);
+        }).done(function(){
+            console.log("Éxito");
+        }).fail(function () {
+            console.log("Fracaso");
+        }).always(function () {
+            console.log("Esto se va a ejecutar siempre");
+        })
+    });
+
+    $inputs.blur((e) => {
+        if (!patrones[$(e.delegateTarget).attr("tipo")].test($(e.delegateTarget).val())) {
+            $(e.delegateTarget).css({
+                'border': '1px solid #ffD3D7',
                 'background': '#ffDEDE',
                 'color': '#ff0000'
             })
-            if(!focusedo){
-                $(this).focus();
-                focusedo=true;
+            if (!focusedo) {
+                $elementoAFocusear = e.delegateTarget;
+                focusedo = true;
             }
-        }
-        else
-            $(this).css({
+        } else{
+            $(e.delegateTarget).attr("tipo") == 'nombre'?nombre=$(e.delegateTarget).val():"";
+            $(e.delegateTarget).attr("tipo")== 'apellidos'?apellido=$(e.delegateTarget).val():"";
+            $(e.delegateTarget).attr("tipo") == 'correo'?correo=$(e.delegateTarget).val():"";
+            $(e.delegateTarget).css({
                 'border': '1px solid black',
                 'background': 'white',
                 'color': 'black'
-            })
+            });
+        }
     });
+    $inputs.focus((e) => {
+        $(e.target).css({
+            'border': '1px solid black',
+            'background': '#f0f0f0',
+            'color': 'black'
+        });
+    });
+
     return $(this);
 }
