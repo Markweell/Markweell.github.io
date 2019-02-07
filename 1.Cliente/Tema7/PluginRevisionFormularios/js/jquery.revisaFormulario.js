@@ -32,7 +32,7 @@ jQuery.fn.revisaFormulario = function () {
         }).done(function(){
             console.log("Éxito");
         }).fail(function () {
-            console.log("Fracaso");
+            $textArea.text("La conexión por post con el servidor no se pudo realizar.");
         }).always(function () {
             console.log("Esto se va a ejecutar siempre");
         })
