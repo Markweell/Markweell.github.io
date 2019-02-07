@@ -11,10 +11,10 @@ jQuery.fn.revisaFormulario = function () {
         nombre,
         apellido,
         correo;
+
     $textArea.prop("disabled", true);
     focusedo = false;
-
-
+    
     $('input[type="submit"]').click((e) => {
         e.preventDefault();
         focusedo = false;
@@ -60,6 +60,7 @@ jQuery.fn.revisaFormulario = function () {
             });
         }
     });
+
     $inputs.focus((e) => {
         $(e.target).css({
             'border': '1px solid black',
