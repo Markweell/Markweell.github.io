@@ -3,21 +3,20 @@
      * @author Marcos Gallardo Pérez
      */
     $(init)
-    let campoMinas;
-    let tableroArrayDom;
-    let arrayDestapadas;
-    let tableroDom;
-    let reiniciaDom;
-    let numeroDeBanderasDom;
-    let numeroDeBanderas;
-    let arrayMina;
-    let banderasDom;
-    let corriendo = false;
-    let tiempo_corriendo;
-
-    let horasDom;
-    let minutosDom;
-    let segundosDom;
+    let campoMinas,
+        tableroArrayDom,
+        arrayDestapadas,
+        tableroDom,
+        reiniciaDom,
+        numeroDeBanderasDom,
+        numeroDeBanderas,
+        arrayMina,
+        banderasDom,
+        corriendo = false,
+        tiempo_corriendo,
+        horasDom,
+        minutosDom,
+        segundosDom;
 
     function init() {
         tableroDom = $(".Tablero");
