@@ -10,15 +10,25 @@ body > span {
   left: 10px;
   font-size: 3em;
 }
-
-form {
-  width: 60%;
-  display: flex;
-  flex-flow: column;
+body a {
+  text-decoration: none;
 }
-form input[type=text] {
+body article {
+  width: 50%;
+  text-align: center;
+}
+body article p {
+  display: none;
+}
+body article h1 {
+  border: 1px solid black;
   border-radius: 20px;
-  padding: 5px;
+  cursor: pointer;
+  padding: 10px;
+}
+body article h1 span {
+  width: 100%;
+  margin: 10px;
 }
 
 /*# sourceMappingURL=style.css.map */
