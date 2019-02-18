@@ -1,5 +1,24 @@
 {
-    "Desarrollador Front-end" : "HTML,CSS,JavaScript",
-    "Desarrollador Back-end" : "ASP.NET, PHP, Ruby, Python, Node.js y Java",
-    "Desarrollador Full stack" : "Lenguajes de Front-end y Back-end, además de administrar sistemas"
+    "identificador": "3",
+    "Contenido": {
+        "Front-end": {
+            "habilidad1": "HTML",
+            "habilidad2": "CSS,",
+            "habilidad3": "JavaScript"
+        },
+        "Back-end": {
+            "habilidad1": "ASP.NET",
+            "habilidad2": "PHP",
+            "habilidad3": "Ruby",
+            "habilidad4": "Python",
+            "habilidad5": "Node.js",
+            "habilidad6": "Java"
+        },
+        "Full stack": {
+            "habilidad1": "Lenguajes de Front-end",
+            "habilidad2": "Back-end",
+            "habilidad3": "Administrar sistemas"
+        }
+
+    }
 }

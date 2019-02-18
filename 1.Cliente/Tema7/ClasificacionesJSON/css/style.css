@@ -13,11 +13,19 @@ body > span {
 body a {
   text-decoration: none;
 }
+body li {
+  list-style: none;
+  text-align: left;
+  margin-left: 30px;
+}
 body article {
   width: 50%;
   text-align: center;
 }
 body article p {
+  display: none;
+}
+body article ul {
   display: none;
 }
 body article h1 {
