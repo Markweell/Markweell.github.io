@@ -11,7 +11,6 @@
         crossorigin="anonymous">
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
-    <script src="js/jquery.revisaFormulario.js"></script>
     <script src="js/main.js"></script>
     <title>Marcos Gallardo Pérez</title>
 </head>
@@ -20,12 +19,16 @@
     <noscript>Para el correcto funcionamiento de la página es necesario tener activado Javascript</noscript>
     <span><a href="../../../1.Cliente/Tema7/CargandoFicheros/index.html" class="fas fa-arrow-left"></i></a></span>
     <h1>Marcos Gallardo Pérez</h1>
+    <form action="">
+        <label for="nombre">Buscar:</label>
+        <input type="text" id="url">
+        <input type="submit" id="mostar" value="mostar">
+    </form>
 
-    <label for="nombre">Buscar:</label>
-    <input type="text" name="nombre" tipo="nombre">
-    <p>Sugerencia:</p>
-    <p id="sugerencia"></p>
-
+    <p>Subida de documento:</p>
+    <textarea id="sugerencia"></textarea>
+    <div><h3>Estado Documento</h3>
+    <p id="estado"></p></div>
 
 </body>
 

@@ -6,15 +6,26 @@
     let inputDom;
 
     function init() {
-        inputDom=$('input[type=text]')
-        inputDom.keyup(()=>{
-            $.get('php/servidor.php',{'textoInput': inputDom.val()},(result)=>{
-                $('#sugerencia').text(result);
-            }).fail(function () {
-                $('#sugerencia').text("La conexión por get con el servidor no se pudo realizar.");
-            })
-        })
+        let actions = "";
+        $("#url").val("main.html");
+        $("#mostar").click((e) => {
+            e.preventDefault();
+            $.ajax({
+                method: "GET",
+                url: $("#url").val(),
+                beforeSend: () => $("#estado").html("No inicializada") ,
+                complete: () => {
+                    $("#estado").html("Completada");
+                    $("#showState").html(actions);
+                },
+                success: (data) => {
+                    $("#sugerencia").text(data);
+                    $("#estado").html("Éxito");
+                },
+                error: () => $("#estado").html("Fallo")
+            });
+        });
     }
     $(init);
- 
+
 }
