@@ -223,7 +223,7 @@
     function actualizaTableroPicar() {
         $.each(arrayDestapadas, function (index, value) {
             // setTimeout(function () {
-                descubreCasilla(value.i, value.j,index * 10 + 100)
+            descubreCasilla(value.i, value.j, index * 10 + 100)
             // }, index * 10 + 100);
         });
 
@@ -232,27 +232,42 @@
      * Recoje todas las acciones que se llevan a cabo cuando se pierde la partida.
      */
     function perder(error) {
-        
-        $("#" + error.i + "_" + error.j).hide(100).css({    //Muestra la primera bomba
+
+        $("#" + error.i + "_" + error.j).hide(100).css({ //Muestra la primera bomba
             background: "url(img/mina.png)",
             "background-size": "cover",
             border: "1px solid red"
         }).show('pulsate', 1000);
-        
+
+        $(".casillaMarcada").css({
+            background: "url(img/banderaIncorrecta.png)",
+            "background-size": "cover"
+        });
         $.each(arrayMina, function (index, value) { //Muestra las demas bombas
-            setTimeout(() => {
-                value.hide(100);
+            if (!value.hasClass("casillaMarcada")) {
+                setTimeout(() => {
+                    value.hide(100);
+                    value.css({
+                        background: "url(img/mina.png)",
+                        "background-size": "cover",
+                        border: "1px solid red"
+                    })
+                    value.show('pulsate', 1000);
+                }, index * 10 + 100)
+            } else {
                 value.css({
-                    background: "url(img/mina.png)",
+                    background: "url(img/banderaCorrecta.png)",
                     "background-size": "cover",
                     border: "1px solid red"
                 })
-                value.show('pulsate', 1000);
-            }, index * 10 + 100)
+            }
+
+
         })
-        $(".casillaDescubierta").css({  //Pone el fondo de rojo.
+        $(".casillaDescubierta").css({ //Pone el fondo de rojo.
             "background-color": "rgba(185,53,53,0.64)"
         });
+
         detenerReloj();
         alternaReinicia("inline");
     }
@@ -291,7 +306,7 @@
      * @param {Coordenada x} i 
      * @param {Coordenada Y} j 
      */
-    function descubreCasilla(i, j,delay) {
+    function descubreCasilla(i, j, delay) {
         if (!tableroArrayDom[i][j].hasClass("casillaDescubierta")) { //Si no está descubierta ya
             tableroArrayDom[i][j].removeClass("casillaBuscamina");
             tableroArrayDom[i][j].addClass("casillaDescubierta");
