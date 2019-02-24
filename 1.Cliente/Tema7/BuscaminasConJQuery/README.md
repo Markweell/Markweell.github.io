@@ -8,5 +8,6 @@ Se trata del clásico juego del buscaminas. Con las opciones de :
 	Descubrir: (Ambos botones del ratón). Cuando tengas marcadas las minas de alrededor de una casilla, se puede usar para descubrir las casillas adyacentes. Si estan mal marcadas las minasl, perderías.
 
 	Descripción del código: 
-		Al iniciar la partida se creará un tablero dependiendo de la dificultad seleccionada.[Compressed](https://github.com/Markweell/Markweell.github.io/blob/0e78d67d809b505dfc6084db1423b1200a26072d/1.Cliente/Tema7/BuscaminasConJQuery/js/main.js#L67) 
+		Al iniciar la partida se creará un tablero dependiendo de la dificultad seleccionada.[`Iniciar arbolDom`](https://github.com/Markweell/Markweell.github.io/blob/0e78d67d809b505dfc6084db1423b1200a26072d/1.Cliente/Tema7/BuscaminasConJQuery/js/main.js#L67)
+		[`Iniciar buscaminas`](https://github.com/Markweell/Markweell.github.io/blob/0e78d67d809b505dfc6084db1423b1200a26072d/1.Cliente/Tema7/BuscaminasConJQuery/js/buscaminas.js#L58)
 		A este tablero se le 
