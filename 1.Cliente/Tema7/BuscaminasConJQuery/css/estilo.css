@@ -113,12 +113,11 @@ p {
 }
 
 .casillaDescubierta{
-    background-color: white;
     border: 1px solid black;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    *text-align: center;
+    *display: flex;
+    *justify-content: center;
+    *align-items: center;
     *transition: 1s; 
     *transform-style: preserve-3d;
     background-size: cover;
