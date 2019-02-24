@@ -9,6 +9,6 @@ Se trata del clásico juego del buscaminas. Con las opciones de :
 
 	Descripción del código: 
 		Al iniciar la partida se creará un tablero dependiendo de la dificultad seleccionada.
-		https://github.com/Markweell/Markweell.github.io/blob/0e78d67d809b505dfc6084db1423b1200a26072d/1.Cliente/Tema7/BuscaminasConJQuery/js/main.js#L67
+		(https://github.com/Markweell/Markweell.github.io/blob/0e78d67d809b505dfc6084db1423b1200a26072d/1.Cliente/Tema7/BuscaminasConJQuery/js/buscaminas.js#L58)
 		[`Iniciar buscaminas`](https://github.com/Markweell/Markweell.github.io/blob/0e78d67d809b505dfc6084db1423b1200a26072d/1.Cliente/Tema7/BuscaminasConJQuery/js/buscaminas.js#L58)
 		A este tablero se le 
