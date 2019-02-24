@@ -12,4 +12,27 @@ Se trata del clásico juego del buscaminas. Con las opciones de :
 [`Iniciar buscaminas`](https://github.com/Markweell/Markweell.github.io/blob/master/1.Cliente/Tema7/BuscaminasConJQuery/js/buscaminas.js#L58)
 [`Iniciar ArbolDom`](https://github.com/Markweell/Markweell.github.io/blob/0e78d67d809b505dfc6084db1423b1200a26072d/1.Cliente/Tema7/BuscaminasConJQuery/js/main.js#L67)
 
-		A este tablero se le 
+		Al arbol dom le asignamos los eventos de ratón 
+[`Asignación eventos Dom`](https://github.com/Markweell/Markweell.github.io/blob/0e78d67d809b505dfc6084db1423b1200a26072d/1.Cliente/Tema7/BuscaminasConJQuery/js/main.js#L106)
+		que van a:
+
+		Picar:
+[`PicarCasilla`](https://github.com/Markweell/Markweell.github.io/blob/0e78d67d809b505dfc6084db1423b1200a26072d/1.Cliente/Tema7/BuscaminasConJQuery/js/main.js#L191)
+		
+		Marcar:
+[`MarcarCasilla`](https://github.com/Markweell/Markweell.github.io/blob/0e78d67d809b505dfc6084db1423b1200a26072d/1.Cliente/Tema7/BuscaminasConJQuery/js/main.js#L355)
+
+		Descubrir:
+[`DescubrirCasilla`](https://github.com/Markweell/Markweell.github.io/blob/0e78d67d809b505dfc6084db1423b1200a26072d/1.Cliente/Tema7/BuscaminasConJQuery/js/main.js#L206)
+
+
+		Cada uno de estos eventos van a llamar a la capa de negocio. En el caso de la capa de negocio:
+
+		Picar:
+[`PicarCasilla`](https://github.com/Markweell/Markweell.github.io/blob/0e78d67d809b505dfc6084db1423b1200a26072d/1.Cliente/Tema7/BuscaminasConJQuery/js/buscaminas.js#L184)
+		
+		Marcar:
+[`MarcarCasilla`](https://github.com/Markweell/Markweell.github.io/blob/0e78d67d809b505dfc6084db1423b1200a26072d/1.Cliente/Tema7/BuscaminasConJQuery/js/buscaminas.js#L216)
+
+		Descubrir:
+[`DescubrirCasilla`](https://github.com/Markweell/Markweell.github.io/blob/0e78d67d809b505dfc6084db1423b1200a26072d/1.Cliente/Tema7/BuscaminasConJQuery/js/buscaminas.js#L229)
