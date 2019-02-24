@@ -1,4 +1,4 @@
-
+[![Build Status](https://github.com/Markweell/Markweell.github.io/tree/master/1.Cliente/Tema7/BuscaminasConJQuery#buscaminas-con-jquery)](https://markweell.github.io/1.Cliente/Tema7/BuscaminasConJQuery/buscaminas.html)
 
 # BUSCAMINAS CON JQUERY
 
