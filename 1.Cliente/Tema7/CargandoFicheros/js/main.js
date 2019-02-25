@@ -13,16 +13,20 @@
             $.ajax({
                 method: "GET",
                 url: $("#url").val(),
-                beforeSend: () => $("#estado").html("No inicializada") ,
+                beforeSend: () => {
+                    $("#estado").html("<br>No inicializada")
+                } ,
                 complete: () => {
-                    $("#estado").html("Completada");
-                    $("#showState").html(actions);
+                    $("#estado").append("<br>Completada");
+                   
                 },
                 success: (data) => {
                     $("#sugerencia").text(data);
-                    $("#estado").html("Éxito");
+                    $("#estado").append("<br>Éxito");
                 },
-                error: () => $("#estado").html("Fallo")
+                error: () => {$("#estado").append("<br>Fallo")
+                $("#sugerencia").text("");
+            }
             });
         });
     }
