@@ -12,7 +12,7 @@ if (isset($_GET['textoInput'])) {
         return;
     }
     foreach ($companieros as $companiero) {
-        if (stristr($_GET['textoInput'], substr($companiero, 0, strlen($_GET['textoInput'])))) {
+        if (stristr($companiero,$_GET['textoInput'])) {
             $mensaje .= $companiero.",";
         }
 
