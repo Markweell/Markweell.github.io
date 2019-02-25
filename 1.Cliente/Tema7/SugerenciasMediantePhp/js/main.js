@@ -19,17 +19,17 @@
                     mensaje = "";
                     $.each(JSON.parse(result), function (key, value) {
                         if (value === "No hay coincidencias" || inputDom.val() === "") {
-                            $('#sugerencia').html("<div>No hay ninguna coincidencia</div>");
+                            mensaje= "<div>No hay ninguna coincidencia</div>";
                             return;
                         }
                         mensaje += "<li class='elementos'>" + value + "</li>";
-                        $('#sugerencia').html(mensaje);
-
                     });
                 },
                 dataType: "text",
                 complete: () => {
                     $('#sugerencia').html(mensaje);
+                    $('.elementos').show(500)
+                    $('#sugerencia > div').show("shake",500)
                     $('.elementos').click(function asignarElementoEncontrado() {
                         inputDom.val(this.innerText);
                         inputDom.keyup();

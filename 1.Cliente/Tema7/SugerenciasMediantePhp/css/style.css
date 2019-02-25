@@ -11,10 +11,22 @@ body > span {
   font-size: 3em;
 }
 
+body #sugerencia {
+  display: none;
+}
+body #sugerencia li {
+  display: none;
+}
+body #sugerencia div {
+  display: none;
+}
+body label {
+  font-size: 3em;
+}
 body #buscador {
   display: flex;
   flex-flow: column;
-  width: 200px;
+  width: 50%;
 }
 body #buscador input {
   height: 28px;
