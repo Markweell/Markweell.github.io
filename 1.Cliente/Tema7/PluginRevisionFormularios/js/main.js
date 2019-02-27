@@ -3,11 +3,21 @@
      * @author Marcos Gallardo Pérez
      */
 
-    function init() {
-        $('form').revisaFormulario();
-        
-        console.log(tester.init('nombre', 'nombre'))
+    let opciones = {
+        css:{ "border": "4px solid #ffD3D7"},
+        patrones : {
+            nombre: /^[a-zA-Zñúíóáé]{4,}([ ][a-zA-Zñúíóáé]{3,}){0,10}$/,
+            apellidos: /^[a-zA-Zñúíóáé]{3,}([ ][a-zA-Zñúíóáé]{3,}){0,10}$/,
+            correo: /^[a-zA-Zñ]{1,10}([.][a-zA-Zñ]{1,10}){0,3}[@][a-z]{1,6}([\.][a-z]{1,4}){1,4}$/
+        }
     }
+
+    function init() {
+        $('form').examen();
+        
+        tester.init('nombre', 'nombre');
+    }
+    
     $(init);
     /**
      * Clousure
