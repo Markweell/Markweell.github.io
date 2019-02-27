@@ -15,7 +15,7 @@ jQuery.fn.revisaFormulario = function () {
     $textArea.prop("disabled", true);
     focusedo = false;
     
-    $('input[type="submit"]').click((e) => {
+    $(this).submit((e) => {
         e.preventDefault();
         focusedo = false;
         $elementoAFocusear = "";
@@ -69,5 +69,5 @@ jQuery.fn.revisaFormulario = function () {
         });
     });
 
-    return $(this);
+    return this;
 }

@@ -5,6 +5,7 @@
 
     function init() {
         $('form').revisaFormulario();
+        
         console.log(tester.init('nombre', 'nombre'))
     }
     $(init);
