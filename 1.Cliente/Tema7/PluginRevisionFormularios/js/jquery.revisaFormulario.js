@@ -6,7 +6,7 @@ const patrones = {
 jQuery.fn.revisaFormulario = function () {
 
     let $inputs = $("input[type='text']", $(this)),
-        $textArea = $('textarea'),
+        $textArea = $('textarea', $(this)),
         $elementoAFocusear = "",
         nombre,
         apellido,
@@ -14,7 +14,7 @@ jQuery.fn.revisaFormulario = function () {
 
     $textArea.prop("disabled", true);
     focusedo = false;
-    
+
     $(this).submit((e) => {
         e.preventDefault();
         focusedo = false;
