@@ -85,6 +85,5 @@ jQuery.fn.examen = function (opciones = {}) {
         $(e.target).css(cssInicial);
     });
     //#endregion Eventos
-    
     return this;
 }
