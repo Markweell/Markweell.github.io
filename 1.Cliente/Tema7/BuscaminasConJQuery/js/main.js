@@ -278,12 +278,14 @@
         tableroDom.append("<p class='mensajeVictoria'>Enhorabuena, has ganado.</p>");
         arrayDestapadas = e.arrayLevantadas;
         actualizaTableroPicar();
-        for (value of arrayMina) {
-            value.css({
-                background: "url(img/ganar.png)",
-                "background-size": "cover"
-            })
-        }
+
+        $($.map(arrayMina, (elem)=>{
+            return elem.get();
+        })).css({// Le aplica a todos los elementos de arrayMina el css correspondiente.
+            background: "url(img/ganar.png)",
+            "background-size": "cover"
+        })
+
         $(".casillaDescubierta").css({
             "background-color": "rgba(106,185,53,0.64)"
         });

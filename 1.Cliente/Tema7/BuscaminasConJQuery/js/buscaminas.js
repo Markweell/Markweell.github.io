@@ -81,7 +81,7 @@ let buscaminas = (function () {
             default:
                 numFilas = 8;
                 numComlumnas = 8;
-                numMinas = 10;
+                numMinas = 2;
                 break;
         }
         arrayPosicionMinas = [];
